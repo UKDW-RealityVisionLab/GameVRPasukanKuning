@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 8105387708460395192}
   - component: {fileID: 3263443246266043187}
   - component: {fileID: 5189409026136893989}
+  - component: {fileID: -8243558794209988783}
   m_Layer: 0
   m_Name: Glass
   m_TagString: Untagged
@@ -150,7 +151,7 @@ MonoBehaviour:
   m_InteractionManager: {fileID: 0}
   m_Colliders: []
   m_InteractionLayers:
-    m_Bits: 1
+    m_Bits: 3
   m_DistanceCalculationMode: 1
   m_SelectMode: 0
   m_FocusMode: 1
@@ -272,3 +273,19 @@ MonoBehaviour:
   itemPrefabPair:
     craftType: 2
     prefab: {fileID: 7569356911781651879, guid: a2f5f6f49d7bbb34cbf0672abf32a27b, type: 3}
+--- !u!114 &-8243558794209988783
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2319365649092027825}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 145c91550f693e143b9720d40ec23406, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 0}
+  itemID: Block
+  itemCount: 1
+  externalItemCountText: {fileID: 0}

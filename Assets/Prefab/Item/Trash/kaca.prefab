@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 62068151943738707}
   - component: {fileID: 7348179897203025083}
   - component: {fileID: 5151575706573607738}
+  - component: {fileID: 7249680103295142666}
   m_Layer: 0
   m_Name: kaca
   m_TagString: Untagged
@@ -144,7 +145,7 @@ MonoBehaviour:
   m_InteractionManager: {fileID: 0}
   m_Colliders: []
   m_InteractionLayers:
-    m_Bits: 1
+    m_Bits: 3
   m_DistanceCalculationMode: 1
   m_SelectMode: 0
   m_FocusMode: 1
@@ -272,6 +273,22 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.04115636, y: 1.9999999, z: 1.9657333}
   m_Center: {x: -0.0045311195, y: 0, z: -0.016065836}
+--- !u!114 &7249680103295142666
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1810278928211055470}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 145c91550f693e143b9720d40ec23406, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 0}
+  itemID: Block
+  itemCount: 1
+  externalItemCountText: {fileID: 0}
 --- !u!1001 &3590925040610901839
 PrefabInstance:
   m_ObjectHideFlags: 0

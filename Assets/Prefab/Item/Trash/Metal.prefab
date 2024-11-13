@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 6209285644949801308}
   - component: {fileID: 2424390025742985370}
   - component: {fileID: 2434614693644710118}
+  - component: {fileID: 4152070138748889416}
   m_Layer: 0
   m_Name: Metal
   m_TagString: Untagged
@@ -165,7 +166,7 @@ MonoBehaviour:
   m_InteractionManager: {fileID: 0}
   m_Colliders: []
   m_InteractionLayers:
-    m_Bits: 1
+    m_Bits: 3
   m_DistanceCalculationMode: 1
   m_SelectMode: 0
   m_FocusMode: 1
@@ -272,6 +273,22 @@ MonoBehaviour:
   m_StartingMultipleGrabTransformers: []
   m_AddDefaultGrabTransformers: 1
   m_FarAttachMode: 0
+--- !u!114 &4152070138748889416
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8729617511781108027}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 145c91550f693e143b9720d40ec23406, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 0}
+  itemID: Block
+  itemCount: 1
+  externalItemCountText: {fileID: 0}
 --- !u!1001 &8107605361055382522
 PrefabInstance:
   m_ObjectHideFlags: 0

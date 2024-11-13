@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 8306470853365645834}
   - component: {fileID: 8493914320923041000}
   - component: {fileID: 8344629289229602500}
+  - component: {fileID: 5013451177961456837}
   m_Layer: 0
   m_Name: Mirror
   m_TagString: Untagged
@@ -153,7 +154,7 @@ MonoBehaviour:
   m_InteractionManager: {fileID: 0}
   m_Colliders: []
   m_InteractionLayers:
-    m_Bits: 1
+    m_Bits: 3
   m_DistanceCalculationMode: 1
   m_SelectMode: 0
   m_FocusMode: 1
@@ -274,6 +275,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   craftType: 2
   sellPrice: 20
+--- !u!114 &5013451177961456837
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7569356911781651879}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 145c91550f693e143b9720d40ec23406, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 0}
+  itemID: Block
+  itemCount: 1
+  externalItemCountText: {fileID: 0}
 --- !u!1001 &4704397503811507916
 PrefabInstance:
   m_ObjectHideFlags: 0

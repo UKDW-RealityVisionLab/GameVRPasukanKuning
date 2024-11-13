@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 4098026909631159552}
   - component: {fileID: 8075850453307895915}
   - component: {fileID: 3748113154445966099}
+  - component: {fileID: 4059341733116573796}
   m_Layer: 0
   m_Name: Metal
   m_TagString: Untagged
@@ -150,7 +151,7 @@ MonoBehaviour:
   m_InteractionManager: {fileID: 0}
   m_Colliders: []
   m_InteractionLayers:
-    m_Bits: 1
+    m_Bits: 3
   m_DistanceCalculationMode: 1
   m_SelectMode: 0
   m_FocusMode: 1
@@ -272,3 +273,19 @@ MonoBehaviour:
   itemPrefabPair:
     craftType: 0
     prefab: {fileID: 8900232418815436531, guid: ea5835134dbce354bb8d743a650e9261, type: 3}
+--- !u!114 &4059341733116573796
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6871747600422734331}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 145c91550f693e143b9720d40ec23406, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 0}
+  itemID: Block
+  itemCount: 1
+  externalItemCountText: {fileID: 0}
