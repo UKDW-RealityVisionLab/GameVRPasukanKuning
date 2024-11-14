@@ -6,9 +6,9 @@ using UnityEngine.XR.Interaction.Toolkit;
 public class Slot : MonoBehaviour
 {
     // This stores the itemID of the first item added to the slot
-    private string currentItemID;
+    public string currentItemID;
     private ItemInventory itemInventory;
-    private int itemCount = 0; // Counter for the number of items in the slot
+    public int itemCount = 0; // Counter for the number of items in the slot
     private bool isHovered; // Counter for the number of items in the slot
     private GameObject previousItem = null; // Track the previous item in the slot
     private Coroutine removeCoroutine; // Track the remove coroutine
@@ -176,6 +176,22 @@ public class Slot : MonoBehaviour
     // Method to get the count of items in the slot
     public int GetItemCount()
     {
+        return itemCount;
+    }
+
+    // Method to get the count of items in the slot
+    public int DecreaseItemCount(int itemcount)
+    {
+        
+        itemInventory.itemCount -= itemcount;
+        itemCount = itemInventory.itemCount;
+        UpdatecountText();
+        // Check if item count is now zero and destroy the GameObject if so
+        if (itemCount <= 0)
+        {
+            Destroy(previousItem);
+            RemovecountText();
+        }
         return itemCount;
     }
 

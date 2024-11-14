@@ -10,7 +10,10 @@ public class MaterialCraft : MonoBehaviour
         Can,
         Bottle,
         Mirror,
-        Compost
+        Compost,
+        Necklace,
+        Bag,
+        Statue
     }
 
     public CraftType craftType;     // Dropdown for item type
