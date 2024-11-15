@@ -93,12 +93,6 @@ public class TrashCollection : MonoBehaviour
         scoreText.text = "";
     }
 
-    private void HideScoreChange()
-
-    {
-
-        
-    }
 
     // Expose the collected item counts
     public Dictionary<Item.ItemType, int> GetCollectedItems()

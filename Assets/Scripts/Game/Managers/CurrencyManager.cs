@@ -8,8 +8,6 @@ public class CurrencyManager : MonoBehaviour
 
     private void Start()
     {
-        // Ensure the GameManager is initialized
-        GameManager.InitGame();
 
         if (koinText == null)
         {

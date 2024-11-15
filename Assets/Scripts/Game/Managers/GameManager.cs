@@ -1,14 +1,28 @@
+using UnityEngine;
+
 public static class GameManager
 {
     public static int Score;
     public static int Koin; // Currency
-    public static int TargetKoin = 100; // target currency
+    public static int TargetKoin = 1500; // Target currency for Level 1
+    public static int TargetKoin1 = 3000; // Target currency for Level 2
+    public static float TimeRemaining; // Timer for Level 2
 
     // Initialize game state
-    public static void InitGame()
+    public static void InitGame(string levelIdentifier)
     {
         Score = 0;
         Koin = 0;
+        
+        // Set the timer only for Level 2
+        if (levelIdentifier == "Level2")
+        {
+            TimeRemaining = 300f; // 5 minutes for Level 2
+        }
+        else
+        {
+            TimeRemaining = Mathf.Infinity; // No time limit for Level 1
+        }
     }
 
     // Add score (for example, when player completes a task)
@@ -23,9 +37,30 @@ public static class GameManager
         Koin += amount;
     }
 
-    // Check if the currency goal is reached
+    // Check if the currency goal is reached for Level 1
     public static bool IsCurrencyGoalReached()
     {
         return Koin >= TargetKoin;
+    }
+
+    // Check if the currency goal is reached for Level 2
+    public static bool IsCurrencyGoalReached1()
+    {
+        return Koin >= TargetKoin1;
+    }
+
+    // Update timer each frame for Level 2
+    public static void UpdateTimer(float deltaTime)
+    {
+        if (TimeRemaining > 0)
+        {
+            TimeRemaining -= deltaTime;
+            if (TimeRemaining <= 0)
+            {
+                TimeRemaining = 0; // Ensure it doesn’t go below zero
+                Debug.Log("Time is up for Level 2!");
+                // Handle timer end here, if needed, outside CheckCurrencyGoal
+            }
+        }
     }
 }
