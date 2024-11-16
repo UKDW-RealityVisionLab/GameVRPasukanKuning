@@ -34,10 +34,54 @@ public class TrashCollection : MonoBehaviour
         }
     }
 
+    // private void OnTriggerEnter(Collider other)
+    // {
+    //     Item item = other.GetComponent<Item>();
+    //     if (item == null) return;
+
+    //     bool isAllowedItem = false;
+
+    //     // Handle the allowed items
+    //     foreach (AllowedItem allowedItem in allowedItems)
+    //     {
+    //         if (item.itemCategory == allowedItem.itemCategory)
+    //         {
+    //             isAllowedItem = true;
+    //             if (itemCounts.ContainsKey(item.itemType))
+    //             {
+    //                 itemCounts[item.itemType]++;
+    //             }
+    //             else
+    //             {
+    //                 itemCounts[item.itemType] = 1;
+    //             }
+
+    //             if (scoreManager != null)
+    //             {
+    //                 scoreManager.UpdateScore(2); // Correct item, add 2
+    //                 ShowScoreChange(2);
+    //             }
+    //             Destroy(other.gameObject); // Destroy the item after processing
+    //             return;
+    //         }
+    //     }
+
+    //     // Handle incorrect items
+    //     if (!isAllowedItem && scoreManager != null)
+    //     {
+    //         scoreManager.UpdateScore(-1); // Incorrect item, subtract 1
+    //         ShowScoreChange(-1);
+    //     }
+    // }
+
     private void OnTriggerEnter(Collider other)
     {
         Item item = other.GetComponent<Item>();
         if (item == null) return;
+
+        // Check if the item has an ItemInventory component
+        ItemInventory itemInventory = other.GetComponent<ItemInventory>();
+        int countToAdd = (itemInventory != null) ? itemInventory.itemCount : 1; // Default to 1 if no inventory
 
         bool isAllowedItem = false;
 
@@ -47,20 +91,25 @@ public class TrashCollection : MonoBehaviour
             if (item.itemCategory == allowedItem.itemCategory)
             {
                 isAllowedItem = true;
+
+                // Add the item's count to the dictionary
                 if (itemCounts.ContainsKey(item.itemType))
                 {
-                    itemCounts[item.itemType]++;
+                    itemCounts[item.itemType] += countToAdd;
                 }
                 else
                 {
-                    itemCounts[item.itemType] = 1;
+                    itemCounts[item.itemType] = countToAdd;
                 }
 
+                // Update the score based on the total count added
                 if (scoreManager != null)
                 {
-                    scoreManager.UpdateScore(2); // Correct item, add 2
-                    ShowScoreChange(2);
+                    int scoreToAdd = 2 * countToAdd; // Multiply by 2 for each item
+                    scoreManager.UpdateScore(scoreToAdd);
+                    ShowScoreChange(scoreToAdd);
                 }
+
                 Destroy(other.gameObject); // Destroy the item after processing
                 return;
             }
@@ -73,6 +122,7 @@ public class TrashCollection : MonoBehaviour
             ShowScoreChange(-1);
         }
     }
+
 
     // Show the score change above the trashcan for a brief period
     private void ShowScoreChange(int scoreChange)
@@ -88,7 +138,7 @@ public class TrashCollection : MonoBehaviour
     private IEnumerator HideScoreChange(float delay)
     {
         yield return new WaitForSeconds(delay);  // Wait for the specified delay (5 seconds)
-        
+
         // Hide the score text by setting it to an empty string
         scoreText.text = "";
     }
