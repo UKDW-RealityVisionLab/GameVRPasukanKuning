@@ -17,7 +17,7 @@ public static class GameManager
         // Set the timer only for Level 2
         if (levelIdentifier == "Level2")
         {
-            TimeRemaining = 300f; // 5 minutes for Level 2
+            TimeRemaining = 10f; // 5 minutes for Level 2
         }
         else
         {
