@@ -1010,7 +1010,18 @@
                 {
                     "name": "",
                     "id": "bf2a6581-897c-4440-a8f0-d1bf69a08a31",
-                    "path": "<XRController>{LeftHand}/{GripButton}",
+                    "path": "<XRController>{LeftHand}/{SecondaryTrigger}",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Left Button",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "8a9a3e7a-e312-4577-8aad-7c6d3e966d6c",
+                    "path": "<XRController>{LeftHand}/{TriggerButton}",
                     "interactions": "",
                     "processors": "",
                     "groups": "",

@@ -10,6 +10,8 @@ public class NPCAIPatrol : MonoBehaviour
     public float minStopDuration = 1f;     // Minimum stop duration in seconds
     public float maxStopDuration = 3f;     // Maximum stop duration in seconds
     public float waitAfterDrop = 1f;       // Wait time after dropping an item before resuming patrol
+    public int maxDrops = 10;              // Maximum number of items to drop
+    private int dropCount = 0;             // Counter for items dropped
 
     private NavMeshAgent agent;
 
@@ -57,6 +59,14 @@ public class NPCAIPatrol : MonoBehaviour
 
     private IEnumerator StopAndDropItem()
     {
+
+        if (dropCount >= maxDrops)
+        {
+            StopPatrolAndDrop();
+            Debug.Log("Maximum drop limit reached. No more items will be dropped.");
+            yield break;
+        }
+
         isDroppingItem = true;
         agent.isStopped = true;
         animator.SetBool("isWalking", false); // Set to Idle while stopping
@@ -68,7 +78,8 @@ public class NPCAIPatrol : MonoBehaviour
             GameObject itemToDrop = itemPrefabs[Random.Range(0, itemPrefabs.Length)];
             Vector3 dropPosition = dropTarget ? dropTarget.position : transform.position;
             Instantiate(itemToDrop, dropPosition, Quaternion.identity);
-            Debug.Log("Dropped item at: " + dropPosition);
+            dropCount++;
+            Debug.Log($"Dropped item {dropCount}/{maxDrops} at: {dropPosition}");
         }
 
         yield return new WaitForSeconds(stopDuration);

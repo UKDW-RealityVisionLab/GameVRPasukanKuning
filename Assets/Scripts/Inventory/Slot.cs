@@ -5,200 +5,152 @@ using UnityEngine.XR.Interaction.Toolkit;
 
 public class Slot : MonoBehaviour
 {
-    // This stores the itemID of the first item added to the slot
-    public string currentItemID;
-    private ItemInventory itemInventory;
-    public int itemCount = 0; // Counter for the number of items in the slot
-    private bool isHovered; // Counter for the number of items in the slot
-    private GameObject previousItem = null; // Track the previous item in the slot
-    private Coroutine removeCoroutine; // Track the remove coroutine
+    public string currentItemID; // Item ID of the first added item
+    public int itemCount = 0; // Number of items in the slot
+    public TextMeshProUGUI ItemText; // UI element to display the count
 
-    private bool isAddingItem = false; // Flag to prevent duplicates
+    private ItemInventory itemInventory; // Reference to the item's inventory
+    private GameObject previousItem = null; // Last added item
+    private Coroutine removeCoroutine = null; // Active removal coroutine
+    private bool isBusy = false; // Unified flag for item addition/removal
+    private bool isHovered = false; // Indicates hover state
 
-    private bool isRemovingItem = false; // Flag to lock slot state during item removal
-
-    public TextMeshProUGUI ItemText;  // Reference to the Text component that will display the currency
-
-
+    // Called when an item is hovered over
     public void Hover(HoverEnterEventArgs args)
     {
         GameObject item = args.interactableObject?.transform?.gameObject;
         if (item == null) return;
 
-        Debug.Log($"Hovering over item: {item.name}");
-
         ItemInventory hoveredItemInventory = item.GetComponent<ItemInventory>();
-        isHovered = true;
-
         if (hoveredItemInventory == null || !IsSameType(hoveredItemInventory)) return;
 
-        HandlePreviousItemDeactivation(item);
+        isHovered = true;
+        HandleItemAddition(item); // Add item on hover
+        UpdateCountText();
     }
 
-    private void HandlePreviousItemDeactivation(GameObject currentItem)
+    // Handle addition of the item to the slot
+    private void HandleItemAddition(GameObject item)
     {
-        if (previousItem != null && previousItem != currentItem && isHovered)
+        if (isBusy || previousItem != null && previousItem == item) return;
+
+        itemInventory = item.GetComponent<ItemInventory>();
+
+        if (itemInventory != null && IsSameType(itemInventory))
         {
-            previousItem.SetActive(false);
-            Debug.Log($"Deactivated previous item: {previousItem.name}");
+            StartCoroutine(AddItemWithDelay(item));
         }
+
     }
 
+    // Called when the hover exits
     public void HoverExited(HoverExitEventArgs args)
     {
         GameObject item = args.interactableObject?.transform?.gameObject;
-        if (item == null) return;
-
-        Debug.Log($"Hover exited for item: {item.name}");
+        if (item == null || previousItem == null) return;
 
         ItemInventory exitedItemInventory = item.GetComponent<ItemInventory>();
-        if (exitedItemInventory == null || !IsSameType(exitedItemInventory) || previousItem == null) return;
+        if (exitedItemInventory == null || !IsSameType(exitedItemInventory)) return;
 
-        ReactivatePreviousItem();
+        HandleItemRemoval(item); // Remove item on hover exit
     }
 
-    private void ReactivatePreviousItem()
+    // Handle item removal when hover exits
+    private void HandleItemRemoval(GameObject item)
     {
-        previousItem.SetActive(true);
-        Debug.Log($"Reactivated previous item: {previousItem.name}");
-        isHovered = false;
+        if (removeCoroutine != null)
+        {
+            StopCoroutine(removeCoroutine); // Stop any active removal coroutine
+        }
+
+        removeCoroutine = StartCoroutine(RemoveItemAfterDelay(item, 0.1f)); // Delay removal for smooth transition
     }
 
-
-
-    // Called when an item is added to the socket
-    public void OnItemAdded(SelectEnterEventArgs interactable)
-    {
-        // If we're already in the process of adding an item, return early to prevent duplicates
-        if (isAddingItem)
-            return;
-
-        GameObject item = interactable.interactableObject.transform.gameObject;
-        itemInventory = item.GetComponent<ItemInventory>();
-
-        if (itemInventory != null)
-        {
-            // Check if the item is of the same type using itemID in ItemInventory
-            if (IsSameType(itemInventory))
-            {
-
-                // Start a coroutine to handle item addition with a delay
-                StartCoroutine(AddItemWithDelay(item));
-
-            }
-            else
-            {
-                Debug.Log("Cannot add a different type of item to this slot.");
-            }
-        }
-        else
-        {
-            Debug.LogWarning("Item does not have an ItemInventory component.");
-        }
-    }
-
+    // Add the item to the slot with a delay
     private IEnumerator AddItemWithDelay(GameObject item)
     {
-        isAddingItem = true; // Set flag to prevent duplicate additions
+        isBusy = true;
 
-        // Update item count
-        itemCount += itemInventory.itemCount;
-
-        // Destroy previous item if applicable and not hovered
-        if (previousItem != null && !isHovered)
+        // Destroy the previous item if it exists
+        if (previousItem != null)
         {
             Destroy(previousItem);
-            Debug.Log("Destroyed previous item: " + previousItem.name);
         }
 
-        Debug.Log("Item added to Socket.");
-
-        // Update references
+        // Add the new item to the slot
+        itemCount += itemInventory.itemCount;
         previousItem = item;
         itemInventory.itemCount = itemCount;
-        UpdatecountText();
+        UpdateCountText();
 
-        // Log the updated item count
-        Debug.Log("Item added to slot. Current count: " + itemCount);
-
-        // Wait for 1 second before allowing another item addition
-        yield return new WaitForSeconds(0.5f);
-
-        // Reset the flag after delay
-        isAddingItem = false;
+        yield return new WaitForSeconds(0); // Delay for smooth interaction
+        isBusy = false;
     }
 
-    // Called when an item is removed (deselected) from the slot
-// Called when an item is removed (deselected) from the slot
-public void OnItemRemoved(SelectExitEventArgs interactable)
-{
-    GameObject item = interactable.interactableObject.transform.gameObject;
-
-    // If we're already in the process of removing an item, return early
-    if (isRemovingItem)
+    // Remove the item after a short delay
+    private IEnumerator RemoveItemAfterDelay(GameObject item, float delay)
     {
-        Debug.Log("Removal already in progress. Skipping removal for item: " + item.name);
-        return;
-    }
+        isBusy = true;
+        yield return new WaitForSeconds(delay);
 
-    Debug.Log("Item removed from Slot: " + item.name);
-
-    // Start coroutine to wait for the specified delay before handling the item removal
-    removeCoroutine = StartCoroutine(RemoveItemAfterDelay(item, 0.5f)); // 5 seconds delay
-}
-
-// Coroutine to handle item removal after a delay
-private IEnumerator RemoveItemAfterDelay(GameObject item, float delay)
-{
-    isRemovingItem = true; // Lock the slot state to prevent concurrent removals
-
-    yield return new WaitForSeconds(delay); // Wait for the specified delay
-
-    // Ensure the item to be removed is still valid and no new item has replaced it
-    if (previousItem != null && previousItem == item)
-    {
-        Debug.Log("Item removal confirmed after delay.");
-
-        // Decrease the count of items in the slot
-        itemCount = 0;
-        UpdatecountText();
-
-        // If the slot is empty, handle cleanup
-        if (itemCount == 0)
+        if (previousItem != null && previousItem == item)
         {
-            Debug.Log("Slot is now empty. Clearing item reference.");
-            RemovecountText();
+            itemCount = 0;
 
-            // Clear the reference to the previous item, but do not destroy it
-            previousItem = null;
+            if (itemCount == 0)
+            {
+                previousItem = null;
+            }
         }
-        else
-        {
-            Debug.Log("Slot still contains items. Item count: " + itemCount);
-        }
-    }
-    else
-    {
-        Debug.Log("Item removal skipped. A new item may have been added or the item is no longer valid.");
+        
+
+        isBusy = false;
     }
 
-    isRemovingItem = false; // Unlock the slot state
-}
-    // Check if the item is of the same type based on itemID in ItemInventory
+
+    // Check if the hovered item is the same type as the slot's current item
     private bool IsSameType(ItemInventory itemInventory)
     {
         if (itemCount == 0)
         {
-            // Set currentItemID based on the first item added to the slot
-            currentItemID = itemInventory.itemID;
+            currentItemID = itemInventory.itemID; // Set the ID for the first item
             return true;
         }
 
-        // Compare itemID with current itemID in the slot
-        return itemInventory.itemID == currentItemID;
+        return itemInventory.itemID == currentItemID; // Check if the type matches
     }
 
-    // Method to get the count of items in the slot
+    // Update the item count display
+    private void UpdateCountText()
+    {
+        if (ItemText != null)
+        {
+
+            ItemText.text = "X" + itemCount.ToString();
+            
+            
+        }
+        else
+        {
+            Debug.LogError("ItemText is not assigned in the slot.");
+        }
+    }
+
+
+    // Remove the item count display
+    public void RemoveCountText()
+    {
+        if (ItemText != null)
+        {
+            ItemText.text = "";
+        }
+        else
+        {
+            Debug.LogError("ItemText is not assigned in the slot.");
+        }
+    }
+
+        // Method to get the count of items in the slot
     public int GetItemCount()
     {
         return itemCount;
@@ -210,37 +162,19 @@ private IEnumerator RemoveItemAfterDelay(GameObject item, float delay)
 
         itemInventory.itemCount -= itemcount;
         itemCount = itemInventory.itemCount;
-        UpdatecountText();
+        UpdateCountText();
         // Check if item count is now zero and destroy the GameObject if so
         if (itemCount <= 0)
         {
             Destroy(previousItem);
-            RemovecountText();
+            RemoveCountText();
         }
         return itemCount;
     }
-
-    private void UpdatecountText()
-    {
-        if (ItemText != null)
-        {
-            ItemText.text = "X" + itemCount.ToString();
-        }
-        else
-        {
-            Debug.LogError("item Text is not assigned in the Inventory.");
-        }
-    }
-
-    private void RemovecountText()
-    {
-        if (ItemText != null)
-        {
-            ItemText.text = "";
-        }
-        else
-        {
-            Debug.LogError("item Text is not assigned in the Inventory.");
-        }
-    }
 }
+
+
+
+
+
+

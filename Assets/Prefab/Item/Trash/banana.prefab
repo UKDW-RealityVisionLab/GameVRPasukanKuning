@@ -288,7 +288,6 @@ MonoBehaviour:
   prefab: {fileID: 0}
   itemID: 
   itemCount: 1
-  externalItemCountText: {fileID: 0}
 --- !u!1001 &1798375536791051405
 PrefabInstance:
   m_ObjectHideFlags: 0
