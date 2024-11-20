@@ -41,7 +41,7 @@ public class CheckCurrencyGoal : MonoBehaviour
         if (GameManager.TimeRemaining > 0)
         {
             GameManager.UpdateTimer(Time.deltaTime); // Decrease the timer
-            Debug.Log("Time Remaining : " + GameManager.TimeRemaining);
+            // Debug.Log("Time Remaining : " + GameManager.TimeRemaining);
         }
         else if (!hasGoalBeenReached)
         {
