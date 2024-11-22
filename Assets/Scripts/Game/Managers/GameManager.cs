@@ -4,8 +4,8 @@ public static class GameManager
 {
     public static int Score;
     public static int Koin; // Currency
-    public static int TargetKoin = 1500; // Target currency for Level 1
-    public static int TargetKoin1 = 3000; // Target currency for Level 2
+    public static int TargetKoin = 300; // Target currency for Level 1
+    public static int TargetKoin1 = 300; // Target currency for Level 2
     public static float TimeRemaining; // Timer for Level 2
 
     // Initialize game state
@@ -17,7 +17,7 @@ public static class GameManager
         // Set the timer only for Level 2
         if (levelIdentifier == "Level2")
         {
-            TimeRemaining = 300f; // 5 minutes for Level 2
+            TimeRemaining = 600f; // 10 minutes for Level 2
         }
         else
         {
