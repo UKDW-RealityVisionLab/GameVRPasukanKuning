@@ -81,7 +81,7 @@ public class Slot : MonoBehaviour
         itemCount += itemInventory.itemCount;
         previousItem = item;
         itemInventory.itemCount = itemCount;
-        UpdateCountText();
+        // UpdateCountText();
 
         yield return new WaitForSeconds(0); // Delay for smooth interaction
         isBusy = false;
@@ -121,7 +121,7 @@ public class Slot : MonoBehaviour
     }
 
     // Update the item count display
-    private void UpdateCountText()
+    public void UpdateCountText()
     {
         if (ItemText != null)
         {
@@ -162,12 +162,12 @@ public class Slot : MonoBehaviour
 
         itemInventory.itemCount -= itemcount;
         itemCount = itemInventory.itemCount;
-        UpdateCountText();
+        // UpdateCountText();
         // Check if item count is now zero and destroy the GameObject if so
         if (itemCount <= 0)
         {
             Destroy(previousItem);
-            RemoveCountText();
+            // RemoveCountText();
         }
         return itemCount;
     }

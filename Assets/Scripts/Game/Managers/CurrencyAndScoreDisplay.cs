@@ -65,7 +65,7 @@ public class CurrencyAndScoreDisplay : MonoBehaviour
         }
         else
         {
-            Debug.LogError("Score Text is not assigned in the ScoreManager.");
+            Debug.LogError("Time Text is not assigned in the TimeManager.");
         }
     }
 }

@@ -1383,6 +1383,7 @@ GameObject:
   - component: {fileID: 499955313}
   - component: {fileID: 499955312}
   - component: {fileID: 499955316}
+  - component: {fileID: 499955317}
   m_Layer: 0
   m_Name: Slot
   m_TagString: Untagged
@@ -1574,6 +1575,21 @@ MonoBehaviour:
   currentItemID: 
   itemCount: 0
   ItemText: {fileID: 1575244048}
+--- !u!114 &499955317
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 499955310}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5c605641190bf2459f150d9e1678f1d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  socket: {fileID: 499955312}
+  itemText: {fileID: 1575244048}
+  slot: {fileID: 499955316}
 --- !u!1 &503696128
 GameObject:
   m_ObjectHideFlags: 0
@@ -1763,7 +1779,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_InteractionManager: {fileID: 0}
   m_InteractionLayers:
-    m_Bits: 2
+    m_Bits: 16
   m_Handedness: 0
   m_AttachTransform: {fileID: 106072801}
   m_KeepSelectedTargetValid: 1
@@ -2183,6 +2199,7 @@ GameObject:
   - component: {fileID: 677900213}
   - component: {fileID: 677900212}
   - component: {fileID: 677900216}
+  - component: {fileID: 677900217}
   m_Layer: 0
   m_Name: Slot
   m_TagString: Untagged
@@ -2374,6 +2391,21 @@ MonoBehaviour:
   currentItemID: 
   itemCount: 0
   ItemText: {fileID: 1498208764}
+--- !u!114 &677900217
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 677900210}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5c605641190bf2459f150d9e1678f1d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  socket: {fileID: 677900212}
+  itemText: {fileID: 1498208764}
+  slot: {fileID: 677900216}
 --- !u!1 &701368591
 GameObject:
   m_ObjectHideFlags: 0
@@ -4470,6 +4502,7 @@ GameObject:
   - component: {fileID: 1267261528}
   - component: {fileID: 1267261527}
   - component: {fileID: 1267261531}
+  - component: {fileID: 1267261532}
   m_Layer: 0
   m_Name: Slot
   m_TagString: Untagged
@@ -4661,6 +4694,21 @@ MonoBehaviour:
   currentItemID: 
   itemCount: 0
   ItemText: {fileID: 1235071398}
+--- !u!114 &1267261532
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1267261525}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5c605641190bf2459f150d9e1678f1d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  socket: {fileID: 1267261527}
+  itemText: {fileID: 1235071398}
+  slot: {fileID: 1267261531}
 --- !u!1 &1294307141
 GameObject:
   m_ObjectHideFlags: 0
@@ -6066,7 +6114,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -271.19995, y: 244.8}
+  m_AnchoredPosition: {x: -271.19992, y: 244.8}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1606068692
@@ -6634,6 +6682,7 @@ GameObject:
   - component: {fileID: 2016614861}
   - component: {fileID: 2016614860}
   - component: {fileID: 2016614859}
+  - component: {fileID: 2016614864}
   m_Layer: 0
   m_Name: Slot
   m_TagString: Untagged
@@ -6825,6 +6874,21 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2016614857}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &2016614864
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2016614857}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5c605641190bf2459f150d9e1678f1d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  socket: {fileID: 2016614860}
+  itemText: {fileID: 949454713}
+  slot: {fileID: 2016614859}
 --- !u!1 &2123802280
 GameObject:
   m_ObjectHideFlags: 0
@@ -6839,6 +6903,7 @@ GameObject:
   - component: {fileID: 2123802284}
   - component: {fileID: 2123802283}
   - component: {fileID: 2123802282}
+  - component: {fileID: 2123802287}
   m_Layer: 0
   m_Name: Slot
   m_TagString: Untagged
@@ -7030,6 +7095,21 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2123802280}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &2123802287
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2123802280}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5c605641190bf2459f150d9e1678f1d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  socket: {fileID: 2123802283}
+  itemText: {fileID: 1595509228}
+  slot: {fileID: 2123802282}
 --- !u!1 &2127734497
 GameObject:
   m_ObjectHideFlags: 0
@@ -8496,7 +8576,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_InteractionManager: {fileID: 0}
   m_InteractionLayers:
-    m_Bits: 2
+    m_Bits: 8
   m_Handedness: 0
   m_AttachTransform: {fileID: 7640227003250514462}
   m_KeepSelectedTargetValid: 1
@@ -8602,7 +8682,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0.000000019265608, y: 0.7071068, z: 0.000000034166767, w: 0.7071068}
   m_LocalPosition: {x: -3.000183, y: -1.9999084, z: 6.000168}
-  m_LocalScale: {x: 0, y: 76.2, z: 76.2}
+  m_LocalScale: {x: 0, y: 417.9, z: 417.9}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 8730566489659410808}
@@ -10034,7 +10114,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_InteractionManager: {fileID: 0}
   m_InteractionLayers:
-    m_Bits: 2
+    m_Bits: 8
   m_Handedness: 0
   m_AttachTransform: {fileID: 9019390712204744027}
   m_KeepSelectedTargetValid: 1
@@ -13989,7 +14069,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0.000000019265608, y: 0.7071068, z: 0.000000034166767, w: 0.7071068}
   m_LocalPosition: {x: -3.000183, y: -1.9999084, z: 6.000168}
-  m_LocalScale: {x: 0, y: 76.2, z: 76.2}
+  m_LocalScale: {x: 0, y: 417.9, z: 417.9}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 936448023116760849}
@@ -16388,7 +16468,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_InteractionManager: {fileID: 0}
   m_InteractionLayers:
-    m_Bits: 2
+    m_Bits: 8
   m_Handedness: 0
   m_AttachTransform: {fileID: 8730566489659410808}
   m_KeepSelectedTargetValid: 1
@@ -16742,7 +16822,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0.000000019265608, y: 0.7071068, z: 0.000000034166767, w: 0.7071068}
   m_LocalPosition: {x: -3.000183, y: -1.9999084, z: 6.000168}
-  m_LocalScale: {x: 0, y: 76.2, z: 76.2}
+  m_LocalScale: {x: 0, y: 417.9, z: 417.9}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 9019390712204744027}
@@ -17134,7 +17214,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0.000000019265608, y: 0.7071068, z: 0.000000034166767, w: 0.7071068}
   m_LocalPosition: {x: -3.000183, y: -1.9999084, z: 6.000168}
-  m_LocalScale: {x: 0, y: 76.2, z: 76.2}
+  m_LocalScale: {x: 0, y: 417.9, z: 417.9}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 7640227003250514462}
@@ -18168,7 +18248,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_InteractionManager: {fileID: 69704709}
   m_InteractionLayers:
-    m_Bits: 2
+    m_Bits: 8
   m_Handedness: 0
   m_AttachTransform: {fileID: 0}
   m_KeepSelectedTargetValid: 1

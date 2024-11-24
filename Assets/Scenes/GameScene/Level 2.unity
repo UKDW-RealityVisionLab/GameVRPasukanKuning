@@ -1077,6 +1077,7 @@ GameObject:
   - component: {fileID: 499955313}
   - component: {fileID: 499955312}
   - component: {fileID: 499955316}
+  - component: {fileID: 499955317}
   m_Layer: 0
   m_Name: Slot
   m_TagString: Untagged
@@ -1268,6 +1269,21 @@ MonoBehaviour:
   currentItemID: 
   itemCount: 0
   ItemText: {fileID: 1575244048}
+--- !u!114 &499955317
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 499955310}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5c605641190bf2459f150d9e1678f1d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  socket: {fileID: 499955312}
+  itemText: {fileID: 1575244048}
+  slot: {fileID: 499955316}
 --- !u!1 &503696128
 GameObject:
   m_ObjectHideFlags: 0
@@ -1457,7 +1473,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_InteractionManager: {fileID: 0}
   m_InteractionLayers:
-    m_Bits: 2
+    m_Bits: 16
   m_Handedness: 0
   m_AttachTransform: {fileID: 106072801}
   m_KeepSelectedTargetValid: 1
@@ -1877,6 +1893,7 @@ GameObject:
   - component: {fileID: 677900213}
   - component: {fileID: 677900212}
   - component: {fileID: 677900216}
+  - component: {fileID: 677900217}
   m_Layer: 0
   m_Name: Slot
   m_TagString: Untagged
@@ -2068,6 +2085,21 @@ MonoBehaviour:
   currentItemID: 
   itemCount: 0
   ItemText: {fileID: 1498208764}
+--- !u!114 &677900217
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 677900210}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5c605641190bf2459f150d9e1678f1d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  socket: {fileID: 677900212}
+  itemText: {fileID: 1498208764}
+  slot: {fileID: 677900216}
 --- !u!1 &701368591
 GameObject:
   m_ObjectHideFlags: 0
@@ -3023,6 +3055,14 @@ PrefabInstance:
       propertyPath: m_EnableFarCasting
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4510384865289635775, guid: 943bd3fe5aacb2b478bf1b6014873ba5, type: 3}
+      propertyPath: m_InteractionLayers.m_Bits
+      value: 2147483648
+      objectReference: {fileID: 0}
+    - target: {fileID: 4510384865289635775, guid: 943bd3fe5aacb2b478bf1b6014873ba5, type: 3}
+      propertyPath: m_SortNearTargetsAfterTargetFilter
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5400817498881614356, guid: 943bd3fe5aacb2b478bf1b6014873ba5, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -3650,6 +3690,7 @@ GameObject:
   - component: {fileID: 1267261528}
   - component: {fileID: 1267261527}
   - component: {fileID: 1267261531}
+  - component: {fileID: 1267261532}
   m_Layer: 0
   m_Name: Slot
   m_TagString: Untagged
@@ -3841,6 +3882,21 @@ MonoBehaviour:
   currentItemID: 
   itemCount: 0
   ItemText: {fileID: 1235071398}
+--- !u!114 &1267261532
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1267261525}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5c605641190bf2459f150d9e1678f1d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  socket: {fileID: 1267261527}
+  itemText: {fileID: 1235071398}
+  slot: {fileID: 1267261531}
 --- !u!1 &1294307141
 GameObject:
   m_ObjectHideFlags: 0
@@ -5193,7 +5249,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -271.19995, y: 244.8}
+  m_AnchoredPosition: {x: -271.19992, y: 244.8}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1606068692
@@ -5468,6 +5524,7 @@ GameObject:
   - component: {fileID: 2016614861}
   - component: {fileID: 2016614860}
   - component: {fileID: 2016614859}
+  - component: {fileID: 2016614864}
   m_Layer: 0
   m_Name: Slot
   m_TagString: Untagged
@@ -5659,6 +5716,21 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2016614857}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &2016614864
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2016614857}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5c605641190bf2459f150d9e1678f1d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  socket: {fileID: 2016614860}
+  itemText: {fileID: 949454713}
+  slot: {fileID: 2016614859}
 --- !u!1 &2123802280
 GameObject:
   m_ObjectHideFlags: 0
@@ -5673,6 +5745,7 @@ GameObject:
   - component: {fileID: 2123802284}
   - component: {fileID: 2123802283}
   - component: {fileID: 2123802282}
+  - component: {fileID: 2123802287}
   m_Layer: 0
   m_Name: Slot
   m_TagString: Untagged
@@ -5864,6 +5937,21 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2123802280}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &2123802287
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2123802280}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5c605641190bf2459f150d9e1678f1d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  socket: {fileID: 2123802283}
+  itemText: {fileID: 1595509228}
+  slot: {fileID: 2123802282}
 --- !u!1 &2127734497
 GameObject:
   m_ObjectHideFlags: 0
@@ -6118,6 +6206,7 @@ GameObject:
   - component: {fileID: 6314588360135237713}
   - component: {fileID: 8972785030658435774}
   - component: {fileID: 659836882293313407}
+  - component: {fileID: 8972785030658435775}
   m_Layer: 0
   m_Name: Slot
   m_TagString: Untagged
@@ -7180,7 +7269,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_InteractionManager: {fileID: 0}
   m_InteractionLayers:
-    m_Bits: 2
+    m_Bits: 8
   m_Handedness: 0
   m_AttachTransform: {fileID: 7640227003250514462}
   m_KeepSelectedTargetValid: 1
@@ -7278,7 +7367,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0.000000019265608, y: 0.7071068, z: 0.000000034166767, w: 0.7071068}
   m_LocalPosition: {x: -3.000183, y: -1.9999084, z: 6.000168}
-  m_LocalScale: {x: 0, y: 76.2, z: 76.2}
+  m_LocalScale: {x: 0, y: 417.9, z: 417.9}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 8730566489659410808}
@@ -8515,7 +8604,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_InteractionManager: {fileID: 0}
   m_InteractionLayers:
-    m_Bits: 2
+    m_Bits: 8
   m_Handedness: 0
   m_AttachTransform: {fileID: 9019390712204744027}
   m_KeepSelectedTargetValid: 1
@@ -11364,6 +11453,7 @@ GameObject:
   - component: {fileID: 2166977108000943220}
   - component: {fileID: 7141125740949606352}
   - component: {fileID: 8789331252903569846}
+  - component: {fileID: 8789331252903569847}
   m_Layer: 0
   m_Name: Slot
   m_TagString: Untagged
@@ -11877,7 +11967,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0.000000019265608, y: 0.7071068, z: 0.000000034166767, w: 0.7071068}
   m_LocalPosition: {x: -3.000183, y: -1.9999084, z: 6.000168}
-  m_LocalScale: {x: 0, y: 76.2, z: 76.2}
+  m_LocalScale: {x: 0, y: 417.9, z: 417.9}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 936448023116760849}
@@ -12441,6 +12531,7 @@ GameObject:
   - component: {fileID: 1705923621467978698}
   - component: {fileID: 2493808685607322220}
   - component: {fileID: 5086760191403824135}
+  - component: {fileID: 7507959343319548901}
   m_Layer: 0
   m_Name: Slot
   m_TagString: Untagged
@@ -14051,7 +14142,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_InteractionManager: {fileID: 0}
   m_InteractionLayers:
-    m_Bits: 2
+    m_Bits: 8
   m_Handedness: 0
   m_AttachTransform: {fileID: 8730566489659410808}
   m_KeepSelectedTargetValid: 1
@@ -14405,12 +14496,27 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0.000000019265608, y: 0.7071068, z: 0.000000034166767, w: 0.7071068}
   m_LocalPosition: {x: -3.000183, y: -1.9999084, z: 6.000168}
-  m_LocalScale: {x: 0, y: 76.2, z: 76.2}
+  m_LocalScale: {x: 0, y: 417.9, z: 417.9}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 9019390712204744027}
   m_Father: {fileID: 8773996943627493351}
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+--- !u!114 &7507959343319548901
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6128389051052163281}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5c605641190bf2459f150d9e1678f1d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  socket: {fileID: 2493808685607322220}
+  itemText: {fileID: 9056368080527589198}
+  slot: {fileID: 5086760191403824135}
 --- !u!33 &7532456507023747888
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -14782,7 +14888,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0.000000019265608, y: 0.7071068, z: 0.000000034166767, w: 0.7071068}
   m_LocalPosition: {x: -3.000183, y: -1.9999084, z: 6.000168}
-  m_LocalScale: {x: 0, y: 76.2, z: 76.2}
+  m_LocalScale: {x: 0, y: 417.9, z: 417.9}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 7640227003250514462}
@@ -15309,6 +15415,7 @@ GameObject:
   - component: {fileID: 7341197868032395186}
   - component: {fileID: 1133134512214693325}
   - component: {fileID: 6935846678379329318}
+  - component: {fileID: 8550421654197153427}
   m_Layer: 0
   m_Name: Slot
   m_TagString: Untagged
@@ -15316,6 +15423,21 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &8550421654197153427
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8550421654197153426}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5c605641190bf2459f150d9e1678f1d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  socket: {fileID: 1133134512214693325}
+  itemText: {fileID: 7923631127375510408}
+  slot: {fileID: 6935846678379329318}
 --- !u!224 &8610741000844031195
 RectTransform:
   m_ObjectHideFlags: 0
@@ -15429,6 +15551,21 @@ MonoBehaviour:
   currentItemID: 
   itemCount: 0
   ItemText: {fileID: 3994400851510396822}
+--- !u!114 &8789331252903569847
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5049270364450589829}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5c605641190bf2459f150d9e1678f1d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  socket: {fileID: 7141125740949606352}
+  itemText: {fileID: 3994400851510396822}
+  slot: {fileID: 8789331252903569846}
 --- !u!224 &8805729278944917392
 RectTransform:
   m_ObjectHideFlags: 0
@@ -15490,7 +15627,7 @@ Transform:
   m_GameObject: {fileID: 729119808863760684}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.875, y: 0.01, z: 15.3}
+  m_LocalPosition: {x: -1.875, y: 0.05, z: 15.3}
   m_LocalScale: {x: 100, y: 0.5, z: 100}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -15621,7 +15758,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_InteractionManager: {fileID: 69704709}
   m_InteractionLayers:
-    m_Bits: 2
+    m_Bits: 8
   m_Handedness: 0
   m_AttachTransform: {fileID: 0}
   m_KeepSelectedTargetValid: 1
@@ -15689,6 +15826,21 @@ MonoBehaviour:
   m_SocketScaleMode: 2
   m_FixedScale: {x: 0.5, y: 0.5, z: 0.5}
   m_TargetBoundsSize: {x: 0.2, y: 0.2, z: 0.2}
+--- !u!114 &8972785030658435775
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 430145837103408137}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5c605641190bf2459f150d9e1678f1d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  socket: {fileID: 8972785030658435774}
+  itemText: {fileID: 891208335196136865}
+  slot: {fileID: 659836882293313407}
 --- !u!114 &8978853669441117779
 MonoBehaviour:
   m_ObjectHideFlags: 0
