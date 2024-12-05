@@ -13,9 +13,11 @@ public class CurrencyAndScoreDisplay : MonoBehaviour
         // Whenever this object is enabled, update the display
         UpdateKoinText();
         UpdateScoreText();
-        if(GameManager.TimeRemaining >=0){
+        if(GameManager.TimeRemaining >=0 && GameManager.TimeRemaining != Mathf.Infinity)
+        {
             UpdateTimeText();
         }
+
         
         
     }
@@ -25,7 +27,7 @@ public class CurrencyAndScoreDisplay : MonoBehaviour
         // Update every frame
         UpdateKoinText();
         UpdateScoreText();
-        if(GameManager.TimeRemaining >=0){
+        if(GameManager.TimeRemaining >=0 && GameManager.TimeRemaining != Mathf.Infinity){
             UpdateTimeText();
         }
     }

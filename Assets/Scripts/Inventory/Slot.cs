@@ -25,8 +25,13 @@ public class Slot : MonoBehaviour
         if (hoveredItemInventory == null || !IsSameType(hoveredItemInventory)) return;
 
         isHovered = true;
-        HandleItemAddition(item); // Add item on hover
-        UpdateCountText();
+
+        // Ensure the item only interacts with one slot
+        if (hoveredItemInventory.currentSlot == null || hoveredItemInventory.currentSlot == this)
+        {
+            HandleItemAddition(item);
+            // UpdateCountText();
+        }
     }
 
     // Handle addition of the item to the slot
@@ -36,8 +41,16 @@ public class Slot : MonoBehaviour
 
         itemInventory = item.GetComponent<ItemInventory>();
 
-        if (itemInventory != null && IsSameType(itemInventory))
+        // if (itemInventory != null && IsSameType(itemInventory))
+        // {
+        //     StartCoroutine(AddItemWithDelay(item));
+        // }
+        
+
+        if (itemInventory != null && IsSameType(itemInventory) && (itemInventory.currentSlot == null || itemInventory.currentSlot == this))
         {
+            // itemInventory.AssignSlot(this); // Assign this slot
+            // UpdateCountText();
             StartCoroutine(AddItemWithDelay(item));
         }
 
@@ -61,6 +74,12 @@ public class Slot : MonoBehaviour
         if (removeCoroutine != null)
         {
             StopCoroutine(removeCoroutine); // Stop any active removal coroutine
+        }
+
+        // Clear the current slot
+        if (itemInventory != null && itemInventory.currentSlot == this)
+        {
+            itemInventory.ClearSlot();
         }
 
         removeCoroutine = StartCoroutine(RemoveItemAfterDelay(item, 0.1f)); // Delay removal for smooth transition
@@ -123,12 +142,9 @@ public class Slot : MonoBehaviour
     // Update the item count display
     public void UpdateCountText()
     {
-        if (ItemText != null)
+        if (ItemText != null && itemCount > 0)
         {
-
             ItemText.text = "X" + itemCount.ToString();
-            
-            
         }
         else
         {

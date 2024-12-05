@@ -1,18 +1,19 @@
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
 using TMPro;
+using UnityEngine.XR.Interaction.Toolkit.Interactors;
 
 public class SocketItemChecker : MonoBehaviour
 {
-    public UnityEngine.XR.Interaction.Toolkit.Interactors.XRSocketInteractor socket; // Reference to the XR Socket Interactor
-    public TextMeshProUGUI itemText; // UI element for displaying the item count
-    public Slot slot; // Reference to your Slot script
+    public XRSocketInteractor socket;       // Reference to the XR Socket Interactor
+    public TextMeshProUGUI itemText;        // UI element for displaying the item count
+    public Slot slot;                       // Reference to your Slot script
+    private ItemInventory itemInventory; // Reference to the item's inventory
 
     private void OnEnable()
     {
         if (socket != null)
         {
-            // Subscribe to the socket's events
             socket.selectEntered.AddListener(OnItemInserted);
             socket.selectExited.AddListener(OnItemRemoved);
         }
@@ -22,40 +23,73 @@ public class SocketItemChecker : MonoBehaviour
     {
         if (socket != null)
         {
-            // Unsubscribe from the socket's events
             socket.selectEntered.RemoveListener(OnItemInserted);
             socket.selectExited.RemoveListener(OnItemRemoved);
         }
     }
 
-    // Called when an item is placed in the socket
     private void OnItemInserted(SelectEnterEventArgs args)
     {
-        UpdateCountText();
+        GameObject item = args.interactableObject?.transform?.gameObject;
+        if (item == null) return;
+
+        itemInventory = item.GetComponent<ItemInventory>();
+        if (itemInventory == null) return;
+
+        if (slot != null)
+        {
+            UpdateCountText();
+        }
     }
 
-    // Called when an item is removed from the socket
     private void OnItemRemoved(SelectExitEventArgs args)
     {
-        RemoveCountText();
+        GameObject item = args.interactableObject?.transform?.gameObject;
+        if (item == null) return;
+
+        itemInventory = item.GetComponent<ItemInventory>();
+        if (itemInventory == null) return;
+
+        if (slot != null)
+        {
+            RemoveCountText();
+        }
     }
 
-    // Update the item count display
-    private void UpdateCountText()
+
+        // Update the item count display
+    public void UpdateCountText()
     {
         if (slot != null && itemText != null)
         {
             int itemCount = slot.GetItemCount();
-            itemText.text = "X" + itemCount.ToString();
+            if (itemInventory.itemCount>0)
+            {
+                itemText.text = "X" + itemInventory.itemCount.ToString();
+            }
+            else
+            {
+                itemText.text = "";
+            }            
+            
+        }
+        else
+        {
+            Debug.LogError("ItemText is not assigned in the slot.");
         }
     }
 
+
     // Remove the item count display
-    private void RemoveCountText()
+    public void RemoveCountText()
     {
         if (itemText != null)
         {
             itemText.text = "";
+        }
+        else
+        {
+            Debug.LogError("ItemText is not assigned in the slot.");
         }
     }
 }

@@ -13,6 +13,9 @@ public class ItemInventory : MonoBehaviour
     // The count of items in the object, starting at 1 (default for single items)
     public int itemCount = 1; 
 
+    // The slot this item is currently assigned to
+    public SlotNew currentSlot; 
+
 
     void Awake()
     {
@@ -46,6 +49,18 @@ public class ItemInventory : MonoBehaviour
     {
         // Use regex to remove any pattern that matches "(...)" including "(Clone)" or "(1)", "(2)", etc.
         return Regex.Replace(name, @"\s*\(.*?\)$", "").Trim();
+    }
+
+        // Assign a new slot to this item
+    public void AssignSlot(SlotNew slot)
+    {
+        currentSlot = slot;
+    }
+
+    // Clear the current slot assignment
+    public void ClearSlot()
+    {
+        currentSlot = null;
     }
 
 }
