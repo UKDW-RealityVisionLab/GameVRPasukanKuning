@@ -20,7 +20,7 @@ public class SlotNew : MonoBehaviour
             currentItemID = itemInventory.itemID;
             trackedItem = itemInventory;
             itemCount += itemInventory.itemCount;
-            itemInventory.AssignSlot(this);  // Assign this slot to the item
+            // itemInventory.AssignSlot(this);  // Assign this slot to the item
             return true; // Successfully added
         }
 
@@ -47,7 +47,7 @@ public class SlotNew : MonoBehaviour
         if (itemInventory == null || itemInventory.itemID != currentItemID) return;
 
         itemCount -= itemInventory.itemCount;
-        itemInventory.ClearSlot();
+        // itemInventory.ClearSlot();
 
         if (itemCount <= 0)
         {

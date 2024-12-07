@@ -5019,6 +5019,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   koinText: {fileID: 3271425205119881056}
   scoreText: {fileID: 1678736186134776889}
+  TimeText: {fileID: 0}
 --- !u!1 &3064950470454639326
 GameObject:
   m_ObjectHideFlags: 0

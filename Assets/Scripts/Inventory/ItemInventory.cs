@@ -14,7 +14,7 @@ public class ItemInventory : MonoBehaviour
     public int itemCount = 1; 
 
     // The slot this item is currently assigned to
-    public SlotNew currentSlot; 
+    public Slot currentSlot; 
 
 
     void Awake()
@@ -52,7 +52,7 @@ public class ItemInventory : MonoBehaviour
     }
 
         // Assign a new slot to this item
-    public void AssignSlot(SlotNew slot)
+    public void AssignSlot(Slot slot)
     {
         currentSlot = slot;
     }

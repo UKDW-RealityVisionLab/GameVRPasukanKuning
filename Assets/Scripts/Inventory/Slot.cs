@@ -178,12 +178,13 @@ public class Slot : MonoBehaviour
 
         itemInventory.itemCount -= itemcount;
         itemCount = itemInventory.itemCount;
-        // UpdateCountText();
+        Debug.Log("Item got decreased " + itemCount);
+        UpdateCountText();
         // Check if item count is now zero and destroy the GameObject if so
         if (itemCount <= 0)
         {
             Destroy(previousItem);
-            // RemoveCountText();
+            RemoveCountText();
         }
         return itemCount;
     }
