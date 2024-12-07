@@ -40,17 +40,10 @@ public class Slot : MonoBehaviour
         if (isBusy || previousItem != null && previousItem == item) return;
 
         itemInventory = item.GetComponent<ItemInventory>();
-
-        // if (itemInventory != null && IsSameType(itemInventory))
-        // {
-        //     StartCoroutine(AddItemWithDelay(item));
-        // }
         
 
         if (itemInventory != null && IsSameType(itemInventory) && (itemInventory.currentSlot == null || itemInventory.currentSlot == this))
         {
-            // itemInventory.AssignSlot(this); // Assign this slot
-            // UpdateCountText();
             StartCoroutine(AddItemWithDelay(item));
         }
 
@@ -100,7 +93,6 @@ public class Slot : MonoBehaviour
         itemCount += itemInventory.itemCount;
         previousItem = item;
         itemInventory.itemCount = itemCount;
-        // UpdateCountText();
 
         yield return new WaitForSeconds(0); // Delay for smooth interaction
         isBusy = false;
