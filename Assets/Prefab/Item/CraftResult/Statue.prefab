@@ -33,7 +33,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -1.4306252, y: 2.5106297, z: 4.982156}
-  m_LocalScale: {x: 0.31, y: 0.31, z: 0.31}
+  m_LocalScale: {x: 0.12, y: 0.12, z: 0.12}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 7334854140123668791}
@@ -290,6 +290,7 @@ MonoBehaviour:
   prefab: {fileID: 0}
   itemID: Block
   itemCount: 1
+  currentSlot: {fileID: 0}
 --- !u!1001 &4848864209578325703
 PrefabInstance:
   m_ObjectHideFlags: 0

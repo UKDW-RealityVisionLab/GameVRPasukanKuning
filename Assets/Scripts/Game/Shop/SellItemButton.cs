@@ -44,17 +44,20 @@ public class SellItemButton : MonoBehaviour
             {
                 // Try to get SellableItem component from the placed object
                 SellableItem sellableItem = (interactableObject as MonoBehaviour)?.GetComponent<SellableItem>();
+                ItemInventory itemInventory = (interactableObject as MonoBehaviour)?.GetComponent<ItemInventory>();
 
-                if (sellableItem != null && currencyManager != null)
+                if (sellableItem != null && itemInventory != null && currencyManager != null)
                 {
+                    int itemCount = itemInventory.itemCount; // Get the total count of items
                     int sellPrice = sellableItem.GetSellPrice();
+                    int totalSellPrice = sellPrice * itemCount; // Calculate total sell price
 
                     // Add the sell price to the player's currency
-                    currencyManager.UpdateKoin(sellPrice);
-                    Debug.Log($"Sold {sellableItem.craftType} for {sellPrice} Koin.");
+                     currencyManager.UpdateKoin(totalSellPrice);
+                    Debug.Log($"Sold {itemCount} x {sellableItem.craftType} for {totalSellPrice} Koin.");
 
                     // Show the sell price for a short time
-                    ShowKoinChange(sellPrice);
+                    ShowKoinChange(totalSellPrice);
 
                     // Destroy the sold item
                     Destroy(interactableObject.transform.gameObject);
