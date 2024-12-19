@@ -34,46 +34,6 @@ public class TrashCollection : MonoBehaviour
         }
     }
 
-    // private void OnTriggerEnter(Collider other)
-    // {
-    //     Item item = other.GetComponent<Item>();
-    //     if (item == null) return;
-
-    //     bool isAllowedItem = false;
-
-    //     // Handle the allowed items
-    //     foreach (AllowedItem allowedItem in allowedItems)
-    //     {
-    //         if (item.itemCategory == allowedItem.itemCategory)
-    //         {
-    //             isAllowedItem = true;
-    //             if (itemCounts.ContainsKey(item.itemType))
-    //             {
-    //                 itemCounts[item.itemType]++;
-    //             }
-    //             else
-    //             {
-    //                 itemCounts[item.itemType] = 1;
-    //             }
-
-    //             if (scoreManager != null)
-    //             {
-    //                 scoreManager.UpdateScore(2); // Correct item, add 2
-    //                 ShowScoreChange(2);
-    //             }
-    //             Destroy(other.gameObject); // Destroy the item after processing
-    //             return;
-    //         }
-    //     }
-
-    //     // Handle incorrect items
-    //     if (!isAllowedItem && scoreManager != null)
-    //     {
-    //         scoreManager.UpdateScore(-1); // Incorrect item, subtract 1
-    //         ShowScoreChange(-1);
-    //     }
-    // }
-
     private void OnTriggerEnter(Collider other)
     {
         Item item = other.GetComponent<Item>();
@@ -81,7 +41,9 @@ public class TrashCollection : MonoBehaviour
 
         // Check if the item has an ItemInventory component
         ItemInventory itemInventory = other.GetComponent<ItemInventory>();
+        if (itemInventory != null && itemInventory.currentSlot != null) return; // Exit if currentSlot is not null
         int countToAdd = (itemInventory != null) ? itemInventory.itemCount : 1; // Default to 1 if no inventory
+        
 
         bool isAllowedItem = false;
 

@@ -45,6 +45,7 @@ public class Slot : MonoBehaviour
         if (itemInventory != null && IsSameType(itemInventory) && (itemInventory.currentSlot == null || itemInventory.currentSlot == this))
         {
             StartCoroutine(AddItemWithDelay(item));
+            itemInventory.currentSlot = this;
         }
 
     }
@@ -73,6 +74,7 @@ public class Slot : MonoBehaviour
         if (itemInventory != null && itemInventory.currentSlot == this)
         {
             itemInventory.ClearSlot();
+            itemInventory.currentSlot = null;
         }
 
         removeCoroutine = StartCoroutine(RemoveItemAfterDelay(item, 0.1f)); // Delay removal for smooth transition
