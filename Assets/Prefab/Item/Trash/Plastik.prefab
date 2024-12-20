@@ -36,7 +36,7 @@ Transform:
   m_LocalScale: {x: 0.15, y: 0.15, z: 0.15}
   m_ConstrainProportionsScale: 1
   m_Children:
-  - {fileID: 1094418129949909191}
+  - {fileID: 8221372129300840718}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2079335745896039319
@@ -289,7 +289,7 @@ MonoBehaviour:
   itemID: Block
   itemCount: 1
   currentSlot: {fileID: 0}
---- !u!1001 &3003942500872484663
+--- !u!1001 &8471999986626422501
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -297,73 +297,73 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 6086519209562180104}
     m_Modifications:
-    - target: {fileID: -6689036041284674117, guid: b4bfb44520bdfd643a7560893e8d5c6d, type: 3}
-      propertyPath: m_Name
-      value: blue_plastic_bag
-      objectReference: {fileID: 0}
-    - target: {fileID: 2774220344278030320, guid: b4bfb44520bdfd643a7560893e8d5c6d, type: 3}
+    - target: {fileID: -8679921383154817045, guid: b6ce057ea60c02f418bf8212de77ac03, type: 3}
       propertyPath: m_LocalScale.x
-      value: 1.45
+      value: 3.63
       objectReference: {fileID: 0}
-    - target: {fileID: 2774220344278030320, guid: b4bfb44520bdfd643a7560893e8d5c6d, type: 3}
+    - target: {fileID: -8679921383154817045, guid: b6ce057ea60c02f418bf8212de77ac03, type: 3}
       propertyPath: m_LocalScale.y
-      value: 1.45
+      value: 3.63
       objectReference: {fileID: 0}
-    - target: {fileID: 2774220344278030320, guid: b4bfb44520bdfd643a7560893e8d5c6d, type: 3}
+    - target: {fileID: -8679921383154817045, guid: b6ce057ea60c02f418bf8212de77ac03, type: 3}
       propertyPath: m_LocalScale.z
-      value: 1.45
+      value: 3.63
       objectReference: {fileID: 0}
-    - target: {fileID: 2774220344278030320, guid: b4bfb44520bdfd643a7560893e8d5c6d, type: 3}
+    - target: {fileID: -8679921383154817045, guid: b6ce057ea60c02f418bf8212de77ac03, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.59
+      value: -0.705
       objectReference: {fileID: 0}
-    - target: {fileID: 2774220344278030320, guid: b4bfb44520bdfd643a7560893e8d5c6d, type: 3}
+    - target: {fileID: -8679921383154817045, guid: b6ce057ea60c02f418bf8212de77ac03, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.32
+      value: 0.44
       objectReference: {fileID: 0}
-    - target: {fileID: 2774220344278030320, guid: b4bfb44520bdfd643a7560893e8d5c6d, type: 3}
+    - target: {fileID: -8679921383154817045, guid: b6ce057ea60c02f418bf8212de77ac03, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.047
+      value: 0.497
       objectReference: {fileID: 0}
-    - target: {fileID: 2774220344278030320, guid: b4bfb44520bdfd643a7560893e8d5c6d, type: 3}
+    - target: {fileID: -8679921383154817045, guid: b6ce057ea60c02f418bf8212de77ac03, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.7025614
+      value: 0.54059875
       objectReference: {fileID: 0}
-    - target: {fileID: 2774220344278030320, guid: b4bfb44520bdfd643a7560893e8d5c6d, type: 3}
+    - target: {fileID: -8679921383154817045, guid: b6ce057ea60c02f418bf8212de77ac03, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.7025614
+      value: -0.48786885
       objectReference: {fileID: 0}
-    - target: {fileID: 2774220344278030320, guid: b4bfb44520bdfd643a7560893e8d5c6d, type: 3}
+    - target: {fileID: -8679921383154817045, guid: b6ce057ea60c02f418bf8212de77ac03, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.080046766
+      value: -0.45918196
       objectReference: {fileID: 0}
-    - target: {fileID: 2774220344278030320, guid: b4bfb44520bdfd643a7560893e8d5c6d, type: 3}
+    - target: {fileID: -8679921383154817045, guid: b6ce057ea60c02f418bf8212de77ac03, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.080046766
+      value: -0.50881135
       objectReference: {fileID: 0}
-    - target: {fileID: 2774220344278030320, guid: b4bfb44520bdfd643a7560893e8d5c6d, type: 3}
+    - target: {fileID: -8679921383154817045, guid: b6ce057ea60c02f418bf8212de77ac03, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: -90
+      value: -84.13
       objectReference: {fileID: 0}
-    - target: {fileID: 2774220344278030320, guid: b4bfb44520bdfd643a7560893e8d5c6d, type: 3}
+    - target: {fileID: -8679921383154817045, guid: b6ce057ea60c02f418bf8212de77ac03, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: -13
-      objectReference: {fileID: 0}
-    - target: {fileID: 2774220344278030320, guid: b4bfb44520bdfd643a7560893e8d5c6d, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2774220344278030320, guid: b4bfb44520bdfd643a7560893e8d5c6d, type: 3}
+    - target: {fileID: -8679921383154817045, guid: b6ce057ea60c02f418bf8212de77ac03, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -86.53
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: b6ce057ea60c02f418bf8212de77ac03, type: 3}
       propertyPath: m_ConstrainProportionsScale
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: b6ce057ea60c02f418bf8212de77ac03, type: 3}
+      propertyPath: m_Name
+      value: sampah plastik kemasan snacks hijau
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
-  m_SourcePrefab: {fileID: -5645937942226959685, guid: b4bfb44520bdfd643a7560893e8d5c6d, type: 3}
---- !u!4 &1094418129949909191 stripped
+  m_SourcePrefab: {fileID: 100100000, guid: b6ce057ea60c02f418bf8212de77ac03, type: 3}
+--- !u!4 &8221372129300840718 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 2774220344278030320, guid: b4bfb44520bdfd643a7560893e8d5c6d, type: 3}
-  m_PrefabInstance: {fileID: 3003942500872484663}
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: b6ce057ea60c02f418bf8212de77ac03, type: 3}
+  m_PrefabInstance: {fileID: 8471999986626422501}
   m_PrefabAsset: {fileID: 0}
