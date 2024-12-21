@@ -1,7 +1,7 @@
 {
   "dependencies": {
     "com.unity.ai.navigation": "1.1.5",
-    "com.unity.cloud.gltfast": "https://github.com/Unity-Technologies/com.unity.cloud.gltfast.git",
+    "com.unity.cloud.gltfast": "6.9.1",
     "com.unity.collab-proxy": "2.5.2",
     "com.unity.feature.development": "1.0.1",
     "com.unity.render-pipelines.universal": "14.0.11",

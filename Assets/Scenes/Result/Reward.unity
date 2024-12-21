@@ -906,7 +906,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Exit Game
+  m_text: Back to Main Menu
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f675742eaf9c20a4f909d78ee7a14fed, type: 2}
   m_sharedMaterial: {fileID: 4687939059374929122, guid: f675742eaf9c20a4f909d78ee7a14fed, type: 2}
@@ -1472,9 +1472,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1763772947}
-        m_TargetAssemblyTypeName: MenuController, Assembly-CSharp
-        m_MethodName: ExitGame
+      - m_Target: {fileID: 1763772949}
+        m_TargetAssemblyTypeName: HandMenuController, Assembly-CSharp
+        m_MethodName: BackToMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2160,6 +2160,7 @@ GameObject:
   - component: {fileID: 1763772946}
   - component: {fileID: 1763772947}
   - component: {fileID: 1763772948}
+  - component: {fileID: 1763772949}
   m_Layer: 0
   m_Name: Menu
   m_TagString: Untagged
@@ -2214,6 +2215,18 @@ MonoBehaviour:
   koinText: {fileID: 1105412238}
   scoreText: {fileID: 853284121}
   TimeText: {fileID: 0}
+--- !u!114 &1763772949
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1763772945}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a6324ab14faa464e9feff0bf22fa526, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1773606886
 GameObject:
   m_ObjectHideFlags: 0
