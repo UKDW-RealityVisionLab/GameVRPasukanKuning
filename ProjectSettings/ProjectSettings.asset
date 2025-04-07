@@ -13,7 +13,7 @@ PlayerSettings:
   useOnDemandResources: 0
   accelerometerFrequency: 60
   companyName: DefaultCompany
-  productName: bank Sampah
+  productName: GarbageGameCloud
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
   m_SplashScreenBackgroundColor: {r: 0.13725491, g: 0.12156863, b: 0.1254902, a: 1}
@@ -163,7 +163,7 @@ PlayerSettings:
   androidSupportedAspectRatio: 1
   androidMaxAspectRatio: 2.1
   applicationIdentifier:
-    Android: com.DefaultCompany.bankSampah
+    Android: com.DefaultCompany.GarbageGameCloud
     Standalone: com.DefaultCompany.bank-Sampah
   buildNumber:
     Standalone: 0
@@ -236,7 +236,6 @@ PlayerSettings:
   iOSMetalForceHardShadows: 0
   metalEditorSupport: 1
   metalAPIValidation: 1
-  metalCompileShaderBinary: 0
   iOSRenderExtraFrameOnPause: 0
   iosCopyPluginsCodeInsteadOfSymlink: 0
   appleDeveloperTeamID: 
@@ -798,7 +797,6 @@ PlayerSettings:
   metroTileBackgroundColor: {r: 0.13333334, g: 0.17254902, b: 0.21568628, a: 0}
   metroSplashScreenBackgroundColor: {r: 0.12941177, g: 0.17254902, b: 0.21568628, a: 1}
   metroSplashScreenUseBackgroundColor: 0
-  syncCapabilities: 0
   platformCapabilities: {}
   metroTargetDeviceFamilies: {}
   metroFTAName: 
@@ -854,11 +852,11 @@ PlayerSettings:
   apiCompatibilityLevel: 6
   activeInputHandler: 2
   windowsGamepadBackendHint: 0
-  cloudProjectId: 
+  cloudProjectId: c31f1c83-e86c-40ea-a5e1-7a9b71dadd85
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
-  projectName: 
-  organizationId: 
+  projectName: GameVRPasukanKuning 2025-03-26_10-09-50
+  organizationId: mekelwibi2002
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0
   hmiLoadingImage: {fileID: 0}
