@@ -2204,7 +2204,7 @@ MonoBehaviour:
   m_SelectEntered:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1221219106677588169}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: MaterialDrop, Assembly-CSharp
         m_MethodName: DropItems
         m_Mode: 1
@@ -3055,6 +3055,37 @@ MonoBehaviour:
   - itemName: Bottle
     prefabs:
     - {fileID: 1838300717914862357, guid: 213f5d69ef9fbee4490cc81c169a868b, type: 3}
+--- !u!1 &2276053604710803894
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: -6689036041284674117, guid: c322ed753ac49924eb245b1ee00e2932, type: 3}
+  m_PrefabInstance: {fileID: 2686017300166026060}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 272085373862655164}
+  m_Layer: 0
+  m_Name: 'vending_machine2k_retro-futuristic (Missing Prefab with guid: c322ed753ac49924eb245b1ee00e2932)'
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &272085373862655164
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 2774220344278030320, guid: c322ed753ac49924eb245b1ee00e2932, type: 3}
+  m_PrefabInstance: {fileID: 2686017300166026060}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2276053604710803894}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0.673152, y: 0.21648642, z: 0.21648642, w: 0.673152}
+  m_LocalPosition: {x: -23.182388, y: -1.0187507, z: 4.391981}
+  m_LocalScale: {x: 1.9099998, y: 1.9099997, z: 1.91}
+  m_ConstrainProportionsScale: 1
+  m_Children: []
+  m_Father: {fileID: 3317936746844417753}
+  m_LocalEulerAnglesHint: {x: -90, y: -44.43, z: 0}
 --- !u!1 &2717341981686574181
 GameObject:
   m_ObjectHideFlags: 0
@@ -4942,7 +4973,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5438903049045191109}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: MaterialDrop, Assembly-CSharp
         m_MethodName: DropItems
         m_Mode: 1
@@ -4954,7 +4985,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1221219106677588169}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: MaterialDrop, Assembly-CSharp
         m_MethodName: DropItems
         m_Mode: 1
@@ -6090,7 +6121,7 @@ MonoBehaviour:
   m_SelectEntered:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5438903049045191109}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: MaterialDrop, Assembly-CSharp
         m_MethodName: DropItems
         m_Mode: 1
@@ -9401,11 +9432,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: -5645937942226959685, guid: c322ed753ac49924eb245b1ee00e2932, type: 3}
---- !u!4 &272085373862655164 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 2774220344278030320, guid: c322ed753ac49924eb245b1ee00e2932, type: 3}
-  m_PrefabInstance: {fileID: 2686017300166026060}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &4721047194896020231
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9546,33 +9572,11 @@ PrefabInstance:
       addedObject: {fileID: 3549015542909698682}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e86e3eb52edf5ea46a35a8acc894f73e, type: 3}
---- !u!114 &1221219106677588169 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5869917817919353806, guid: e86e3eb52edf5ea46a35a8acc894f73e, type: 3}
-  m_PrefabInstance: {fileID: 4721047194896020231}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 408fa0c7153e69849853c93259016bcf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &3906677812405980884 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8625459454197530067, guid: e86e3eb52edf5ea46a35a8acc894f73e, type: 3}
   m_PrefabInstance: {fileID: 4721047194896020231}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &5438903049045191109 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 792170539987835586, guid: e86e3eb52edf5ea46a35a8acc894f73e, type: 3}
-  m_PrefabInstance: {fileID: 4721047194896020231}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 408fa0c7153e69849853c93259016bcf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &8874848707120436650 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4228119780032128685, guid: e86e3eb52edf5ea46a35a8acc894f73e, type: 3}

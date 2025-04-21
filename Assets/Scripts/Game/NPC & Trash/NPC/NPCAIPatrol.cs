@@ -82,6 +82,11 @@ public class NPCAIPatrol : MonoBehaviour
             Debug.Log($"Dropped item {dropCount}/{maxDrops} at: {dropPosition}");
         }
 
+        if (itemPrefabs.Length == 0 && isPatrolling)
+        {
+            
+        }
+
         yield return new WaitForSeconds(stopDuration);
 
         agent.isStopped = false;
