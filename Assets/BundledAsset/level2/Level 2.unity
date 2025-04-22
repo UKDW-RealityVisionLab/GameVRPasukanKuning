@@ -3365,8 +3365,28 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1734046538684178192, guid: 943bd3fe5aacb2b478bf1b6014873ba5, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2660693694868358161, guid: 943bd3fe5aacb2b478bf1b6014873ba5, type: 3}
       propertyPath: m_EnableFarCasting
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3587325775297091625, guid: 943bd3fe5aacb2b478bf1b6014873ba5, type: 3}
+      propertyPath: m_SnapTurnProvider
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3587325775297091625, guid: 943bd3fe5aacb2b478bf1b6014873ba5, type: 3}
+      propertyPath: m_EnableComfortMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3587325775297091625, guid: 943bd3fe5aacb2b478bf1b6014873ba5, type: 3}
+      propertyPath: m_RightHandTurnStyle
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3587325775297091625, guid: 943bd3fe5aacb2b478bf1b6014873ba5, type: 3}
+      propertyPath: m_LeftHandLocomotionType
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3641662474097610201, guid: 943bd3fe5aacb2b478bf1b6014873ba5, type: 3}
@@ -5874,7 +5894,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -271.19995, y: 244.8}
+  m_AnchoredPosition: {x: -271.19992, y: 244.8}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1606068692
