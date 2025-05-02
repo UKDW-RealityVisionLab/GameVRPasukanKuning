@@ -17,6 +17,7 @@ public class TrashCollection : MonoBehaviour
     private ScoreManager scoreManager;
 
     public TextMeshProUGUI scoreText; // Reference to the UI TextMeshPro component for score display
+    public TextMeshProUGUI Feedback; // Reference to the UI TextMeshPro component for Feedback
 
 
     private void Start()
@@ -31,6 +32,10 @@ public class TrashCollection : MonoBehaviour
         if (scoreText == null)
         {
             Debug.LogError("ScoreText reference is missing.");
+        }
+        if (Feedback == null)
+        {
+            Debug.LogError("Feedback Text reference is missing.");
         }
     }
 
@@ -69,6 +74,7 @@ public class TrashCollection : MonoBehaviour
                 {
                     int scoreToAdd = 2 * countToAdd; // Multiply by 2 for each item
                     scoreManager.UpdateScore(scoreToAdd);
+                    Feedback.text = "Selamat! Kamu benar memasukkan sampah sesuai jenisnya";
                     ShowScoreChange(scoreToAdd);
                 }
 
@@ -82,6 +88,8 @@ public class TrashCollection : MonoBehaviour
         {
             scoreManager.UpdateScore(-1); // Incorrect item, subtract 1
             ShowScoreChange(-1);
+            Feedback.text = "Oops! Itu bukan jenis sampah yang tepat";
+            StartCoroutine(HideFeedback(2f));
         }
     }
 
@@ -94,6 +102,7 @@ public class TrashCollection : MonoBehaviour
 
         // Start a coroutine to hide the score change after a brief delay
         StartCoroutine(HideScoreChange(1f));
+        StartCoroutine(HideFeedback(2f));
     }
 
     // Coroutine to remove the item after a delay
@@ -122,4 +131,11 @@ public class TrashCollection : MonoBehaviour
     {
         itemCounts.Clear();
     }
+
+    private IEnumerator HideFeedback(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        Feedback.text = "";
+    }
+
 }

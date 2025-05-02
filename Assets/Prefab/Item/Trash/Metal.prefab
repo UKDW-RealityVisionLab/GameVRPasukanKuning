@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: 4152070138748889416}
   m_Layer: 0
   m_Name: Metal
-  m_TagString: Untagged
+  m_TagString: Grabbable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -108,8 +108,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.99999994, y: 0.14154525, z: 0.99999994}
-  m_Center: {x: 0, y: -0.01737509, z: 0}
+  m_Size: {x: 0.76133406, y: 0.44608995, z: 0.7892342}
+  m_Center: {x: -0.051572323, y: 0.1348972, z: -0.1053828}
 --- !u!114 &6209285644949801308
 MonoBehaviour:
   m_ObjectHideFlags: 0
