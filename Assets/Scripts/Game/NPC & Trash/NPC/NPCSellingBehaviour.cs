@@ -1,13 +1,16 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
 public class NPCSellingBehaviour : MonoBehaviour
 {
     public GameObject[] dropItems;             // Items to be dropped (e.g., input by user)
-    public Transform trashPoint;               // Tujuan untuk buang sampah
+    public Transform[] trashPoint;               // Tujuan untuk buang sampah
     public Transform sellPoint;                // Tujuan untuk menjual
     public Transform shelfPoint;               // Tujuan untuk menaruh barang di rak
+
+    private bool goToSellAfterCurrentTask = false;
 
     private int currentTargetIndex = 0;
     private NavMeshAgent agent;
@@ -23,7 +26,7 @@ public class NPCSellingBehaviour : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
         if (!animator) animator = GetComponent<Animator>();
 
-        patrolPoints = new Transform[] { trashPoint, sellPoint, shelfPoint };
+        patrolPoints = CombinePatrolPoints(trashPoint, sellPoint, shelfPoint);
         GoToNextPoint();
     }
 
@@ -37,8 +40,30 @@ public class NPCSellingBehaviour : MonoBehaviour
         }
     }
 
+    public void SetGoToSellNext()
+    {
+        goToSellAfterCurrentTask = true;
+    }
+
+
+    private Transform[] CombinePatrolPoints(Transform[] trashPoints, params Transform[] otherPoints)
+    {
+        List<Transform> combined = new List<Transform>();
+        combined.AddRange(trashPoints);
+        combined.AddRange(otherPoints);
+        return combined.ToArray();
+    }
+
     private void GoToNextPoint()
     {
+        if (goToSellAfterCurrentTask)
+        {
+            goToSellAfterCurrentTask = false; // reset it after going
+            agent.SetDestination(sellPoint.position);
+            animator.SetBool("isWalking", true);
+            return;
+        }
+
         if (currentTargetIndex >= patrolPoints.Length)
         {
             currentTargetIndex = 0;
@@ -49,6 +74,19 @@ public class NPCSellingBehaviour : MonoBehaviour
         animator.SetBool("isWalking", true);
     }
 
+    private bool IsTrashPoint(Transform point)
+    {
+        foreach (Transform trash in trashPoint)
+        {
+            if (point == trash)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
+
     private IEnumerator HandlePointAction()
     {
         agent.isStopped = true;
@@ -56,10 +94,10 @@ public class NPCSellingBehaviour : MonoBehaviour
 
         Transform currentPoint = patrolPoints[currentTargetIndex];
 
-        if (currentPoint == trashPoint)
+        if (IsTrashPoint(currentPoint))
         {
             animator.SetTrigger("throw");
-            DropItemsAtPoint(trashPoint.position);
+            DropItemsAtPoint(currentPoint.position);
         }
         else if (currentPoint == sellPoint)
         {
