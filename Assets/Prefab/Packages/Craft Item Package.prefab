@@ -948,6 +948,7 @@ MonoBehaviour:
   currentItemID: 
   itemCount: 0
   ItemText: {fileID: 4516042855144618096}
+  previousItem: {fileID: 0}
 --- !u!114 &995602211359611002
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1169,6 +1170,7 @@ MonoBehaviour:
   currentItemID: 
   itemCount: 0
   ItemText: {fileID: 4349304607819025978}
+  previousItem: {fileID: 0}
 --- !u!114 &8652308934052471755
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1785,6 +1787,7 @@ MonoBehaviour:
   currentItemID: 
   itemCount: 0
   ItemText: {fileID: 6586818049544809172}
+  previousItem: {fileID: 0}
 --- !u!114 &1292386426419980843
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2349,6 +2352,7 @@ MonoBehaviour:
   currentItemID: 
   itemCount: 0
   ItemText: {fileID: 1281287745042402725}
+  previousItem: {fileID: 0}
 --- !u!114 &7403447819624891605
 MonoBehaviour:
   m_ObjectHideFlags: 0
