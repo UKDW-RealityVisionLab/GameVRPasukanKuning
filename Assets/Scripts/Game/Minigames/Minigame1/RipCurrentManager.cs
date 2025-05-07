@@ -1,48 +1,51 @@
 using UnityEngine;
-
 public class RipCurrentController : MonoBehaviour
 {
-    public MeshRenderer[] waterSectors;      // 3 water planes
-    public Material normalMaterial;
-    public Material ripMaterial;
+    public WaterSector[] waterSectors;
 
-    private int[] activeRipSectors = new int[2]; // Max 2 rip current sectors at once
+    private int[] activeRipSectors = new int[2];
 
     void Start()
     {
         TriggerRipCurrentsAtStart();
     }
 
-    // Method to activate rip current in random sectors at start
     public void TriggerRipCurrentsAtStart()
     {
-        // Randomly select 1 or 2 sectors to activate
-        int ripCount = Random.Range(1, 3);  // Randomly choose 1 or 2 sectors
+        int ripCount = Random.Range(1, 3);
 
-        // Set all sectors to normal initially
-        for (int i = 0; i < waterSectors.Length; i++)
+        // Deactivate all first
+        foreach (var sector in waterSectors)
         {
-            waterSectors[i].material = normalMaterial;
+            sector.DeactivateRipCurrent();
         }
 
-        // Randomly activate the selected sectors
         for (int i = 0; i < ripCount; i++)
         {
             int sectorIndex;
             do
             {
-                sectorIndex = Random.Range(0, waterSectors.Length); // Random sector
-            } while (System.Array.Exists(activeRipSectors, element => element == sectorIndex)); // Ensure no duplicate
+                sectorIndex = Random.Range(0, waterSectors.Length);
+            } while (System.Array.Exists(activeRipSectors, element => element == sectorIndex));
 
             activeRipSectors[i] = sectorIndex;
-            waterSectors[sectorIndex].material = ripMaterial; // Activate rip current in the selected sector
+            waterSectors[sectorIndex].ActivateRipCurrent();
             Debug.Log($"[RipCurrentController] Rip current activated in sector {sectorIndex}");
         }
     }
 
-    // Check if a sector has a rip current
-    public bool IsRipCurrent(int sectorIndex)
+    public void DeactivateAllRipCurrents()
     {
-        return System.Array.Exists(activeRipSectors, element => element == sectorIndex);
+        foreach (var sector in waterSectors)
+        {
+            sector.DeactivateRipCurrent();
+        }
+
+        activeRipSectors = new int[2];
+    }
+
+    public bool IsRipCurrent(int index)
+    {
+        return index >= 0 && index < waterSectors.Length && waterSectors[index].IsActive();
     }
 }
