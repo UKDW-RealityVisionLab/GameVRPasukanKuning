@@ -24,10 +24,10 @@ public class MinigameManager : MonoBehaviour
         Debug.Log("NPC drowned. Total: " + drownedCount);
         UpdateDrownedText();
 
-        if (drownedCount >= 3)
+        if (drownedCount >= npcs.Length)
         {
             Debug.Log("All NPCs drowned!");
-            // TODO: Trigger fail state or show Game Over
+            GameStateManager.Instance.OnGameLost();
         }
     }
 
