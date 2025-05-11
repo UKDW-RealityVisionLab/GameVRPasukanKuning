@@ -15,7 +15,7 @@ MonoBehaviour:
   m_DefaultGroup: b7785c707f7a3c9488a48e4afdc748de
   m_currentHash:
     serializedVersion: 2
-    Hash: e0e208f49ed2bacc6fb74f3a892c6af5
+    Hash: 3e380fde0dbaff87ddc8e35a4d4596ea
   m_OptimizeCatalogSize: 0
   m_BuildRemoteCatalog: 1
   m_BundleLocalCatalog: 0
@@ -33,6 +33,7 @@ MonoBehaviour:
   m_ShaderBundleCustomNaming: 
   m_MonoScriptBundleNaming: 0
   m_CheckForContentUpdateRestrictionsOption: 0
+  m_BuildAndReleaseBinFileOption: 0
   m_MonoScriptBundleCustomNaming: 
   m_RemoteCatalogBuildPath:
     m_Id: 15d9f3e176b9b05429db11a26b5f4484
@@ -123,3 +124,9 @@ MonoBehaviour:
     m_NextInstanceId: 0
     m_RegisteredServiceTypeRefs: []
     m_PingTimeoutInMilliseconds: 5000
+  m_CcdManagedData:
+    EnvironmentId: 
+    EnvironmentName: 
+    BucketId: 
+    Badge: 
+    State: 0

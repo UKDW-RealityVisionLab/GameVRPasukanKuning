@@ -12,9 +12,9 @@ public class MenuController : MonoBehaviour
     public GameObject MainMenuPanel;
     public GameObject levelSelector;
 
-    [SerializeField] Slider downloadProgressSlider; // Slider
-    [SerializeField] GameObject downloadProgressPanel; // Parent panel
-    [SerializeField] TextMeshProUGUI downloadProgressText; // To display percentage
+    [SerializeField] public Slider downloadProgressSlider; // Slider
+    [SerializeField] public GameObject downloadProgressPanel; // Parent panel
+    [SerializeField] public TextMeshProUGUI downloadProgressText; // To display percentage
 
     private void Awake()
     {
@@ -56,23 +56,6 @@ public class MenuController : MonoBehaviour
 #endif
     }
 
-    //private void LoadSceneUsingAddressables(string sceneKey)
-    //{
-    //    Addressables.LoadSceneAsync(sceneKey, LoadSceneMode.Single).Completed += OnSceneLoadComplete;
-    //}
-
-    //private void OnSceneLoadComplete(AsyncOperationHandle<SceneInstance> handle)
-    //{
-    //    if (handle.Status == AsyncOperationStatus.Succeeded)
-    //    {
-    //        Debug.Log("Scene loaded successfully: " + handle.Result.Scene.name);
-    //    }
-    //    else
-    //    {
-    //        Debug.LogError("Failed to load scene using Addressables: " + handle.DebugName);
-    //    }
-    //}
-
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         if (scene.name == "MainMenu")
@@ -84,52 +67,151 @@ public class MenuController : MonoBehaviour
 
     private IEnumerator LoadSceneWithProgress(string sceneKey)
     {
-        // Show loading panel
-        downloadProgressPanel.SetActive(true);
-        downloadProgressSlider.value = 0f;
+        ShowDownloadUI();
 
-        // Show "Downloading..." message
-        if (downloadProgressText)
-        {
-            downloadProgressText.gameObject.SetActive(true);
-            downloadProgressText.text = "Downloading...";
-        }
-
-        // Start loading scene asynchronously
         AsyncOperationHandle<SceneInstance> handle = Addressables.LoadSceneAsync(sceneKey, LoadSceneMode.Single);
 
-        // Wait for progress
         while (!handle.IsDone)
         {
-            float progress = handle.PercentComplete;
-            downloadProgressSlider.value = progress;
-
-            // Show percentage during download
-            if (downloadProgressText)
-                downloadProgressText.text = $"Downloading... {Mathf.RoundToInt(progress * 100f)}%";
-
+            UpdateDownloadUI(handle.PercentComplete);
             yield return null;
         }
 
-        // Handle result
+        HandleSceneLoadResult(handle);
+
+    }
+
+
+    public void ShowDownloadUI()
+    {
+        if (downloadProgressPanel != null)
+        {
+            downloadProgressPanel.SetActive(true);
+        }
+        else
+        {
+            Debug.LogWarning("ShowDownloadUI: downloadProgressPanel is null.");
+        }
+
+        if (downloadProgressSlider != null)
+        {
+            downloadProgressSlider.value = 0f;
+        }
+        else
+        {
+            Debug.LogWarning("ShowDownloadUI: downloadProgressSlider is null.");
+        }
+
+        if (downloadProgressText != null)
+        {
+            // Here is the new logic:
+            if (downloadProgressPanel != null)
+            {
+                downloadProgressText.gameObject.SetActive(true);
+                downloadProgressText.text = downloadProgressSlider != null ? "Downloading..." : "";
+            }
+            else
+            {
+                downloadProgressText.gameObject.SetActive(false);
+            }
+        }
+        else
+        {
+            Debug.LogWarning("ShowDownloadUI: downloadProgressText is null.");
+        }
+    }
+
+
+    public void UpdateDownloadUI(float progress)
+    {
+        if (downloadProgressSlider != null && downloadProgressText != null)
+        {
+            downloadProgressSlider.value = progress;
+            downloadProgressText.text = $"Downloading... {Mathf.RoundToInt(progress * 100f)}%";
+        }
+        if (downloadProgressText == null)
+        {
+            Debug.LogWarning("UpdateDownloadUI: downloadProgressText is null.");
+            if (downloadProgressSlider)
+            {
+                downloadProgressSlider.value = 0;
+            }
+        }
+        if (downloadProgressSlider == null)
+        {
+            Debug.LogWarning("UpdateDownloadUI: downloadProgressSlider is null.");
+            if (downloadProgressText)
+            {
+                downloadProgressText.text = "";
+            }
+        }
+        if (downloadProgressText == null && downloadProgressSlider == null)
+        {
+            Debug.LogWarning("UpdateDownloadUI: downloadProgressSlider is null.");
+            Debug.LogWarning("UpdateDownloadUI: downloadProgressText is null.");
+        }
+    }
+
+    public void ShowDownloadError()
+    {
+        if (downloadProgressText != null && downloadProgressSlider != null)
+        {
+            downloadProgressText.gameObject.SetActive(true);
+            downloadProgressText.text = "Download Error!";
+            downloadProgressSlider.value = 0f;
+        }
+        if (downloadProgressSlider == null)
+        {
+            Debug.LogWarning("ShowDownloadError: downloadProgressSlider is null.");
+            if (downloadProgressText != null)
+            {
+                downloadProgressText.gameObject.SetActive(false);
+            }
+        }
+
+        if (downloadProgressText == null)
+        {
+            Debug.LogWarning("ShowDownloadError: downloadProgressText is null.");
+            if (downloadProgressSlider != null)
+            {
+                downloadProgressSlider.value = 0f;
+            }
+        }
+       
+        if (downloadProgressSlider == null && downloadProgressText == null)
+        {
+            Debug.LogWarning("ShowDownloadError: downloadProgressSlider is null.");
+            Debug.LogWarning("ShowDownloadError: downloadProgressText is null.");
+        }
+    }
+
+    public void HandleSceneLoadResult(AsyncOperationHandle<SceneInstance> handle)
+    {
         if (handle.Status == AsyncOperationStatus.Succeeded)
         {
             Debug.Log("Scene loaded successfully: " + handle.Result.Scene.name);
+            if (downloadProgressText != null)
+            {
+                downloadProgressText.text = ""; // Explicitly set to empty if it's a success.
+            }
+            if (downloadProgressSlider != null)
+            {
+                downloadProgressSlider.value = 1.0f;
+            }
+
         }
         else
         {
             Debug.LogError("Failed to load scene using Addressables: " + handle.DebugName);
-
-            // Show error message
-            if (downloadProgressText)
-            {
-                downloadProgressText.gameObject.SetActive(true);
-                downloadProgressText.text = "Download Error!";
-            }
-
-            // Optional: hide slider
-            downloadProgressSlider.value = 0f;
+            ShowDownloadError();
         }
+    }
+
+
+
+    public IEnumerator TestableLoadScene(string sceneKey)
+    {
+        return LoadSceneWithProgress(sceneKey);
     }
 
 
