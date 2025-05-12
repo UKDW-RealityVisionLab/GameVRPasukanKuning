@@ -1,4 +1,6 @@
+using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class MaterialDrop : MonoBehaviour
@@ -15,6 +17,7 @@ public class MaterialDrop : MonoBehaviour
     private TrashCollection trashCollection; // Reference to the TrashCollection component
 
     public Transform dropTarget; // Target where items will be dropped
+    public TextMeshProUGUI FeedbackTransmute; // Reference to the UI TextMeshPro component for Feedback
 
     private void Start()
     {
@@ -38,6 +41,8 @@ public class MaterialDrop : MonoBehaviour
     // Method to drop items
     public void DropItems()
     {
+        FeedbackTransmute.text = "Proses Daur Ulang Berhasil";
+        StartCoroutine(ClearFeedbackAfterDelay(2f));
         if (dropTarget == null || trashCollection == null)
         {
             Debug.LogWarning("Drop target or TrashCollection is missing.");
@@ -67,5 +72,11 @@ public class MaterialDrop : MonoBehaviour
 
         // Clear collected items after dropping
         trashCollection.ClearCollectedItems();
+    }
+
+    private IEnumerator ClearFeedbackAfterDelay(float seconds)
+    {
+        yield return new WaitForSeconds(seconds);
+        FeedbackTransmute.text = "";
     }
 }
