@@ -8,6 +8,7 @@ public class PlayerInteract : MonoBehaviour
     public InputActionProperty rightNpc;
     public Transform playerBody;
     private float interactRange = 2f;
+
     // Update is called once per frame
     void Update()
     {

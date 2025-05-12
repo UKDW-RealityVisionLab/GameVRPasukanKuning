@@ -10,26 +10,26 @@ public class PlayerDetection : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
-        {
-            PlayerDetection.playerInZone = true;
+        //if (other.CompareTag("Player"))
+        //{
+        //    PlayerDetection.playerInZone = true;
 
-            // Find the NPC and set flag
-            var npc = FindObjectOfType<NPCSellingBehaviour>();
-            if (npc != null)
-            {
-                npc.SetGoToSellNext();
-            }
-        }
+        //    // Find the NPC and set flag
+        //    var npc = FindObjectOfType<NPCSellingBehaviour>();
+        //    if (npc != null)
+        //    {
+        //        npc.GoToSellPoint();
+        //    }
+        //}
     }
 
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.CompareTag("Player"))
-        {
-            playerInZone = false;
-            }
+        //if (other.CompareTag("Player"))
+        //{
+        //    playerInZone = false;
+        //    }
         }
 }
 

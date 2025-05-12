@@ -9,6 +9,7 @@ public class ChatContext : MonoBehaviour
     [SerializeField] private TextMeshProUGUI textHeader;
     [SerializeField] private TextMeshProUGUI textIsi;
     [SerializeField] private string headerString;
+    [SerializeField] private NPCSellingBehaviour sellContext;
 
     // Update is called once per frame
     void Update()
