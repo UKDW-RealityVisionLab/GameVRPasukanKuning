@@ -3132,6 +3132,98 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5990275424999927448, guid: fcd0868e7bace8046b1b07525fa5a5d0, type: 3}
   m_PrefabInstance: {fileID: 268436122}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &272458168
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 272458169}
+  - component: {fileID: 272458171}
+  - component: {fileID: 272458170}
+  m_Layer: 2
+  m_Name: Minimap Camera
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &272458169
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 272458168}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: 31.6, z: 0.0000026095936}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1075690789}
+  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+--- !u!81 &272458170
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 272458168}
+  m_Enabled: 1
+--- !u!20 &272458171
+Camera:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 272458168}
+  m_Enabled: 1
+  serializedVersion: 2
+  m_ClearFlags: 1
+  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_projectionMatrixMode: 1
+  m_GateFitMode: 2
+  m_FOVAxisMode: 0
+  m_Iso: 200
+  m_ShutterSpeed: 0.005
+  m_Aperture: 16
+  m_FocusDistance: 10
+  m_FocalLength: 50
+  m_BladeCount: 5
+  m_Curvature: {x: 2, y: 11}
+  m_BarrelClipping: 0.25
+  m_Anamorphism: 0
+  m_SensorSize: {x: 36, y: 24}
+  m_LensShift: {x: 0, y: 0}
+  m_NormalizedViewPortRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
+  near clip plane: 0.3
+  far clip plane: 1000
+  field of view: 60
+  orthographic: 1
+  orthographic size: 5
+  m_Depth: 0
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RenderingPath: -1
+  m_TargetTexture: {fileID: 8400000, guid: 8b2f782ff409fcd44af0770fbfd01a0a, type: 2}
+  m_TargetDisplay: 0
+  m_TargetEye: 3
+  m_HDR: 1
+  m_AllowMSAA: 1
+  m_AllowDynamicResolution: 0
+  m_ForceIntoRT: 0
+  m_OcclusionCulling: 1
+  m_StereoConvergence: 10
+  m_StereoSeparation: 0.022
 --- !u!1001 &285116298
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14274,6 +14366,9 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 3837034977950959944, guid: 943bd3fe5aacb2b478bf1b6014873ba5, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 272458169}
     - targetCorrespondingSourceObject: {fileID: 3387258363152710809, guid: 943bd3fe5aacb2b478bf1b6014873ba5, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1438007496}
@@ -14312,6 +14407,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a6324ab14faa464e9feff0bf22fa526, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!4 &1075690789 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3837034977950959944, guid: 943bd3fe5aacb2b478bf1b6014873ba5, type: 3}
+  m_PrefabInstance: {fileID: 1075690785}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1077156007
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -19259,6 +19359,7 @@ RectTransform:
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 1606068691}
+  - {fileID: 1479558246}
   m_Father: {fileID: 1075690786}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -20035,6 +20136,78 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4489924159051157628, guid: 880470ce6bca47a4f924a55476db0ad6, type: 3}
   m_PrefabInstance: {fileID: 1473976931}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1479558245
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1479558246}
+  - component: {fileID: 1479558248}
+  - component: {fileID: 1479558247}
+  m_Layer: 5
+  m_Name: RawImage
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1479558246
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1479558245}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_ConstrainProportionsScale: 1
+  m_Children: []
+  m_Father: {fileID: 1438007496}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 1, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -600, y: -550}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1479558247
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1479558245}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1344c3c82d62a2a41a3576d8abb8e3ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Texture: {fileID: 8400000, guid: 8b2f782ff409fcd44af0770fbfd01a0a, type: 2}
+  m_UVRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
+--- !u!222 &1479558248
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1479558245}
+  m_CullTransparentMesh: 1
 --- !u!1001 &1492431775
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -30640,36 +30813,14 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Selamat datang di Tempat Pengolahan Barang, tempat di mana sampah yang
-    kamu temukan di truk sampah akan berubah menjadi barang hasil buatanmu sendiri!
-    Di sini, kamu bisa mengubah sampah yang awalnya tidak berguna menjadi barang
-    yang dapat kamu pakai atau jual untuk mendapatkan Koin.
-
-
-    Apa yang Bisa Kamu
-    Lakukan di Sini?
-
-
-    Proses Pengolahan Sampah: Ubah barang yang kamu temukan
-    di truk sampah menjadi barang bernilai seperti botol daur ulang, perabotan baru,
-    atau produk unik lainnya.
-
-
-    Cara Menggunakan Tempat Pengolahan Barang:
-
-
-    Ambil
-    barang dari truk sampah yang telah kamu kumpulkan.
-
-    Tempatkan sampah ke dalam
-    mesin pengolahan.
-
-    Tunggu hingga barang tersebut diubah menjadi produk baru
-    hasil kreasimu.
-
-    Buat Sesuatu yang Berguna! Jangan biarkan sampahmu hanya
-    terbuang begitu saja. Jadikan sampah sebagai barang buatanmu sendiri dan raih
-    Koin sebanyak-banyaknya!'
+  m_text: "Selamat datang di Tempat Pengolahan Barang!\nDi sini, sampah dari tempat
+    sampah dapat kamu ubah menjadi barang berguna yang bisa dipakai atau dijual untuk
+    mendapatkan Koin.\n\nApa yang Bisa Kamu Lakukan?\nUbah sampah menjadi produk
+    bernilai seperti botol daur ulang, perabotan, atau barang unik lainnya.\n\nCara
+    Menggunakannya:\n\n1.Ambil sampah dari tempat sampah.\n\n2.Masukkan ke mesin
+    pengolahan.\n\n3.Tunggu hingga berubah menjadi barang baru.\n\nBuat Sesuatu yang
+    Berguna!\nJangan biarkan sampah terbuang sia-sia\u2014olah dan ubah menjadi barang
+    buatamu untuk meraih Koin lebih banyak!"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f675742eaf9c20a4f909d78ee7a14fed, type: 2}
   m_sharedMaterial: {fileID: 4687939059374929122, guid: f675742eaf9c20a4f909d78ee7a14fed, type: 2}
@@ -35817,43 +35968,42 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Selamat datang di Vending Mesin Penjual Barang! Di sini, kamu bisa mengubah
-    barang-barang yang telah kamu daur ulang menjadi Koin yang dapat digunakan untuk
-    membeli berbagai upgrade dan item menarik. Namun, tidak semua barang bisa menjadi
-    Koin! Hanya barang-barang tertentu yang telah diproses dengan baik yang bisa
-    kamu jual.
+  m_text: 'Selamat datang di Vending Mesin Penjual Barang!
+
+    Tukar barang daur
+    ulangmu menjadi Koin untuk membeli upgrade dan item menarik. Hanya barang yang
+    telah diproses dengan baik yang bisa dijual!
 
 
     Barang yang Bisa Dijual:
 
 
-    Kompos yang kamu buat dari sampah
-    organik.
+    1.Kompos
+    dari sampah organik
 
 
-    Produk jadi yang kamu hasilkan melalui proses daur ulang, seperti
-    botol, kaleng, dan barang-barang berguna lainnya.
+    2.Produk jadi hasil daur ulang (botol, kaleng, dll)
 
 
-    Cara Menjual Barang:
+    Cara
+    Menjual:
 
 
-    Pastikan
-    barang yang kamu miliki sudah diolah dan siap untuk dijual.
-
-    Taruh barang
-    tersebut di Vending Mesin.
-
-    Mesin akan mengubah barang menjadi Koin yang
-    bisa kamu kumpulkan.
-
-    Ingat! Semakin banyak barang yang kamu daur ulang dan
-    jual, semakin banyak Koin yang akan kamu dapatkan untuk mengembangkan kemampuan
-    dan mempercepat perjalananmu menuju kemenangan!
+    1.Pastikan barang sudah siap jual
 
 
-    Ayo, jual barangmu dan
-    jadilah kaya dengan Koin dari hasil daur ulang!'
+    2.Masukkan ke dalam mesin
+
+
+    3.Dapatkan
+    Koin!
+
+
+    Semakin banyak kamu daur ulang, semakin kaya dengan Koin! Ayo jual
+    dan kembangkan kemampuanmu!
+
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f675742eaf9c20a4f909d78ee7a14fed, type: 2}
   m_sharedMaterial: {fileID: 4687939059374929122, guid: f675742eaf9c20a4f909d78ee7a14fed, type: 2}
