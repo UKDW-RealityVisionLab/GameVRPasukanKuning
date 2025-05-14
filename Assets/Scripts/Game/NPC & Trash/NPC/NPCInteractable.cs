@@ -12,6 +12,7 @@ public class NPCInteractable : MonoBehaviour
     [SerializeField] private Animator animator;
     private NPCHeadLookAt npcLookAt;
     private AIBehaviour aiBehaviour;
+    private ChatContext chatCon;
 
     private Transform interactorTransform;
     public float rotateSpeed = 5f;
@@ -21,6 +22,7 @@ public class NPCInteractable : MonoBehaviour
     {
         npcLookAt = GetComponent<NPCHeadLookAt>();
         aiBehaviour = GetComponent<AIBehaviour>();
+        chatCon = GetComponent<ChatContext>();
     }
 
     public void Interact(Transform InteractorTransform)

@@ -5,7 +5,8 @@ using UnityEngine.AI;
 
 public class AIBehaviour : MonoBehaviour
 {
-    [SerializeField] string roleAi;
+    public string roleAi;
+    public NPCType Type;
     public Animator animator;
     public NavMeshAgent agent;
     private float timer;
@@ -60,7 +61,7 @@ public class AIBehaviour : MonoBehaviour
         if (isInteracting == true) return;
         availableActions.Clear();
 
-        if (roleAi == "Seller")
+        if (Type == NPCType.GuidanceSeller)
         {
             availableActions.Add(() =>
             {
@@ -86,7 +87,7 @@ public class AIBehaviour : MonoBehaviour
                 idleState.SetCondition("IsIdleNother");
             });
         }
-        if (roleAi == "Crafter")
+        if (Type == NPCType.GuidanceCrafter)
         {
             availableActions.Add(() =>
             {
@@ -104,7 +105,7 @@ public class AIBehaviour : MonoBehaviour
                 wanderingState.SetCondition("IsWandering");
             });
         }
-        if (roleAi == "infoHelper")
+        if (Type == NPCType.GuidanceInfoHelper)
         {
             availableActions.Add(() =>
             {
