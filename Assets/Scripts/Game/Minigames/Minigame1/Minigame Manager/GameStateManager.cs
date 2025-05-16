@@ -1,19 +1,23 @@
 using UnityEngine;
+using System.Collections;
 public class GameStateManager : MonoBehaviour
 {
     public static GameStateManager Instance;
 
     void Awake() => Instance = this;
 
-    public void OnGameLost()
-    {
-        // SceneManager.LoadScene("GameOverScene");
-    }
-    
     // Called when no NPCs drown (timeout)
     public void OnGameWon()
     {
-        Debug.Log("You Win: No NPCs drowned!");
-        // SceneManager.LoadScene("YouWinScene");
+        StartCoroutine(DelayedWin());
+    }
+
+    private IEnumerator DelayedWin()
+    {
+        Debug.Log("✅ Win detected. Waiting 30 seconds before confirming...");
+        yield return new WaitForSeconds(30f);
+
+        Debug.Log("🎉 You Win: No NPCs drowned!");
+        // SceneManager.LoadScene("Level3");
     }
 }
