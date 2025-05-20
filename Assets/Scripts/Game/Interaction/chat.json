@@ -47,6 +47,20 @@
         "Bawa pulang alat ini, kamu takkan menyesal.",
         "Kualitas terjamin, ramah lingkungan pula!",
         "Gunakan barang ini dan lihat perubahannya."
+      ],
+      "randomChat": [
+        "Hmmm... barang ini harusnya dipajang di rak depan.",
+        "Sudah waktunya buang sampah ke tempat hijau.",
+        "Aku butuh lebih banyak kantong kompos untuk stok minggu ini.",
+        "Kalau alat pemadat ini rusak, harus pesan baru lagi.",
+        "Setiap hari aku bersihkan area jualanku biar nyaman.",
+        "Kadang orang lupa, sampah organik itu bisa jadi pupuk.",
+        "Aku senang kalau lihat anak-anak mulai belajar memilah sampah.",
+        "Harus rajin menata ulang rak supaya barang terlihat menarik.",
+        "Baru saja ada yang beli alat cuci sampah otomatis. Laris juga!",
+        "Semoga hari ini banyak yang sadar pentingnya daur ulang.",
+        "Hmm... harus cek stok tong sampah pintar lagi.",
+        "Waktunya naruh papan promo baru, biar makin menarik."
       ]
     },
     "Crafter": {
@@ -91,6 +105,20 @@
         "Prosesnya butuh waktu, tapi hasilnya sepadan.",
         "Tunggu di sini, aku akan perlihatkan hasilnya nanti.",
         "Keren! Ini jadi koleksi baruku."
+      ],
+      "randomChat": [
+        "Botol bekas ini masih bisa jadi tempat pensil.",
+        "Wah, lem kayu-ku hampir habis. Harus beli lagi.",
+        "Aku suka bikin pot bunga dari kaleng, bentuknya unik.",
+        "Rak buku dari kardus bekas ini cukup kuat, loh!",
+        "Harus hati-hati saat motong plastik tebal.",
+        "Hari ini aku coba desain baru dari tutup botol.",
+        "Bikin sesuatu dari barang tak terpakai itu memuaskan.",
+        "Minggu depan aku mau pameran kerajinan daur ulang.",
+        "Barang bekas tak selalu berarti tak bernilai.",
+        "Kalau ada ban bekas lagi, aku bisa bikin ayunan.",
+        "Aduh, benang daur ulangku kusut lagi.",
+        "Lemari dari peti bekas? Bisa juga tuh!"
       ]
     },
     "infoHelper": {
@@ -124,7 +152,31 @@
       ],
       "answers": [
         "Tempat sampahnya berada di sini!",
-        ""
+        "Kalau kamu ingin menjual barang hasil daur ulang, pergilah ke penjual di sebelah timur taman.",
+        "Untuk membuat ulang barang dari sampah, kamu bisa temui Crafter di bengkel dekat sungai.",
+        "Tujuan dari permainan ini adalah mengumpulkan sampah, memisahkannya, lalu mengolahnya menjadi barang berguna.",
+        "Setelah kamu mengubah sampah di tempat transmutasi, berikan ke Crafter untuk dibuat jadi produk daur ulang.",
+        "Kamu bisa menjual barang hasil daur ulang ke Seller dan mendapatkan koin.",
+        "Semakin banyak kamu daur ulang, semakin tinggi nilaimu sebagai pahlawan lingkungan!",
+        "Ingat: kumpulkan sampah, olah di tong transmutasi, serahkan ke Crafter, dan jual ke Seller.",
+        "Selalu pisahkan sampah sebelum diolah, agar hasil daur ulangnya maksimal.",
+        "Tugasmu bukan hanya membersihkan lingkungan, tapi juga mengedukasi warga soal pentingnya daur ulang.",
+        "Setiap langkahmu membantu desa jadi lebih bersih dan hijau.",
+        "Gunakan peta jika kamu kesulitan mencari lokasi Crafter atau Seller."
+      ],
+        "randomChat": [
+          "Baru tadi pagi aku lihat ada yang buang sampah sembarangan. Sayang banget.",
+          "Aku baru tempel pamflet baru soal jadwal daur ulang!",
+          "Kadang tong sampah penuh sebelum truk datang.",
+          "Warga RT 04 minggu ini paling rajin pilah sampah.",
+          "Aku suka bantu anak-anak paham soal jenis sampah.",
+          "Bank sampah minggu lalu penuh banget, luar biasa!",
+          "Sore ini ada penyuluhan soal limbah B3 di balai desa.",
+          "Aku ingin buat peta interaktif lokasi tong sampah.",
+          "Kampanye anti plastik sekali pakai masih terus berjalan.",
+          "Kadang warga bingung antara sampah anorganik dan B3.",
+          "Aku selalu catat siapa saja yang aktif ikut bersih-bersih.",
+          "Tong warna biru itu masih sering disalahgunakan."
       ]
     }
   }

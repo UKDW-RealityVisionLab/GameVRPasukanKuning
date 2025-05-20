@@ -28,7 +28,18 @@ public abstract class MoveToAndAnimateState : State
         animationStarted = false;
 
         ai.ResetIdleBools();
-        ai.animator.SetBool("IsWalking", true);
+        if (ai.isChasing == true)
+        {
+            ai.animator.SetTrigger("IsExit");
+            ai.stateMachine.ChangeState(ai.wanderingState);
+            ai.wanderingState.ChangeSubState(new ChasingState(ai.stateMachine, ai.wanderingState, ai, ai.targetSampah.position));
+            ai.wanderingState.SetCondition("IsWandering");
+        }
+        else
+        {
+            ai.animator.SetBool("IsWalking", true);
+        }
+
         agent.SetDestination(destination);
     }
 

@@ -6,15 +6,16 @@ using LitJson;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using System.Diagnostics.Tracing;
 
 public class ChatContext : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI textHeader;
     [SerializeField] private TextMeshProUGUI textIsi;
     [SerializeField] private string headerString;
-    [SerializeField] private AIBehaviour aiContext;
+    private AIBehaviour ai;
     [SerializeField] private TextAsset textContext;
-    public NPCType Type;
+    private NPCInteractable aiContext;
 
     private JsonData dialogData;
     private List<string> currentDialogLines = new List<string>();
@@ -52,6 +53,12 @@ public class ChatContext : MonoBehaviour
     {
         textHeader.text = headerString;
     }
+
+    public void NextButton()
+    {
+        textIsi.text = "";
+    }
+
     //public void SetContextExplanation()
     //{
     //    currentDialogLines = GetDialogList("explanation");
