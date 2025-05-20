@@ -42,6 +42,11 @@ public class MenuController : MonoBehaviour
         StartCoroutine(LoadSceneWithProgress("Assets/BundledAsset/level2/Level 2.unity"));
     }
 
+    public void Level3()
+    {
+        StartCoroutine(LoadSceneWithProgress("Assets/BundledAsset/level3/Level 3.unity"));
+    }
+
     public void Back()
     {
         MainMenuPanel.SetActive(true);
