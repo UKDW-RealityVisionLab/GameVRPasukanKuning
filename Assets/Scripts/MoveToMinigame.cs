@@ -2,10 +2,12 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.ResourceManagement.AsyncOperations;
+using UnityEngine.ResourceManagement.ResourceProviders;
 
 public class MoveToMinigame : MonoBehaviour
 {
-    [SerializeField] private string addressablePath = "Assets/BundledAsset/minigame/Minigame.unity";
+    // [SerializeField] private string addressablePath = "Assets/BundledAsset/minigame/Minigame.unity";
+    public AssetReference addressablePath;
 
     private void OnTriggerEnter(Collider other)
     {

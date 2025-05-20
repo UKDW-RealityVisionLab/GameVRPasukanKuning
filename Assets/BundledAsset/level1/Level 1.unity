@@ -38,7 +38,6 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18387005, g: 0.22902569, b: 0.30316973, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2117,6 +2116,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: tugu_pagar_boolean (19)
       objectReference: {fileID: 0}
+    - target: {fileID: 4414777669569061408, guid: 7decf26c317f94047bac43ef4b008d3b, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 8160bed82bc34ac4a990ee031741b979, type: 2}
     - target: {fileID: 6808954857708915429, guid: 7decf26c317f94047bac43ef4b008d3b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 11.77393
@@ -2157,6 +2160,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7778740359945788398, guid: 7decf26c317f94047bac43ef4b008d3b, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 8160bed82bc34ac4a990ee031741b979, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2690,6 +2697,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: tugu_pagar_boolean (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 4414777669569061408, guid: 7decf26c317f94047bac43ef4b008d3b, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 8160bed82bc34ac4a990ee031741b979, type: 2}
     - target: {fileID: 6808954857708915429, guid: 7decf26c317f94047bac43ef4b008d3b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 11.77393
@@ -2730,6 +2741,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7778740359945788398, guid: 7decf26c317f94047bac43ef4b008d3b, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 8160bed82bc34ac4a990ee031741b979, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2908,6 +2923,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: tugu_pagar_boolean (17)
       objectReference: {fileID: 0}
+    - target: {fileID: 4414777669569061408, guid: 7decf26c317f94047bac43ef4b008d3b, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 8160bed82bc34ac4a990ee031741b979, type: 2}
     - target: {fileID: 6808954857708915429, guid: 7decf26c317f94047bac43ef4b008d3b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 11.77393
@@ -2948,6 +2967,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7778740359945788398, guid: 7decf26c317f94047bac43ef4b008d3b, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 8160bed82bc34ac4a990ee031741b979, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4505,6 +4528,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: tugu_pagar_boolean (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 4414777669569061408, guid: 7decf26c317f94047bac43ef4b008d3b, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 8160bed82bc34ac4a990ee031741b979, type: 2}
     - target: {fileID: 6808954857708915429, guid: 7decf26c317f94047bac43ef4b008d3b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 11.77393
@@ -4545,6 +4572,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7778740359945788398, guid: 7decf26c317f94047bac43ef4b008d3b, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 8160bed82bc34ac4a990ee031741b979, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -9506,6 +9537,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: tugu_pagar_boolean (14)
       objectReference: {fileID: 0}
+    - target: {fileID: 4414777669569061408, guid: 7decf26c317f94047bac43ef4b008d3b, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 8160bed82bc34ac4a990ee031741b979, type: 2}
     - target: {fileID: 6808954857708915429, guid: 7decf26c317f94047bac43ef4b008d3b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 11.77393
@@ -9546,6 +9581,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7778740359945788398, guid: 7decf26c317f94047bac43ef4b008d3b, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 8160bed82bc34ac4a990ee031741b979, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -9940,6 +9979,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: tugu_pagar_boolean (13)
       objectReference: {fileID: 0}
+    - target: {fileID: 4414777669569061408, guid: 7decf26c317f94047bac43ef4b008d3b, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 8160bed82bc34ac4a990ee031741b979, type: 2}
     - target: {fileID: 6808954857708915429, guid: 7decf26c317f94047bac43ef4b008d3b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 11.77393
@@ -9980,6 +10023,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7778740359945788398, guid: 7decf26c317f94047bac43ef4b008d3b, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 8160bed82bc34ac4a990ee031741b979, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -11161,6 +11208,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: tugu_pagar_boolean (12)
       objectReference: {fileID: 0}
+    - target: {fileID: 4414777669569061408, guid: 7decf26c317f94047bac43ef4b008d3b, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 8160bed82bc34ac4a990ee031741b979, type: 2}
     - target: {fileID: 6808954857708915429, guid: 7decf26c317f94047bac43ef4b008d3b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 11.77393
@@ -11201,6 +11252,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7778740359945788398, guid: 7decf26c317f94047bac43ef4b008d3b, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 8160bed82bc34ac4a990ee031741b979, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -11509,6 +11564,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: tugu_pagar_boolean (23)
       objectReference: {fileID: 0}
+    - target: {fileID: 4414777669569061408, guid: 7decf26c317f94047bac43ef4b008d3b, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 8160bed82bc34ac4a990ee031741b979, type: 2}
     - target: {fileID: 6808954857708915429, guid: 7decf26c317f94047bac43ef4b008d3b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 11.77393
@@ -11549,6 +11608,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7778740359945788398, guid: 7decf26c317f94047bac43ef4b008d3b, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 8160bed82bc34ac4a990ee031741b979, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -11904,6 +11967,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: tugu_pagar_boolean (18)
       objectReference: {fileID: 0}
+    - target: {fileID: 4414777669569061408, guid: 7decf26c317f94047bac43ef4b008d3b, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 8160bed82bc34ac4a990ee031741b979, type: 2}
     - target: {fileID: 6808954857708915429, guid: 7decf26c317f94047bac43ef4b008d3b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 11.77393
@@ -11944,6 +12011,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7778740359945788398, guid: 7decf26c317f94047bac43ef4b008d3b, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 8160bed82bc34ac4a990ee031741b979, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -12276,6 +12347,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: tugu_pagar_boolean (22)
       objectReference: {fileID: 0}
+    - target: {fileID: 4414777669569061408, guid: 7decf26c317f94047bac43ef4b008d3b, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 8160bed82bc34ac4a990ee031741b979, type: 2}
     - target: {fileID: 6808954857708915429, guid: 7decf26c317f94047bac43ef4b008d3b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 11.77393
@@ -12316,6 +12391,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7778740359945788398, guid: 7decf26c317f94047bac43ef4b008d3b, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 8160bed82bc34ac4a990ee031741b979, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -13999,6 +14078,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: tugu_pagar_boolean (21)
       objectReference: {fileID: 0}
+    - target: {fileID: 4414777669569061408, guid: 7decf26c317f94047bac43ef4b008d3b, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 8160bed82bc34ac4a990ee031741b979, type: 2}
     - target: {fileID: 6808954857708915429, guid: 7decf26c317f94047bac43ef4b008d3b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 11.77393
@@ -14039,6 +14122,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7778740359945788398, guid: 7decf26c317f94047bac43ef4b008d3b, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 8160bed82bc34ac4a990ee031741b979, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -14061,6 +14148,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: tugu_pagar_boolean (15)
       objectReference: {fileID: 0}
+    - target: {fileID: 4414777669569061408, guid: 7decf26c317f94047bac43ef4b008d3b, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 8160bed82bc34ac4a990ee031741b979, type: 2}
     - target: {fileID: 6808954857708915429, guid: 7decf26c317f94047bac43ef4b008d3b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 11.77393
@@ -14101,6 +14192,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7778740359945788398, guid: 7decf26c317f94047bac43ef4b008d3b, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 8160bed82bc34ac4a990ee031741b979, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -16992,6 +17087,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: tugu_pagar_boolean (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 4414777669569061408, guid: 7decf26c317f94047bac43ef4b008d3b, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 8160bed82bc34ac4a990ee031741b979, type: 2}
     - target: {fileID: 6808954857708915429, guid: 7decf26c317f94047bac43ef4b008d3b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 11.77393
@@ -17032,6 +17131,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7778740359945788398, guid: 7decf26c317f94047bac43ef4b008d3b, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 8160bed82bc34ac4a990ee031741b979, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -18427,6 +18530,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: tugu_pagar_boolean (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 4414777669569061408, guid: 7decf26c317f94047bac43ef4b008d3b, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 8160bed82bc34ac4a990ee031741b979, type: 2}
     - target: {fileID: 6808954857708915429, guid: 7decf26c317f94047bac43ef4b008d3b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 11.77393
@@ -18467,6 +18574,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7778740359945788398, guid: 7decf26c317f94047bac43ef4b008d3b, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 8160bed82bc34ac4a990ee031741b979, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -18737,6 +18848,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: tugu_pagar_boolean (10)
       objectReference: {fileID: 0}
+    - target: {fileID: 4414777669569061408, guid: 7decf26c317f94047bac43ef4b008d3b, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 8160bed82bc34ac4a990ee031741b979, type: 2}
     - target: {fileID: 6808954857708915429, guid: 7decf26c317f94047bac43ef4b008d3b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 11.77393
@@ -18777,6 +18892,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7778740359945788398, guid: 7decf26c317f94047bac43ef4b008d3b, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 8160bed82bc34ac4a990ee031741b979, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -20216,6 +20335,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: tugu_pagar_boolean (20)
       objectReference: {fileID: 0}
+    - target: {fileID: 4414777669569061408, guid: 7decf26c317f94047bac43ef4b008d3b, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 8160bed82bc34ac4a990ee031741b979, type: 2}
     - target: {fileID: 6808954857708915429, guid: 7decf26c317f94047bac43ef4b008d3b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 11.77393
@@ -20256,6 +20379,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7778740359945788398, guid: 7decf26c317f94047bac43ef4b008d3b, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 8160bed82bc34ac4a990ee031741b979, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -21802,6 +21929,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: tugu_pagar_boolean (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 4414777669569061408, guid: 7decf26c317f94047bac43ef4b008d3b, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 8160bed82bc34ac4a990ee031741b979, type: 2}
     - target: {fileID: 6808954857708915429, guid: 7decf26c317f94047bac43ef4b008d3b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 11.77393
@@ -21842,6 +21973,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7778740359945788398, guid: 7decf26c317f94047bac43ef4b008d3b, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 8160bed82bc34ac4a990ee031741b979, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -23056,7 +23191,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -271.19995, y: 244.8}
+  m_AnchoredPosition: {x: -271.19992, y: 244.8}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1606068692
@@ -23367,6 +23502,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: tugu_pagar_boolean (16)
       objectReference: {fileID: 0}
+    - target: {fileID: 4414777669569061408, guid: 7decf26c317f94047bac43ef4b008d3b, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 8160bed82bc34ac4a990ee031741b979, type: 2}
     - target: {fileID: 6808954857708915429, guid: 7decf26c317f94047bac43ef4b008d3b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 11.77393
@@ -23407,6 +23546,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7778740359945788398, guid: 7decf26c317f94047bac43ef4b008d3b, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 8160bed82bc34ac4a990ee031741b979, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -25160,6 +25303,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: tugu_pagar_boolean (11)
       objectReference: {fileID: 0}
+    - target: {fileID: 4414777669569061408, guid: 7decf26c317f94047bac43ef4b008d3b, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 8160bed82bc34ac4a990ee031741b979, type: 2}
     - target: {fileID: 6808954857708915429, guid: 7decf26c317f94047bac43ef4b008d3b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 11.77393
@@ -25200,6 +25347,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7778740359945788398, guid: 7decf26c317f94047bac43ef4b008d3b, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 8160bed82bc34ac4a990ee031741b979, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -25284,6 +25435,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: tugu_pagar_boolean (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 4414777669569061408, guid: 7decf26c317f94047bac43ef4b008d3b, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 8160bed82bc34ac4a990ee031741b979, type: 2}
     - target: {fileID: 6808954857708915429, guid: 7decf26c317f94047bac43ef4b008d3b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 11.77393
@@ -25324,6 +25479,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7778740359945788398, guid: 7decf26c317f94047bac43ef4b008d3b, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 8160bed82bc34ac4a990ee031741b979, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -25997,6 +26156,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: tugu_pagar_boolean (9)
       objectReference: {fileID: 0}
+    - target: {fileID: 4414777669569061408, guid: 7decf26c317f94047bac43ef4b008d3b, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 8160bed82bc34ac4a990ee031741b979, type: 2}
     - target: {fileID: 6808954857708915429, guid: 7decf26c317f94047bac43ef4b008d3b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 11.77393
@@ -26037,6 +26200,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7778740359945788398, guid: 7decf26c317f94047bac43ef4b008d3b, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 8160bed82bc34ac4a990ee031741b979, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -26662,6 +26829,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: tugu_pagar_boolean (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 4414777669569061408, guid: 7decf26c317f94047bac43ef4b008d3b, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 8160bed82bc34ac4a990ee031741b979, type: 2}
     - target: {fileID: 6808954857708915429, guid: 7decf26c317f94047bac43ef4b008d3b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 11.77393
@@ -26702,6 +26873,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7778740359945788398, guid: 7decf26c317f94047bac43ef4b008d3b, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 8160bed82bc34ac4a990ee031741b979, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -29600,6 +29775,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: tugu_pagar_boolean (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 4414777669569061408, guid: 7decf26c317f94047bac43ef4b008d3b, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 8160bed82bc34ac4a990ee031741b979, type: 2}
     - target: {fileID: 6808954857708915429, guid: 7decf26c317f94047bac43ef4b008d3b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 11.77393
@@ -29640,6 +29819,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7778740359945788398, guid: 7decf26c317f94047bac43ef4b008d3b, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 8160bed82bc34ac4a990ee031741b979, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -36705,6 +36888,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: tugu_pagar_boolean
       objectReference: {fileID: 0}
+    - target: {fileID: 4414777669569061408, guid: 7decf26c317f94047bac43ef4b008d3b, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 8160bed82bc34ac4a990ee031741b979, type: 2}
     - target: {fileID: 6808954857708915429, guid: 7decf26c317f94047bac43ef4b008d3b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 11.773929
@@ -36745,6 +36932,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7778740359945788398, guid: 7decf26c317f94047bac43ef4b008d3b, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 8160bed82bc34ac4a990ee031741b979, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -38421,7 +38612,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 8160bed82bc34ac4a990ee031741b979, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
