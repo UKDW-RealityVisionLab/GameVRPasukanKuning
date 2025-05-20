@@ -15,13 +15,8 @@ public class AIBehaviour : MonoBehaviour
     public bool isInteracting = false;
     [SerializeField] private GameObject[] itemPrefabs;
     [SerializeField] private Transform dropPos;
-    public float patrolRadius = 15f;
-    public bool isPatrolling = true;
-    public float detectRadius = 7f; // Jarak untuk mendeteksi NPC lain
-    public string npcTag = "NPC";   // Tag yang digunakan untuk NPC
+    public float patrolRadius = 10f;
     public bool hasJustLittered = false;
-    public bool isChasing = false;
-    private Transform chaseTarget; // target yang sedang dikejar
 
 
     public Transform targetNataBarang;
@@ -48,10 +43,6 @@ public class AIBehaviour : MonoBehaviour
         randomPos = GetRandomNavmeshPosition();
         //StartCoroutine(RunRoutineByRole());
         stateMachine.ChangeState(idleState);
-        if (Type == NPCType.BystanderSecurity)
-        {
-            StartCoroutine(CheckForLitteringNPC());
-        }
     }
 
     void Update()
@@ -113,26 +104,9 @@ public class AIBehaviour : MonoBehaviour
     }
     private IEnumerator ResetLitterFlag()
     {
-        yield return new WaitForSeconds(5f); // durasi dianggap 'baru saja' buang sampah
+        yield return new WaitForSeconds(10f); // durasi dianggap 'baru saja' buang sampah
         hasJustLittered = false;
     }
-
-    public Transform GetDetectedTrashThrower()
-    {
-        GameObject[] npcs = GameObject.FindGameObjectsWithTag(npcTag);
-        foreach (var npc in npcs)
-        {
-            if (npc == this.gameObject) continue;
-
-            AIBehaviour other = npc.GetComponent<AIBehaviour>();
-            if (other != null && other.hasJustLittered == true)
-            {
-                return npc.transform;
-            }
-        }
-        return null;
-    }
-
 
     public Transform GetRandomChairPosition()
     {
@@ -142,6 +116,28 @@ public class AIBehaviour : MonoBehaviour
         int index = Random.Range(0, chairs.Length);
         return chairs[index].transform;
     }
+    public Transform GetNearestChairPosition()
+    {
+        GameObject[] chairs = GameObject.FindGameObjectsWithTag("Chair");
+        if (chairs.Length == 0) return null;
+
+        Transform nearestChair = null;
+        float shortestDistance = Mathf.Infinity;
+        Vector3 currentPosition = transform.position;
+
+        foreach (GameObject chair in chairs)
+        {
+            float distance = Vector3.Distance(currentPosition, chair.transform.position);
+            if (distance < shortestDistance)
+            {
+                shortestDistance = distance;
+                nearestChair = chair.transform;
+            }
+        }
+
+        return nearestChair;
+    }
+
     public Vector3 GetRandomNavmeshPosition()
     {
         Vector3 randomDirection = Random.insideUnitSphere * patrolRadius;
@@ -156,78 +152,6 @@ public class AIBehaviour : MonoBehaviour
         return transform.position; // fallback kalau gagal
     }
 
-    IEnumerator CheckForLitteringNPC()
-    {
-        while (true)
-        {
-            if (!isChasing)
-            {
-                Collider[] hits = Physics.OverlapSphere(transform.position, detectRadius);
-                foreach (var hit in hits)
-                {
-                    AIBehaviour otherAI = hit.GetComponent<AIBehaviour>();
-                    if (otherAI != null && otherAI.hasJustLittered)
-                    {
-                        // Mulai chasing pelaku
-                        StartChasing(otherAI.transform);
-                        break;
-                    }
-                }
-            }
-
-            yield return new WaitForSeconds(2f); // cek setiap 2 detik
-        }
-    }
-    public void StartChasing(Transform target)
-    {
-        chaseTarget = target;
-        isChasing = true;
-    }
-
-    //private void DetectNearbyNPCs()
-    //{
-    //    Collider[] hits = Physics.OverlapSphere(transform.position, detectRadius);
-
-    //    foreach (var hit in hits)
-    //    {
-    //        if (hit.gameObject != this.gameObject && hit.CompareTag(npcTag))
-    //        {
-    //            AIBehaviour otherAI = hit.GetComponent<AIBehaviour>();
-    //            if (otherAI != null && otherAI.isInteracting == false && isInteracting == false)
-    //            {
-
-    //                // Kedua NPC masuk state Talking
-    //                StartTalkingWithNPC(otherAI);
-    //                otherAI.StartTalkingWithNPC(this);
-
-    //                break;
-    //            }
-    //        }
-    //    }
-    //}
-
-    //public void StartTalkingWithNPC(AIBehaviour otherNPC)
-    //{
-    //    if (isInteracting == true || otherNPC.isInteracting == true) return;
-
-    //    isInteracting = true;
-    //    animator.SetTrigger("IsExit");
-
-    //    Vector3 direction = (transform.position - otherNPC.transform.position).normalized;
-    //    Vector3 targetPos = otherNPC.transform.position + direction * distance;
-
-    //    stateMachine.ChangeState(idleState);
-    //    stateMachine.ChangeState(new TalkingState(stateMachine, idleState, this, targetPos));
-    //    idleState.SetCondition("IsIdleNother");
-
-    //    StartCoroutine(EndInteractionAfterDelay(Random.Range(15f, 20f)));
-    //}
-
-    //private IEnumerator EndInteractionAfterDelay(float duration)
-    //{
-    //    yield return new WaitForSeconds(duration);
-    //    npcInter.EndInteraction();
-    //}
 
 
     public void ResetIdleBools()
@@ -243,6 +167,10 @@ public class AIBehaviour : MonoBehaviour
         animator.SetBool("IsOffering", false);
         animator.SetBool("IsAnswer", false);
         animator.SetBool("IsQuestion", false);
+        animator.SetBool("IsPlay1", false);
+        animator.SetBool("IsPlay2", false);
+        animator.SetBool("IsWondering", false);
+        animator.SetBool("IsThinking", false);
     }
 }
 

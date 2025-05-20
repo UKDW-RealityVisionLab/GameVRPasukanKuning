@@ -7,14 +7,17 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using System.Diagnostics.Tracing;
+using UnityEditor.Rendering;
 
 public class ChatContext : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI textHeader;
     [SerializeField] private TextMeshProUGUI textIsi;
     [SerializeField] private string headerString;
-    private AIBehaviour ai;
     [SerializeField] private TextAsset textContext;
+    public GameObject npcDialogUI;
+    public TextMeshProUGUI dialogText;
+    private AIBehaviour ai;
     private NPCInteractable aiContext;
 
     private JsonData dialogData;
@@ -57,6 +60,21 @@ public class ChatContext : MonoBehaviour
     public void NextButton()
     {
         textIsi.text = "";
+    }
+    public void ShowNPCDialog(string message, float duration = 3f)
+    {
+        if (npcDialogUI == null || dialogText == null) return;
+
+        npcDialogUI.SetActive(true);
+        dialogText.text = message;
+
+        StartCoroutine(HideDialogAfterDelay(duration));
+    }
+
+    IEnumerator HideDialogAfterDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        npcDialogUI.SetActive(false);
     }
 
     //public void SetContextExplanation()

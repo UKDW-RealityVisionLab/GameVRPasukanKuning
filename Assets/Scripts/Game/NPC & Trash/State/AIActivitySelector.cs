@@ -69,9 +69,9 @@ public class AIActivitySelector
         ai.availableActions.Add(() =>
         {
             ai.animator.SetTrigger("IsExit");
-            ai.stateMachine.ChangeState(ai.wanderingState);
-            ai.wanderingState.ChangeSubState(new TrashState(ai.stateMachine, ai.wanderingState, ai, ai.targetSampah.position));
-            ai.wanderingState.SetCondition("IsWandering");
+            ai.stateMachine.ChangeState(ai.idleState);
+            ai.idleState.ChangeSubState(new SitDownState(ai.stateMachine, ai.idleState, ai, ai.targetCustomer.position));
+            ai.idleState.SetCondition("IsIdleNother");
         });
 
         ai.availableActions.Add(() =>
@@ -96,9 +96,16 @@ public class AIActivitySelector
         ai.availableActions.Add(() =>
         {
             ai.animator.SetTrigger("IsExit");
-            ai.stateMachine.ChangeState(ai.wanderingState);
-            ai.wanderingState.ChangeSubState(new TrashState(ai.stateMachine, ai.wanderingState, ai, ai.targetSampah.position));
-            ai.wanderingState.SetCondition("IsWandering");
+            ai.stateMachine.ChangeState(ai.idleState);
+            ai.idleState.ChangeSubState(new SellState(ai.stateMachine, ai.idleState, ai, ai.targetCustomer.position));
+            ai.idleState.SetCondition("IsIdleNother");
+        });
+        ai.availableActions.Add(() =>
+        {
+            ai.animator.SetTrigger("IsExit");
+            ai.stateMachine.ChangeState(ai.idleState);
+            ai.idleState.ChangeSubState(new SitDownState(ai.stateMachine, ai.idleState, ai, ai.targetSampah.position));
+            ai.idleState.SetCondition("IsIdleNother");
         });
     }
 
@@ -280,7 +287,7 @@ public class AIActivitySelector
         {
             ai.animator.SetTrigger("IsExit");
             ai.stateMachine.ChangeState(ai.wanderingState);
-            ai.wanderingState.ChangeSubState(new SitDownState(ai.stateMachine, ai.wanderingState, ai, ai.GetRandomChairPosition().position));
+            ai.wanderingState.ChangeSubState(new SitDownState(ai.stateMachine, ai.wanderingState, ai, ai.GetNearestChairPosition().position));
             ai.wanderingState.SetCondition("IsWandering");
         });
         ai.availableActions.Add(() =>
@@ -296,30 +303,30 @@ public class AIActivitySelector
         {
             ai.animator.SetTrigger("IsExit");
             ai.stateMachine.ChangeState(ai.activityState);
-            ai.activityState.ChangeSubState(new SitDownState(ai.stateMachine, ai.activityState, ai, ai.GetRandomChairPosition().position));
+            ai.activityState.ChangeSubState(new SitDownState(ai.stateMachine, ai.activityState, ai, ai.GetNearestChairPosition().position));
             ai.activityState.SetCondition("IsActiving");
         });
         ai.availableActions.Add(() =>
         {
             ai.animator.SetTrigger("IsExit");
             ai.stateMachine.ChangeState(ai.activityState);
-            ai.activityState.ChangeSubState(new SitTrashState(ai.stateMachine, ai.activityState, ai, ai.GetRandomChairPosition().position));
+            ai.activityState.ChangeSubState(new SitTrashState(ai.stateMachine, ai.activityState, ai, ai.GetNearestChairPosition().position));
             ai.activityState.SetCondition("IsActiving");
             ai.DropItem();
         });
         ai.availableActions.Add(() =>
         {
             ai.animator.SetTrigger("IsExit");
-            ai.stateMachine.ChangeState(ai.activityState);
-            ai.activityState.ChangeSubState(new Play2State(ai.stateMachine, ai.activityState, ai, ai.randomPos));
-            ai.activityState.SetCondition("IsActiving");
+            ai.stateMachine.ChangeState(ai.wanderingState);
+            ai.wanderingState.ChangeSubState(new WalkTextState(ai.stateMachine, ai.wanderingState, ai, ai.randomPos));
+            ai.wanderingState.SetCondition("IsWandering");
         });
         ai.availableActions.Add(() =>
         {
             ai.animator.SetTrigger("IsExit");
-            ai.stateMachine.ChangeState(ai.activityState);
-            ai.activityState.ChangeSubState(new Play1State(ai.stateMachine, ai.activityState, ai, ai.randomPos));
-            ai.activityState.SetCondition("IsActiving");
+            ai.stateMachine.ChangeState(ai.idleState);
+            ai.idleState.ChangeSubState(new Play1State(ai.stateMachine, ai.idleState, ai, ai.randomPos));
+            ai.idleState.SetCondition("IsIdleNother");
         });
 
         ai.availableActions.Add(() =>
