@@ -12723,6 +12723,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1718607762}
   - component: {fileID: 1718607763}
+  - component: {fileID: 1718607764}
   m_Layer: 0
   m_Name: Game Manager
   m_TagString: Untagged
@@ -12773,6 +12774,24 @@ MonoBehaviour:
   - {fileID: 1653635146}
   - {fileID: 132363308}
   - {fileID: 34239754}
+--- !u!114 &1718607764
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1718607761}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3892be23c19d4f246978f366d0b05ea8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  WinSceneReference:
+    m_AssetGUID: 7d01ad397a8a28a448cbcbaa77167f6a
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_EditorAssetChanged: 0
+  winDelay: 30
 --- !u!1 &1727579079
 GameObject:
   m_ObjectHideFlags: 0
