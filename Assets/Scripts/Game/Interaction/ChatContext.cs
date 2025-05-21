@@ -31,37 +31,61 @@ public class ChatContext : MonoBehaviour
     void Start()
     {
         textHeader.text = headerString;
+        // Pastikan komponen AIBehaviour tersedia
+        ai = GetComponent<AIBehaviour>();
+        if (ai == null)
+        {
+            Debug.LogError("AIBehaviour tidak ditemukan di GameObject ini.");
+            return;
+        }
+
+        // Buat instance listCon dan isi sesuai role AI
+        listCon = new ListContext();
+
+        // Debug (opsional)
+        Debug.Log("ListContext berhasil di-inisialisasi dengan role: " + ai.Type);
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (listCon == null || ai == null) return;
+
         GetContextQuestion();
-        GetRandomChat();
+
         chatTimer += Time.deltaTime;
 
         if (chatTimer >= chatInterval)
         {
             //ShowRandomDailyChat();
             chatTimer = 0f;
+            GetRandomChat();
         }
     }
 
     public void GetContextQuestion()
     {
         textHeader.text = headerString;
-        textIsi.text = listCon.GetQuestion(ai)[0];
+        var questions = listCon.GetQuestion(ai);
+        if (questions != null && questions.Length > 0)
+        {
+            textIsi.text = questions[Random.Range(0,questions.Length)];
+        }
     }
     public void GetRandomChat()
     {
-        ShowNPCDialog(listCon.GetRandomChat(ai)[0]);
+        var chats = listCon.GetRandomChat(ai);
+        if (chats != null && chats.Length > 0)
+        {
+            ShowNPCDialog(chats[Random.Range(0, chats.Length)]);
+        }
     }
 
     public void NextButton()
     {
         textIsi.text = "";
     }
-    public void ShowNPCDialog(string message, float duration = 5f)
+    public void ShowNPCDialog(string message, float duration = 3f)
     {
         if (npcDialogUI == null || dialogRandomText == null) return;
 
