@@ -9,10 +9,11 @@ public class NPCInteractable : MonoBehaviour
 {
     [SerializeField] private string interactText;
     [SerializeField] private GameObject uiNPC;
+    [SerializeField] private GameObject uiNPCInteract;
+    [SerializeField] private GameObject uiNPCRandom;
     [SerializeField] private Animator animator;
     private NPCHeadLookAt npcLookAt;
     private AIBehaviour aiBehaviour;
-    private ChatContext chatCon;
 
     private Transform interactorTransform;
     public float rotateSpeed = 5f;
@@ -22,10 +23,9 @@ public class NPCInteractable : MonoBehaviour
     {
         npcLookAt = GetComponent<NPCHeadLookAt>();
         aiBehaviour = GetComponent<AIBehaviour>();
-        chatCon = GetComponent<ChatContext>();
     }
 
-    public void Interact(Transform InteractorTransform)
+    public void InteractGuidance(Transform InteractorTransform)
     {
         // Masuk ke TalkingState dari komponen AIBehaviour
         if (aiBehaviour != null)
@@ -41,10 +41,26 @@ public class NPCInteractable : MonoBehaviour
         float playerHeight = 1.65f;
         npcLookAt.LookAtPosition(InteractorTransform.position + Vector3.up * playerHeight);
     }
+    public void Interact(Transform InteractorTransform)
+    {
+        // Masuk ke TalkingState dari komponen AIBehaviour
+        if (aiBehaviour != null)
+        {
+            aiBehaviour.isInteracting = true;
+            aiBehaviour.EnterTalkingState(InteractorTransform.position);
+        }
+        interactorTransform = InteractorTransform;
+
+        uiNPCInteract.SetActive(true);
+        animator.SetBool("IsTalking", true);
+
+        float playerHeight = 1.65f;
+        npcLookAt.LookAtPosition(InteractorTransform.position + Vector3.up * playerHeight);
+    }
 
     private void Update()
     {
-        if (uiNPC.activeSelf && interactorTransform != null)
+        if (uiNPC.activeSelf || uiNPCInteract.activeSelf && interactorTransform != null)
         {
             // Update rotasi
             Vector3 direction = interactorTransform.position - transform.position;
@@ -68,6 +84,8 @@ public class NPCInteractable : MonoBehaviour
     {
         aiBehaviour.isInteracting = false;
         uiNPC.SetActive(false);
+        uiNPCInteract.SetActive(false);
+        uiNPCRandom.SetActive(true);
         animator.SetBool("IsTalking", false);
         animator.SetTrigger("IsExit");
         interactorTransform = null;

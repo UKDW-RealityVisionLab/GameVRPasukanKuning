@@ -11,6 +11,6 @@ public enum NPCType
     CulpritOldman,
     CulpritChild,
     BystanderWoman,
-    BystanderSecurity,
+    BystanderTourist,
     BystanderChild
 }

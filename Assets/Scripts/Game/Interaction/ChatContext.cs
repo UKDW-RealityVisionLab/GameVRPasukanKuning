@@ -2,12 +2,12 @@ using LitJson;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
-using LitJson;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using System.Diagnostics.Tracing;
 using UnityEditor.Rendering;
+using System.Net.Http;
+using System.Threading.Tasks;
 
 public class ChatContext : MonoBehaviour
 {
@@ -15,58 +15,58 @@ public class ChatContext : MonoBehaviour
     [SerializeField] private TextMeshProUGUI textIsi;
     [SerializeField] private string headerString;
     [SerializeField] private TextAsset textContext;
+    private NPCType type;
     public GameObject npcDialogUI;
-    public TextMeshProUGUI dialogText;
+    public TextMeshProUGUI dialogRandomText;
     private AIBehaviour ai;
     private NPCInteractable aiContext;
+    [SerializeField] private float chatInterval = 10f; // tiap berapa detik muncul dialog
+    private float chatTimer = 0f;
+    private ListContext listCon;
 
     private JsonData dialogData;
-    private List<string> currentDialogLines = new List<string>();
-    private int currentLineIndex = 0;
-    private bool isDialogActive = false;
 
 
+    [SerializeField] private string roleAi = "Seller"; // Atur dari Inspector
     void Start()
     {
-        dialogData = JsonMapper.ToObject(textContext.text);
         textHeader.text = headerString;
-        textIsi.text = "Selamat datang!";
     }
-    //private void Awake()
-    //{
-    //    LoadDialogData();
-    //}
-    //private void LoadDialogData()
-    //{
-    //    if (textContext == null)
-    //    {
-    //        Debug.LogError("Text context belum diset!");
-    //        return;
-    //    }
-
-    //    dialogData = JsonMapper.ToObject(textContext.text);
-    //}
 
     // Update is called once per frame
     void Update()
     {
-        GetContext();
+        GetContextQuestion();
+        GetRandomChat();
+        chatTimer += Time.deltaTime;
+
+        if (chatTimer >= chatInterval)
+        {
+            //ShowRandomDailyChat();
+            chatTimer = 0f;
+        }
     }
-    public void GetContext()
+
+    public void GetContextQuestion()
     {
         textHeader.text = headerString;
+        textIsi.text = listCon.GetQuestion(ai)[0];
+    }
+    public void GetRandomChat()
+    {
+        ShowNPCDialog(listCon.GetRandomChat(ai)[0]);
     }
 
     public void NextButton()
     {
         textIsi.text = "";
     }
-    public void ShowNPCDialog(string message, float duration = 3f)
+    public void ShowNPCDialog(string message, float duration = 5f)
     {
-        if (npcDialogUI == null || dialogText == null) return;
+        if (npcDialogUI == null || dialogRandomText == null) return;
 
         npcDialogUI.SetActive(true);
-        dialogText.text = message;
+        dialogRandomText.text = message;
 
         StartCoroutine(HideDialogAfterDelay(duration));
     }
@@ -76,83 +76,44 @@ public class ChatContext : MonoBehaviour
         yield return new WaitForSeconds(delay);
         npcDialogUI.SetActive(false);
     }
-
-    //public void SetContextExplanation()
+    //public void GetRandomChat(string category)
     //{
-    //    currentDialogLines = GetDialogList("explanation");
-    //    StartChainedDialog(currentDialogLines);
+    //    if (dialogData == null || !dialogData.Keys.Contains(roleAi)) return;
+
+    //    var roleData = dialogData[roleAi];
+
+    //    if (!roleData.Keys.Contains(category)) return;
+
+    //    JsonData lines = roleData[category];
+    //    if (lines.Count == 0) return;
+
+    //    int randomIndex = Random.Range(0, lines.Count);
+    //    string message = lines[randomIndex].ToString();
+    //    ShowNPCDialog(message);
     //}
-    //public void SetContextGuidingPlayer()
+    //public void ShowRandomDailyChat()
     //{
-    //    currentDialogLines = GetDialogList("information");
-    //    StartChainedDialog(currentDialogLines);
-    //}
-    //public void SetContextUsualTalk()
-    //{
-    //    currentDialogLines = GetDialogList("questions"); // atau campur dengan answers
-    //    StartChainedDialog(currentDialogLines);
-    //}
-    //public void SetContextOffer()
-    //{
-    //    currentDialogLines = GetDialogList("offer");
-    //    StartChainedDialog(currentDialogLines);
-    //}
-
-    //private void StartChainedDialog(List<string> lines)
-    //{
-    //    if (lines == null || lines.Count == 0)
-    //    {
-    //        textIsi.text = "Tidak ada dialog tersedia.";
-    //        return;
-    //    }
-
-    //    currentDialogLines = lines;
-    //    currentLineIndex = 0;
-    //    isDialogActive = true;
-    //    ShowCurrentLine();
-    //}
-
-    //private void ShowCurrentLine()
-    //{
-    //    textIsi.text = currentDialogLines[currentLineIndex];
-    //}
-
-    //public void ContinueDialog()
-    //{
-    //    if (!isDialogActive) return;
-
-    //    currentLineIndex++;
-
-    //    if (currentLineIndex < currentDialogLines.Count)
-    //    {
-    //        ShowCurrentLine();
-    //    }
-    //    else
-    //    {
-    //        EndDialog();
-    //    }
-    //}
-    //private void EndDialog()
-    //{
-    //    isDialogActive = false;
-    //    textIsi.text = "Selesai berbicara.";
-    //}
-    //private List<string> GetDialogList(string type)
-    //{
-    //    List<string> results = new List<string>();
-
-    //    if (dialogData == null || !dialogData.Keys.Contains(aiContext.roleAi)) return results;
-
-    //    JsonData npcSection = dialogData[aiContext.roleAi];
-
-    //    if (npcSection.Keys.Contains(type))
-    //    {
-    //        foreach (JsonData item in npcSection[type])
-    //        {
-    //            results.Add(item.ToString());
-    //        }
-    //    }
-
-    //    return results;
+    //    GetRandomChat("randomChat"); // kategori baru seperti "randomChat"
     //}
 }
+
+//public class ApiService
+//{
+//    private readonly HttpClient _client = new();
+//    public async Task<string> GetApiResponseAsync(string query, string kategoriUsia)
+//    {
+//        var url = "https://roughly-patient-jolly.ngrok-free.app/ask";
+
+//        var payload = new
+//        {
+//            query = query,
+//            kategori_usia = kategoriUsia
+//        };
+
+//        var json = JsonSerializer.Serialize(payload);
+//        var 
+
+//        return 
+        
+//    }
+//}

@@ -199,7 +199,7 @@ NavMeshProjectSettings:
       m_Flags: 0
   m_SettingNames:
   - Bystander
-  - Security
+  - Tourist
   - Seller
   - Bystander2
   - Crafter

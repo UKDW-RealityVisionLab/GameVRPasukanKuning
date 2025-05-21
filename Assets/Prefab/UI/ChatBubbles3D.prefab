@@ -1447,7 +1447,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2332520004143089573}
-  - component: {fileID: 4668792639448407360}
   - component: {fileID: 6873696377262843877}
   m_Layer: 0
   m_Name: ChatBubbles3D
@@ -1472,25 +1471,6 @@ Transform:
   - {fileID: 3475446179114333807}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4668792639448407360
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3372208868508947944}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d7f24671b12a7774aa122e024731f734, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  backgroundImage: {fileID: 1627883294531896270}
-  headerText: {fileID: 6555315243447724980}
-  textMesh: {fileID: 7643477931453087195}
-  nextButton: {fileID: 5422307710811971474}
-  choiceButtons:
-  - {fileID: 0}
-  - {fileID: 0}
 --- !u!111 &6873696377262843877
 Animation:
   m_ObjectHideFlags: 0

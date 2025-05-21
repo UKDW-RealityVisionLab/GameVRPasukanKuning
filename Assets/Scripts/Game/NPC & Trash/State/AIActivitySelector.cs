@@ -6,10 +6,17 @@ using UnityEngine.XR.Interaction.Toolkit.Locomotion.Comfort;
 public class AIActivitySelector
 {
     private AIBehaviour ai;
+    private ChatContext chatCon;
+    private ListContext listCon;
+    private int activityDone;
+    private int hasThirsty;
+    private int isTired;
+    private int wantToArrange;
 
     public AIActivitySelector(AIBehaviour ai)
     {
         this.ai = ai;
+        chatCon = ai.GetComponent<ChatContext>();
     }
 
     public void ChooseRandomActivity()
@@ -31,18 +38,92 @@ public class AIActivitySelector
                 break;
             case NPCType.CulpritMale:
                 AddMaleActions();
+                if (activityDone > 5)
+                {
+                    hasThirsty++;
+                    if (hasThirsty > 3)
+                    {
+                        ai.animator.SetTrigger("IsExit");
+                        Vector3 randomPos = ai.GetRandomNavmeshPosition();
+                        ai.stateMachine.ChangeState(ai.activityState);
+                        ai.activityState.ChangeSubState(new DrinkingState(ai.stateMachine, ai.activityState, ai, ai.randomPos));
+                        ai.activityState.SetCondition("IsActiving");
+                        hasThirsty = 0;
+                        break;
+                    }
+                }
+                if (isTired >= 1)
+                {
+                    ai.animator.SetTrigger("IsExit");
+                    Vector3 randomPos = ai.GetRandomNavmeshPosition();
+                    ai.stateMachine.ChangeState(ai.activityState);
+                    ai.activityState.ChangeSubState(new SmokingState(ai.stateMachine, ai.activityState, ai, ai.randomPos));
+                    ai.activityState.SetCondition("IsActiving");
+                    ai.DropItem();
+                    isTired = 0;
+                    break;
+                }
                 break;
             case NPCType.CulpritOldman:
                 AddOldmanActions();
+                if(activityDone > 3)
+                {
+                    hasThirsty++;
+                    if (hasThirsty > 2)
+                    {
+                        ai.animator.SetTrigger("IsExit");
+                        Vector3 randomPos = ai.GetRandomNavmeshPosition();
+                        ai.stateMachine.ChangeState(ai.activityState);
+                        ai.activityState.ChangeSubState(new DrinkingState(ai.stateMachine, ai.activityState, ai, ai.randomPos));
+                        ai.activityState.SetCondition("IsActiving");
+                        hasThirsty = 0;
+                        break;
+                    }
+                }
+                if (isTired >= 2)
+                {
+                    ai.animator.SetTrigger("IsExit");
+                    Vector3 randomPos = ai.GetRandomNavmeshPosition();
+                    ai.stateMachine.ChangeState(ai.activityState);
+                    ai.activityState.ChangeSubState(new SmokingState(ai.stateMachine, ai.activityState, ai, ai.randomPos));
+                    ai.activityState.SetCondition("IsActiving");
+                    ai.DropItem();
+                    isTired = 0;
+                    break;
+                }
                 break;
             case NPCType.CulpritChild:
                 AddCulpritChildActions();
+                if (activityDone > 3)
+                {
+                    hasThirsty++;
+                    if (hasThirsty > 2)
+                    {
+                        ai.animator.SetTrigger("IsExit");
+                        Vector3 randomPos = ai.GetRandomNavmeshPosition();
+                        ai.stateMachine.ChangeState(ai.activityState);
+                        ai.activityState.ChangeSubState(new DrinkingState(ai.stateMachine, ai.activityState, ai, ai.randomPos));
+                        ai.activityState.SetCondition("IsActiving");
+                        hasThirsty = 0;
+                        break;
+                    }
+                }
+                if (isTired >= 3)
+                {
+                    ai.animator.SetTrigger("IsExit");
+                    //Vector3 randomPos = ai.GetRandomNavmeshPosition();
+                    ai.stateMachine.ChangeState(ai.idleState);
+                    ai.idleState.ChangeSubState(new ThinkingState(ai.stateMachine, ai.idleState, ai, ai.randomPos));
+                    ai.idleState.SetCondition("IsIdleNother");
+                    isTired = 0;
+                    break;
+                }
                 break;
             case NPCType.BystanderWoman:
                 AddWomanActions();
                 break;
-            case NPCType.BystanderSecurity:
-                AddSecurityActions();
+            case NPCType.BystanderTourist:
+                AddTouristActions();
                 break;
             case NPCType.BystanderChild:
                 AddBystanderChildActions();
@@ -64,6 +145,7 @@ public class AIActivitySelector
             ai.stateMachine.ChangeState(ai.idleState);
             ai.idleState.ChangeSubState(new ArrangeStuffState(ai.stateMachine, ai.idleState, ai, ai.targetNataBarang.position));
             ai.idleState.SetCondition("IsIdleNother");
+            chatCon.GetRandomChat();
         });
 
         ai.availableActions.Add(() =>
@@ -72,6 +154,7 @@ public class AIActivitySelector
             ai.stateMachine.ChangeState(ai.idleState);
             ai.idleState.ChangeSubState(new SitDownState(ai.stateMachine, ai.idleState, ai, ai.targetCustomer.position));
             ai.idleState.SetCondition("IsIdleNother");
+            chatCon.GetRandomChat();
         });
 
         ai.availableActions.Add(() =>
@@ -80,6 +163,7 @@ public class AIActivitySelector
             ai.stateMachine.ChangeState(ai.idleState);
             ai.idleState.ChangeSubState(new SellState(ai.stateMachine, ai.idleState, ai, ai.targetCustomer.position));
             ai.idleState.SetCondition("IsIdleNother");
+            chatCon.GetRandomChat();
         });
     }
 
@@ -161,6 +245,8 @@ public class AIActivitySelector
             ai.stateMachine.ChangeState(ai.wanderingState);
             ai.wanderingState.ChangeSubState(new WalkTextState(ai.stateMachine, ai.wanderingState, ai, ai.randomPos));
             ai.wanderingState.SetCondition("IsWandering");
+            activityDone++;
+            isTired++;
         });
         ai.availableActions.Add(() =>
         {
@@ -177,6 +263,8 @@ public class AIActivitySelector
             ai.activityState.ChangeSubState(new TrashState(ai.stateMachine, ai.activityState, ai, ai.randomPos));
             ai.activityState.SetCondition("IsActiving");
             ai.DropItem();
+            activityDone++;
+            isTired++;
         });
         ai.availableActions.Add(() =>
         {
@@ -201,6 +289,7 @@ public class AIActivitySelector
             ai.activityState.ChangeSubState(new SmokingState(ai.stateMachine, ai.activityState, ai, ai.randomPos));
             ai.activityState.SetCondition("IsActiving");
             ai.DropItem();
+            hasThirsty++;
         });
 
         ai.availableActions.Add(() =>
@@ -210,6 +299,7 @@ public class AIActivitySelector
             ai.stateMachine.ChangeState(ai.activityState);
             ai.activityState.ChangeSubState(new DrinkingState(ai.stateMachine, ai.activityState, ai, ai.randomPos));
             ai.activityState.SetCondition("IsActiving");
+            activityDone++;
         });
     }
 
@@ -222,6 +312,7 @@ public class AIActivitySelector
             ai.stateMachine.ChangeState(ai.idleState);
             ai.idleState.ChangeSubState(new ThinkingState(ai.stateMachine, ai.idleState, ai, ai.randomPos));
             ai.idleState.SetCondition("IsIdleNother");
+            activityDone++;
         });
         ai.availableActions.Add(() =>
         {
@@ -229,6 +320,8 @@ public class AIActivitySelector
             ai.stateMachine.ChangeState(ai.wanderingState);
             ai.wanderingState.ChangeSubState(new SitDownState(ai.stateMachine, ai.wanderingState, ai, ai.GetRandomChairPosition().position));
             ai.wanderingState.SetCondition("IsWandering");
+            activityDone++;
+            isTired++;
         });
         ai.availableActions.Add(() =>
         {
@@ -238,6 +331,8 @@ public class AIActivitySelector
             ai.activityState.ChangeSubState(new TrashState(ai.stateMachine, ai.activityState, ai, ai.randomPos));
             ai.activityState.SetCondition("IsActiving");
             ai.DropItem();
+            activityDone++;
+            isTired++;
         });
         ai.availableActions.Add(() =>
         {
@@ -245,6 +340,8 @@ public class AIActivitySelector
             ai.stateMachine.ChangeState(ai.activityState);
             ai.activityState.ChangeSubState(new SitDownState(ai.stateMachine, ai.activityState, ai, ai.GetRandomChairPosition().position));
             ai.activityState.SetCondition("IsActiving");
+            activityDone++;
+            isTired++;
         });
         ai.availableActions.Add(() =>
         {
@@ -262,6 +359,7 @@ public class AIActivitySelector
             ai.activityState.ChangeSubState(new SmokingState(ai.stateMachine, ai.activityState, ai, ai.randomPos));
             ai.activityState.SetCondition("IsActiving");
             ai.DropItem();
+            hasThirsty++;
         });
 
         ai.availableActions.Add(() =>
@@ -298,6 +396,7 @@ public class AIActivitySelector
             ai.activityState.ChangeSubState(new TrashState(ai.stateMachine, ai.activityState, ai, ai.randomPos));
             ai.activityState.SetCondition("IsActiving");
             ai.DropItem();
+            activityDone++;
         });
         ai.availableActions.Add(() =>
         {
@@ -313,6 +412,7 @@ public class AIActivitySelector
             ai.activityState.ChangeSubState(new SitTrashState(ai.stateMachine, ai.activityState, ai, ai.GetNearestChairPosition().position));
             ai.activityState.SetCondition("IsActiving");
             ai.DropItem();
+            activityDone++;
         });
         ai.availableActions.Add(() =>
         {
@@ -320,6 +420,8 @@ public class AIActivitySelector
             ai.stateMachine.ChangeState(ai.wanderingState);
             ai.wanderingState.ChangeSubState(new WalkTextState(ai.stateMachine, ai.wanderingState, ai, ai.randomPos));
             ai.wanderingState.SetCondition("IsWandering");
+            activityDone++;
+            isTired++;
         });
         ai.availableActions.Add(() =>
         {
@@ -327,6 +429,8 @@ public class AIActivitySelector
             ai.stateMachine.ChangeState(ai.idleState);
             ai.idleState.ChangeSubState(new Play1State(ai.stateMachine, ai.idleState, ai, ai.randomPos));
             ai.idleState.SetCondition("IsIdleNother");
+            activityDone++;
+            isTired++;
         });
 
         ai.availableActions.Add(() =>
@@ -383,7 +487,7 @@ public class AIActivitySelector
             ai.wanderingState.SetCondition("IsWandering");
         });
     }
-    private void AddSecurityActions()
+    private void AddTouristActions()
     {
         ai.availableActions.Add(() =>
         {

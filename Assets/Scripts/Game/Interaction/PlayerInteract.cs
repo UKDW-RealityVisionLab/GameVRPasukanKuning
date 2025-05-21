@@ -8,6 +8,13 @@ public class PlayerInteract : MonoBehaviour
     public InputActionProperty rightNpc;
     public Transform playerBody;
     private float interactRange = 2f;
+    private AIBehaviour ai;
+    private ChatContext chatContext;
+
+    private void Awake()
+    {
+        chatContext = ai.GetComponent<ChatContext>();
+    }
 
     // Update is called once per frame
     void Update()
@@ -20,8 +27,17 @@ public class PlayerInteract : MonoBehaviour
                 if (collider.TryGetComponent(out NPCInteractable npcInteractable) 
                     && collider.TryGetComponent(out ChatContext chatContext))
                 {
-                    chatContext.GetContext();
-                    npcInteractable.Interact(playerBody);
+                    if(ai.Type == NPCType.GuidanceSeller || ai.Type == NPCType.GuidanceCrafter || ai.Type == NPCType.GuidanceInfoHelper)
+                    {
+                        chatContext.GetContextQuestion();
+                        npcInteractable.InteractGuidance(playerBody);
+                    }
+                    else
+                    {
+                        chatContext.GetRandomChat();
+                        npcInteractable.Interact(playerBody);
+                    }
+
                 }
             }
         }
