@@ -534,6 +534,14 @@ public class AIActivitySelector
         ai.availableActions.Add(() =>
         {
             ai.animator.SetTrigger("IsExit");
+            Vector3 randomPos = ai.GetRandomNavmeshPosition();
+            ai.stateMachine.ChangeState(ai.wanderingState);
+            ai.wanderingState.ChangeSubState(new TakePhotoState(ai.stateMachine, ai.wanderingState, ai, randomPos));
+            ai.wanderingState.SetCondition("IsWandering");
+        });
+        ai.availableActions.Add(() =>
+        {
+            ai.animator.SetTrigger("IsExit");
             ai.stateMachine.ChangeState(ai.activityState);
             ai.activityState.ChangeSubState(new SitDownState(ai.stateMachine, ai.activityState, ai, ai.GetRandomChairPosition().position));
             ai.activityState.SetCondition("IsActiving");

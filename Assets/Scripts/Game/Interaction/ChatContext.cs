@@ -15,7 +15,6 @@ public class ChatContext : MonoBehaviour
     [SerializeField] private TextMeshProUGUI textIsi;
     [SerializeField] private string headerString;
     [SerializeField] private TextAsset textContext;
-    private NPCType type;
     public GameObject npcDialogUI;
     public TextMeshProUGUI dialogRandomText;
     private AIBehaviour ai;
@@ -51,11 +50,10 @@ public class ChatContext : MonoBehaviour
     {
         if (listCon == null || ai == null) return;
 
-        GetContextQuestion();
 
         chatTimer += Time.deltaTime;
 
-        if (chatTimer >= chatInterval)
+        if (chatTimer >= chatInterval && ai.isInteracting == false)
         {
             //ShowRandomDailyChat();
             chatTimer = 0f;
