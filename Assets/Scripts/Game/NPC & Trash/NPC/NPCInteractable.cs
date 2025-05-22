@@ -9,17 +9,19 @@ public class NPCInteractable : MonoBehaviour
 {
     [SerializeField] private string interactText;
     [SerializeField] private GameObject uiNPC;
+    [SerializeField] private GameObject angryUi;
     [SerializeField] private Animator animator;
-    private NPCHeadLookAt npcLookAt;
+    private ChatContext chatCon;
     private AIBehaviour aiBehaviour;
 
     private Transform interactorTransform;
     public float rotateSpeed = 5f;
     public float maxInteractionDistance = 4f;
+    public bool isAngry = false;
 
-    private void Awake()
+     void Awake()
     {
-        npcLookAt = GetComponent<NPCHeadLookAt>();
+        chatCon = GetComponent<ChatContext>();
         aiBehaviour = GetComponent<AIBehaviour>();
     }
 
@@ -29,16 +31,43 @@ public class NPCInteractable : MonoBehaviour
         if (aiBehaviour != null)
         {
             aiBehaviour.isInteracting = true;
-            aiBehaviour.EnterTalkingState(InteractorTransform.position);
+            if (aiBehaviour.playerInteractCount < 1)
+            {
+                chatCon.GetIntroduction();
+                aiBehaviour.EnterTalkingState(InteractorTransform.position);
+                animator.SetBool("IsTalking", true);
+            }
+            if (aiBehaviour.playerInteractCount >= 1)
+            {
+                chatCon.GetContextQuestion();
+                aiBehaviour.EnterTalkingState(InteractorTransform.position);
+                animator.SetBool("IsTalking", true);
+            }
+            if (aiBehaviour.playerInteractCount > 5)
+            {
+                chatCon.GetMarahContext();
+                aiBehaviour.EnterTalkingAngryState(InteractorTransform.position);
+                animator.SetBool("IsAngry", true);
+            }
         }
         interactorTransform = InteractorTransform;
 
         uiNPC.SetActive(true);
-        animator.SetBool("IsTalking", true);
 
-        float playerHeight = 1.65f;
-        npcLookAt.LookAtPosition(InteractorTransform.position + Vector3.up * playerHeight);
     }
+    //public void InteractAngry(Transform InteractorTransform)
+    //{
+    //    // Masuk ke TalkingState dari komponen AIBehaviour
+    //    if (aiBehaviour != null)
+    //    {
+    //        aiBehaviour.isInteracting = true;
+
+    //    }
+    //    interactorTransform = InteractorTransform;
+
+    //    angryUi.SetActive(true);
+    //    animator.SetBool("IsAngry", true);
+    //}
 
     private void Update()
     {
@@ -60,6 +89,11 @@ public class NPCInteractable : MonoBehaviour
                 EndInteraction();
             }
         }
+    }
+
+    public void isGuidingPlayer()
+    {
+
     }
 
     public void EndInteraction()

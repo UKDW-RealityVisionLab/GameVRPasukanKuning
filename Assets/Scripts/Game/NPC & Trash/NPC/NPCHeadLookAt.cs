@@ -12,9 +12,9 @@ public class NPCHeadLookAt : MonoBehaviour
 
     private void Update()
     {
-        float targetWeight = isLookingAtPosition ? 1f : 0f;
-        float lerpSpeed = 2f;
-        rig.weight = Mathf.Lerp(rig.weight, targetWeight, Time.deltaTime * lerpSpeed);
+        //float targetWeight = isLookingAtPosition ? 1f : 0f;
+        //float lerpSpeed = 2f;
+        //rig.weight = Mathf.Lerp(rig.weight, targetWeight, Time.deltaTime * lerpSpeed);
     }
 
     public void LookAtPosition(Vector3 lookAtPosition)

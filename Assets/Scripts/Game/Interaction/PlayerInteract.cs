@@ -8,23 +8,26 @@ public class PlayerInteract : MonoBehaviour
     public InputActionProperty rightNpc;
     public Transform playerBody;
     private float interactRange = 2f;
-    private AIBehaviour ai;
-    private ChatContext chatContext;
 
 
     // Update is called once per frame
     void Update()
     {
-        if (rightNpc.action.ReadValue<float>() >= 0.1f)
+        if (rightNpc.action.WasPressedThisFrame())
         {
             Collider[] colliderArray = Physics.OverlapSphere(transform.position, interactRange);
             foreach (Collider collider in colliderArray)
             {
-                if (collider.TryGetComponent(out NPCInteractable npcInteractable) 
-                    && collider.TryGetComponent(out ChatContext chatContext))
+                if (collider.TryGetComponent(out NPCInteractable npcInteractable)
+                    && collider.TryGetComponent(out ChatContext chatContext) 
+                    && collider.TryGetComponent(out AIBehaviour ai))
                 {
-                    chatContext.GetContextQuestion();
-                    npcInteractable.Interact(playerBody);
+                    if (ai.Type == NPCType.GuidanceCrafter || ai.Type == NPCType.GuidanceInfoHelper ||
+                        ai.Type == NPCType.GuidanceSeller)
+                    {
+                        npcInteractable.Interact(playerBody);
+                        ai.playerInteractCount++;
+                    }
                 }
             }
         }

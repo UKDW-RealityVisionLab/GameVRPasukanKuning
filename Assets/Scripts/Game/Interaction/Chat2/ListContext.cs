@@ -10,7 +10,41 @@ public class ListContext
     private string[] offer;
     private string[] answer;
     private string[] randomChat;
+    private string[] everyDayChat;
+    private string[] angryChat;
+    private string[] sadChat;
+    private string[] happyChat;
+    private string[] introduction;
     private AIBehaviour ai;
+
+    public string[] GetIntroduction(AIBehaviour ai)
+    {
+
+        if (ai.Type == NPCType.GuidanceSeller)
+        {
+            introduction = new string[]
+            {
+            "Halo! Aku yang mengurus jual beli barang daur ulang di sini. Kalau kamu bawa sampah bernilai, langsung saja ke aku ya. Selamat datang di game ini!"
+            };
+        }
+        else if (ai.Type == NPCType.GuidanceCrafter)
+        {
+            introduction = new string[]
+            {
+            "Hai! Aku suka bikin hal-hal keren dari barang bekas. Kalau kamu punya sesuatu yang bisa diubah jadi kerajinan, bawa ke aku. Senang bisa bertemu di game ini!"
+            };
+        }
+        else if (ai.Type == NPCType.GuidanceInfoHelper)
+        {
+            introduction = new string[]
+            {
+            "Hey! Aku di sini buat bantu kamu ngerti cara main dan hal-hal penting dalam game ini. Kalau butuh petunjuk atau arah, tanya aja ya. Selamat datang dan semoga seru mainnya!"
+            };
+        }
+
+        return introduction;
+    }
+
 
     public string[] GetExplanation(AIBehaviour ai)
     {
@@ -155,5 +189,36 @@ public class ListContext
         }
 
         return randomChat;
+    }
+    public string[] GetAngryChat(AIBehaviour ai)
+    {
+        if (ai.Type == NPCType.GuidanceSeller)
+        {
+            angryChat = new string[] {
+            "Kalau cuma mau pencet tombol, jangan ganggu saya.",
+            "Saya sedang sibuk, tolong jangan iseng.",
+            "Jangan pencet terus! Saya juga bisa marah!",
+            "Kalau tidak niat bicara, jangan ajak ngobrol."
+        };
+        }
+        if (ai.Type == NPCType.GuidanceCrafter)
+        {
+            angryChat = new string[] {
+            "Aku nggak punya waktu buat main-main tombol.",
+            "Tolong seriuslah! Ini bukan permainan.",
+            "Kalau nggak ada yang penting, jangan ganggu aku.",
+            "Sudah cukup pencet-pencetnya!"
+        };
+        }
+        if (ai.Type == NPCType.GuidanceInfoHelper)
+        {
+            angryChat = new string[] {
+            "Hei! Jangan pencet tombol sembarangan!",
+            "Kalau kamu butuh bantuan, bilang saja. Jangan main-main.",
+            "Aku bisa pergi kalau kamu terus begini.",
+            "Seriuslah sedikit, ini soal lingkungan!"
+        };
+        }
+        return angryChat;
     }
 }

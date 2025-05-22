@@ -17,11 +17,21 @@ public class AIBehaviour : MonoBehaviour
     [SerializeField] private Transform dropPos;
     public float patrolRadius = 10f;
     public bool hasJustLittered = false;
+    public int playerInteractCount;
+
+    // condition NPC
+    public int activityDone;
+    public int hasThirsty;
+    public int isTired;
+    public int wantToArrange;
+    public int wantToTakePhoto;
+    public int isBored;
 
 
     public Transform targetNataBarang;
     public Transform targetSampah;
     public Transform targetCustomer;
+    public Transform[] spotFoto;
     public Vector3 randomPos;
 
     public StateMachine stateMachine;
@@ -75,6 +85,18 @@ public class AIBehaviour : MonoBehaviour
 
         stateMachine.ChangeState(idleState);
         stateMachine.ChangeState(new TalkingState(stateMachine, idleState, this, targetPosition));
+        idleState.SetCondition("IsIdleNother");
+    }
+    public void EnterTalkingAngryState(Vector3 playerPosition)
+    {
+        isInteracting = true;
+        animator.SetTrigger("IsExit");
+
+        Vector3 directionToPlayer = (transform.position - playerPosition).normalized;
+        Vector3 targetPosition = playerPosition + directionToPlayer * distance;
+
+        stateMachine.ChangeState(idleState);
+        stateMachine.ChangeState(new AngryState(stateMachine, idleState, this, targetPosition));
         idleState.SetCondition("IsIdleNother");
     }
 
@@ -151,8 +173,34 @@ public class AIBehaviour : MonoBehaviour
 
         return transform.position; // fallback kalau gagal
     }
+    
+    public Transform GetSpotFoto()
+    {
+        if (spotFoto.Length == 0) return null;
 
+        int index = Random.Range(0, spotFoto.Length);
+        return spotFoto[index].transform;
+    }
+    public Transform GetNearestSpotFoto()
+    {
+        if (spotFoto.Length == 0) return null;
 
+        Transform nearestSpot = null;
+        float shortestDistance = Mathf.Infinity;
+        Vector3 currentPosition = transform.position;
+
+        foreach (Transform spot in spotFoto)
+        {
+            float distance = Vector3.Distance(currentPosition, spot.position);
+            if (distance < shortestDistance)
+            {
+                shortestDistance = distance;
+                nearestSpot = spot;
+            }
+        }
+
+        return nearestSpot;
+    }
 
     public void ResetIdleBools()
     {
@@ -171,6 +219,7 @@ public class AIBehaviour : MonoBehaviour
         animator.SetBool("IsPlay2", false);
         animator.SetBool("IsWondering", false);
         animator.SetBool("IsThinking", false);
+        animator.SetBool("IsAngry", false);
     }
 }
 

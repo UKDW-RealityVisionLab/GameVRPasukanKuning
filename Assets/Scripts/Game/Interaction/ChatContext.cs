@@ -14,7 +14,6 @@ public class ChatContext : MonoBehaviour
     [SerializeField] private TextMeshProUGUI textHeader;
     [SerializeField] private TextMeshProUGUI textIsi;
     [SerializeField] private string headerString;
-    [SerializeField] private TextAsset textContext;
     public GameObject npcDialogUI;
     public TextMeshProUGUI dialogRandomText;
     private AIBehaviour ai;
@@ -26,7 +25,7 @@ public class ChatContext : MonoBehaviour
     private JsonData dialogData;
 
 
-    [SerializeField] private string roleAi = "Seller"; // Atur dari Inspector
+    //[SerializeField] private string roleAi = "Seller"; // Atur dari Inspector
     void Start()
     {
         textHeader.text = headerString;
@@ -67,6 +66,16 @@ public class ChatContext : MonoBehaviour
         var questions = listCon.GetQuestion(ai);
         if (questions != null && questions.Length > 0)
         {
+            textIsi.text = questions[Random.Range(0, questions.Length)];
+        }
+    }
+
+    public void GetIntroduction()
+    {
+        textHeader.text = headerString;
+        var questions = listCon.GetIntroduction(ai);
+        if (questions != null && questions.Length > 0)
+        {
             textIsi.text = questions[Random.Range(0,questions.Length)];
         }
     }
@@ -76,6 +85,15 @@ public class ChatContext : MonoBehaviour
         if (chats != null && chats.Length > 0)
         {
             ShowNPCDialog(chats[Random.Range(0, chats.Length)]);
+        }
+    }
+    public void GetMarahContext()
+    {
+        textHeader.text = headerString;
+        var angry = listCon.GetAngryChat(ai);
+        if (angry != null && angry.Length > 0)
+        {
+            textIsi.text = angry[Random.Range(0, angry.Length)];
         }
     }
 
@@ -91,6 +109,17 @@ public class ChatContext : MonoBehaviour
         dialogRandomText.text = message;
 
         StartCoroutine(HideDialogAfterDelay(duration));
+    }
+
+    public void Apologize()
+    {
+        aiContext.isAngry = true;
+        ai.playerInteractCount = 1;
+        var afterAngry = listCon.GetQuestion(ai);
+        if (afterAngry != null && afterAngry.Length > 0)
+        {
+            textIsi.text = afterAngry[Random.Range(0, afterAngry.Length)];
+        }
     }
 
     IEnumerator HideDialogAfterDelay(float delay)
