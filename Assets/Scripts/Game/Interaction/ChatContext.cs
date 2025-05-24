@@ -12,20 +12,20 @@ using System.Threading.Tasks;
 public class ChatContext : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI textHeader;
-    [SerializeField] private TextMeshProUGUI textIsi;
+    [SerializeField] public TextMeshProUGUI textIsi;
     [SerializeField] private string headerString;
     public GameObject npcDialogUI;
     public TextMeshProUGUI dialogRandomText;
     private AIBehaviour ai;
-    private NPCInteractable aiContext;
+    private NPCInteractable npcInteract;
     [SerializeField] private float chatInterval = 10f; // tiap berapa detik muncul dialog
     private float chatTimer = 0f;
     private ListContext listCon;
+    private string currentGuideDestination = "";
 
     private JsonData dialogData;
 
 
-    //[SerializeField] private string roleAi = "Seller"; // Atur dari Inspector
     void Start()
     {
         textHeader.text = headerString;
@@ -54,7 +54,6 @@ public class ChatContext : MonoBehaviour
 
         if (chatTimer >= chatInterval && ai.isInteracting == false)
         {
-            //ShowRandomDailyChat();
             chatTimer = 0f;
             GetRandomChat();
         }
@@ -73,10 +72,10 @@ public class ChatContext : MonoBehaviour
     public void GetIntroduction()
     {
         textHeader.text = headerString;
-        var questions = listCon.GetIntroduction(ai);
-        if (questions != null && questions.Length > 0)
+        var introduction = listCon.GetIntroduction(ai);
+        if (introduction != null && introduction.Length > 0)
         {
-            textIsi.text = questions[Random.Range(0,questions.Length)];
+            textIsi.text = introduction[Random.Range(0, introduction.Length)];
         }
     }
     public void GetRandomChat()
@@ -87,7 +86,7 @@ public class ChatContext : MonoBehaviour
             ShowNPCDialog(chats[Random.Range(0, chats.Length)]);
         }
     }
-    public void GetMarahContext()
+    public void GetAngryContext()
     {
         textHeader.text = headerString;
         var angry = listCon.GetAngryChat(ai);
@@ -95,6 +94,41 @@ public class ChatContext : MonoBehaviour
         {
             textIsi.text = angry[Random.Range(0, angry.Length)];
         }
+    }
+
+    public void GetAfterAngryChat()
+    {
+        textHeader.text = headerString;
+        var afterAngry = listCon.GetAfterAngryChat(ai);
+        if (afterAngry != null && afterAngry.Length > 0)
+        {
+            textIsi.text = afterAngry[Random.Range(0, afterAngry.Length)];
+        }
+    }
+    public void GetEmotionChat()
+    {
+        textHeader.text = headerString;
+        var emotion = listCon.GetEmotion(ai);
+        if (emotion != null && emotion.Length > 0)
+        {
+            textIsi.text = emotion[Random.Range(0, emotion.Length)];
+        }
+    }
+
+    public void GetGuideContext()
+    {
+        textHeader.text = headerString;
+
+        string[] guideTexts = listCon.GetExplanation(ai, currentGuideDestination);
+        if (guideTexts != null && guideTexts.Length > 0)
+        {
+            textIsi.text = guideTexts[Random.Range(0, guideTexts.Length)];
+        }
+    }
+
+    public void SetCurrentGuideDestination(string destination)
+    {
+        currentGuideDestination = destination;
     }
 
     public void NextButton()
@@ -111,60 +145,9 @@ public class ChatContext : MonoBehaviour
         StartCoroutine(HideDialogAfterDelay(duration));
     }
 
-    public void Apologize()
-    {
-        aiContext.isAngry = true;
-        ai.playerInteractCount = 1;
-        var afterAngry = listCon.GetQuestion(ai);
-        if (afterAngry != null && afterAngry.Length > 0)
-        {
-            textIsi.text = afterAngry[Random.Range(0, afterAngry.Length)];
-        }
-    }
-
     IEnumerator HideDialogAfterDelay(float delay)
     {
         yield return new WaitForSeconds(delay);
         npcDialogUI.SetActive(false);
     }
-    //public void GetRandomChat(string category)
-    //{
-    //    if (dialogData == null || !dialogData.Keys.Contains(roleAi)) return;
-
-    //    var roleData = dialogData[roleAi];
-
-    //    if (!roleData.Keys.Contains(category)) return;
-
-    //    JsonData lines = roleData[category];
-    //    if (lines.Count == 0) return;
-
-    //    int randomIndex = Random.Range(0, lines.Count);
-    //    string message = lines[randomIndex].ToString();
-    //    ShowNPCDialog(message);
-    //}
-    //public void ShowRandomDailyChat()
-    //{
-    //    GetRandomChat("randomChat"); // kategori baru seperti "randomChat"
-    //}
 }
-
-//public class ApiService
-//{
-//    private readonly HttpClient _client = new();
-//    public async Task<string> GetApiResponseAsync(string query, string kategoriUsia)
-//    {
-//        var url = "https://roughly-patient-jolly.ngrok-free.app/ask";
-
-//        var payload = new
-//        {
-//            query = query,
-//            kategori_usia = kategoriUsia
-//        };
-
-//        var json = JsonSerializer.Serialize(payload);
-//        var 
-
-//        return 
-        
-//    }
-//}

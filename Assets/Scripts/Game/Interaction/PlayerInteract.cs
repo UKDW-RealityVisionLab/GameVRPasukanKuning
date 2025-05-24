@@ -25,7 +25,19 @@ public class PlayerInteract : MonoBehaviour
                     if (ai.Type == NPCType.GuidanceCrafter || ai.Type == NPCType.GuidanceInfoHelper ||
                         ai.Type == NPCType.GuidanceSeller)
                     {
-                        npcInteractable.Interact(playerBody);
+                        npcInteractable.InteractGuidance(playerBody);
+                        ai.playerInteractCount++;
+                    }
+                    if (ai.Type == NPCType.CulpritChild || ai.Type == NPCType.CulpritMale ||
+                        ai.Type == NPCType.CulpritOldman)
+                    {
+                        npcInteractable.InteractCulprit(playerBody);
+                        ai.playerInteractCount++;
+                    }
+                    if (ai.Type == NPCType.BystanderChild || ai.Type == NPCType.BystanderTourist ||
+                        ai.Type == NPCType.BystanderWoman)
+                    {
+                        npcInteractable.InteractBystander(playerBody);
                         ai.playerInteractCount++;
                     }
                 }

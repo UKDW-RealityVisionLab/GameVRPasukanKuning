@@ -43,7 +43,7 @@ public abstract class MoveToAndAnimateState : State
 
     public override void Update()
     {
-        if (!hasArrived && !agent.pathPending && agent.remainingDistance <= agent.stoppingDistance)
+        if (hasArrived == false && !agent.pathPending && agent.remainingDistance <= agent.stoppingDistance)
         {
             hasArrived = true;
             ai.animator.SetBool("IsWalking", false);
