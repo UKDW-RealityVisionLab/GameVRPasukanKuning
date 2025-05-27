@@ -2575,6 +2575,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 119b0dfa9bbf1cd4e82c69a46394a914, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ai: {fileID: 0}
+  emotions:
+  - happy
+  - sad
+  - wondering
+  currentIndex: 0
 --- !u!4 &86547214 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -1927843103500898222, guid: 83d715a04a38f5849ada017b7879b135, type: 3}
@@ -2698,21 +2704,9 @@ PrefabInstance:
     m_TransformParent: {fileID: 295884415}
     m_Modifications:
     - target: {fileID: 628247759947417315, guid: 19758fcf8e554804ea5b41701938e603, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 628247759947417315, guid: 19758fcf8e554804ea5b41701938e603, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 295884419}
-    - target: {fileID: 628247759947417315, guid: 19758fcf8e554804ea5b41701938e603, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: Apologize
-      objectReference: {fileID: 0}
-    - target: {fileID: 628247759947417315, guid: 19758fcf8e554804ea5b41701938e603, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: NPCInteractable, Assembly-CSharp
-      objectReference: {fileID: 0}
     - target: {fileID: 2332520004143089573, guid: 19758fcf8e554804ea5b41701938e603, type: 3}
       propertyPath: m_LocalPosition.x
       value: -14.758
@@ -2765,10 +2759,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 295884419}
-    - target: {fileID: 4565030594948986261, guid: 19758fcf8e554804ea5b41701938e603, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: EndInteraction
-      objectReference: {fileID: 0}
+    - target: {fileID: 5422307710811971474, guid: 19758fcf8e554804ea5b41701938e603, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      value: 
+      objectReference: {fileID: 295884418}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -8342,6 +8336,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 119b0dfa9bbf1cd4e82c69a46394a914, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ai: {fileID: 0}
+  emotions:
+  - happy
+  - sad
+  - wondering
+  currentIndex: 0
 --- !u!1 &299268980
 GameObject:
   m_ObjectHideFlags: 0
@@ -12010,6 +12010,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 119b0dfa9bbf1cd4e82c69a46394a914, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ai: {fileID: 0}
+  emotions:
+  - happy
+  - sad
+  - wondering
+  currentIndex: 0
 --- !u!1 &435876162
 GameObject:
   m_ObjectHideFlags: 0
@@ -15446,12 +15452,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3372208868508947944, guid: 19758fcf8e554804ea5b41701938e603, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4565030594948986261, guid: 19758fcf8e554804ea5b41701938e603, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1437990716}
+    - target: {fileID: 6330947205581706717, guid: 19758fcf8e554804ea5b41701938e603, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -24725,6 +24735,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 119b0dfa9bbf1cd4e82c69a46394a914, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ai: {fileID: 0}
+  emotions:
+  - happy
+  - sad
+  - wondering
+  currentIndex: 0
 --- !u!1 &898318993
 GameObject:
   m_ObjectHideFlags: 0
@@ -25092,6 +25108,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 119b0dfa9bbf1cd4e82c69a46394a914, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ai: {fileID: 0}
+  emotions:
+  - happy
+  - sad
+  - wondering
+  currentIndex: 0
 --- !u!1 &916601397
 GameObject:
   m_ObjectHideFlags: 0
@@ -25984,6 +26006,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 119b0dfa9bbf1cd4e82c69a46394a914, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ai: {fileID: 0}
+  emotions:
+  - happy
+  - sad
+  - wondering
+  currentIndex: 0
 --- !u!1 &938284981
 GameObject:
   m_ObjectHideFlags: 0
@@ -28755,6 +28783,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 119b0dfa9bbf1cd4e82c69a46394a914, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ai: {fileID: 0}
+  emotions:
+  - happy
+  - sad
+  - wondering
+  currentIndex: 0
 --- !u!4 &1025233492 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5277529687301850957, guid: 943bd3fe5aacb2b478bf1b6014873ba5, type: 3}
@@ -29827,6 +29861,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 119b0dfa9bbf1cd4e82c69a46394a914, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ai: {fileID: 0}
+  emotions:
+  - happy
+  - sad
+  - wondering
+  currentIndex: 0
 --- !u!1001 &1075690785
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -32301,6 +32341,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 119b0dfa9bbf1cd4e82c69a46394a914, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ai: {fileID: 0}
+  emotions:
+  - happy
+  - sad
+  - wondering
+  currentIndex: 0
 --- !u!114 &1180990125 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5567020653371231509, guid: eba80d74847dd9e4c8b538d83e337a49, type: 3}
@@ -38818,6 +38864,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 119b0dfa9bbf1cd4e82c69a46394a914, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ai: {fileID: 0}
+  emotions:
+  - happy
+  - sad
+  - wondering
+  currentIndex: 0
 --- !u!1 &1423619977 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3714072838323397848, guid: 19758fcf8e554804ea5b41701938e603, type: 3}
@@ -39566,6 +39618,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 119b0dfa9bbf1cd4e82c69a46394a914, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ai: {fileID: 0}
+  emotions:
+  - happy
+  - sad
+  - wondering
+  currentIndex: 0
 --- !u!1 &1438007495
 GameObject:
   m_ObjectHideFlags: 0
@@ -50153,6 +50211,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 119b0dfa9bbf1cd4e82c69a46394a914, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ai: {fileID: 0}
+  emotions:
+  - happy
+  - sad
+  - wondering
+  currentIndex: 0
 --- !u!1 &1798928802
 GameObject:
   m_ObjectHideFlags: 0
@@ -51412,6 +51476,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 119b0dfa9bbf1cd4e82c69a46394a914, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ai: {fileID: 0}
+  emotions:
+  - happy
+  - sad
+  - wondering
+  currentIndex: 0
 --- !u!1 &1835821323
 GameObject:
   m_ObjectHideFlags: 0
@@ -51714,8 +51784,20 @@ PrefabInstance:
       propertyPath: choiceButtons.Array.data[1]
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 5365029026530038510, guid: 19758fcf8e554804ea5b41701938e603, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 6555315243447724980, guid: 19758fcf8e554804ea5b41701938e603, type: 3}
       propertyPath: m_text
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6734075002353944215, guid: 19758fcf8e554804ea5b41701938e603, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7164601669038422239, guid: 19758fcf8e554804ea5b41701938e603, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 7643477931453087195, guid: 19758fcf8e554804ea5b41701938e603, type: 3}
@@ -51820,22 +51902,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1420456198}
     m_Modifications:
-    - target: {fileID: 4565030594948986261, guid: 19758fcf8e554804ea5b41701938e603, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1420456203}
-    - target: {fileID: 4668792639448407360, guid: 19758fcf8e554804ea5b41701938e603, type: 3}
-      propertyPath: nextButton
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 4668792639448407360, guid: 19758fcf8e554804ea5b41701938e603, type: 3}
-      propertyPath: choiceButtons.Array.data[0]
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 4668792639448407360, guid: 19758fcf8e554804ea5b41701938e603, type: 3}
-      propertyPath: choiceButtons.Array.data[1]
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 3510265614072764932, guid: eba80d74847dd9e4c8b538d83e337a49, type: 3}
       propertyPath: m_LocalPosition.x
       value: -15.36
@@ -51923,6 +51989,22 @@ PrefabInstance:
     - target: {fileID: 8919355021480863744, guid: eba80d74847dd9e4c8b538d83e337a49, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4565030594948986261, guid: 19758fcf8e554804ea5b41701938e603, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1420456203}
+    - target: {fileID: 4668792639448407360, guid: 19758fcf8e554804ea5b41701938e603, type: 3}
+      propertyPath: nextButton
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4668792639448407360, guid: 19758fcf8e554804ea5b41701938e603, type: 3}
+      propertyPath: choiceButtons.Array.data[0]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4668792639448407360, guid: 19758fcf8e554804ea5b41701938e603, type: 3}
+      propertyPath: choiceButtons.Array.data[1]
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
@@ -55039,6 +55121,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 119b0dfa9bbf1cd4e82c69a46394a914, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ai: {fileID: 0}
+  emotions:
+  - happy
+  - sad
+  - wondering
+  currentIndex: 0
 --- !u!1001 &2002367012
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -57711,8 +57799,20 @@ PrefabInstance:
       propertyPath: choiceButtons.Array.data[1]
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 5365029026530038510, guid: 19758fcf8e554804ea5b41701938e603, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 6555315243447724980, guid: 19758fcf8e554804ea5b41701938e603, type: 3}
       propertyPath: m_text
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6734075002353944215, guid: 19758fcf8e554804ea5b41701938e603, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7164601669038422239, guid: 19758fcf8e554804ea5b41701938e603, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 7643477931453087195, guid: 19758fcf8e554804ea5b41701938e603, type: 3}

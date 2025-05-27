@@ -186,7 +186,41 @@ public class NPCInteractable : MonoBehaviour
     //    animator.SetBool("IsAngry", true);
     //}
 
-    public void isGuidingPlayer(Transform place, string destination)
+    public void GuidingPlayerInfoHelper(Transform place)
+    {
+        if (aiBehaviour == null || place == null) return;
+   
+        aiBehaviour.animator.SetTrigger("IsExit");
+        aiBehaviour.stateMachine.ChangeState(aiBehaviour.guidanceState);
+        aiBehaviour.guidanceState.ChangeSubState(new WalkWithPlayerState(aiBehaviour.stateMachine, aiBehaviour.guidanceState, aiBehaviour, place.position));
+        aiBehaviour.guidanceState.SetCondition("IsGuiding");
+    }
+    public void GuideButtonContext(string destination)
+    {
+        // Kirim request ke ChatContext agar bisa menampilkan teks sesuai tujuan
+        if (chatCon != null)
+        {
+            chatCon.SetCurrentGuideDestination(destination);
+            chatCon.GetGuideContext();
+        }
+    }
+    public void isGuidingPlayerSeller(Transform place, string destination)
+    {
+        if (aiBehaviour == null) return;
+
+        aiBehaviour.animator.SetTrigger("IsExit");
+        aiBehaviour.stateMachine.ChangeState(aiBehaviour.guidanceState);
+        aiBehaviour.guidanceState.ChangeSubState(new WalkWithPlayerState(aiBehaviour.stateMachine, aiBehaviour.guidanceState, aiBehaviour, place.position));
+        aiBehaviour.guidanceState.SetCondition("IsGuiding");
+
+        // Kirim request ke ChatContext agar bisa menampilkan teks sesuai tujuan
+        if (chatCon != null)
+        {
+            chatCon.SetCurrentGuideDestination(destination);
+            chatCon.GetGuideContext();
+        }
+    }
+    public void isGuidingPlayerCrafter(Transform place, string destination)
     {
         if (aiBehaviour == null) return;
 

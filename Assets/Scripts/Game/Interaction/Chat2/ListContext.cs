@@ -46,32 +46,71 @@ public class ListContext
     }
 
 
-    public string[] GetExplanation(AIBehaviour ai, string destination)
+    public string[] GetExplanation(AIBehaviour ai, string category)
     {
-        if(ai.Type == NPCType.GuidanceSeller)
+        if (ai.Type == NPCType.GuidanceSeller)
         {
-            explanation = new string[]{
-            "Jika punya barang daur ulang bisa dijual ke saya",
-            "Setiap kamu menjual barang daur ulang itu membantu lingkungan.",
-            "Saya tidak menerima barang yang tidak di daur ulang",
-            "Untuk harga bisa dibicarakan",
-            "Jumlah Barang yang kamu tawarkan bisa saya naikkan harganya"};
+            if (category == "offer")
+            {
+                return explanation = new string[] {
+                "Jika punya barang daur ulang bisa dijual ke saya.",
+                "Saya tidak menerima barang yang tidak didaur ulang.",
+                "Untuk harga bisa dibicarakan.",
+                "Jumlah barang yang kamu tawarkan bisa saya naikkan harganya.",
+                "Kualitas barang menentukan nilai jualnya."
+            };
+            }
+            else if (category == "sell_instruction")
+            {
+                return explanation = new string[] {
+                "Kamu harus crafting dulu sebelum bisa jual.",
+                "Barang seperti patung, tas, dan cermin dari crafter bisa dijual di sini.",
+                "Pastikan kamu gunakan tempat crafting dulu sebelum datang ke saya.",
+                "Saya hanya membeli barang hasil daur ulang dan buatan crafter.",
+                "Setelah crafting, bawa barangmu ke sini untuk dijual."
+            };
+            }
         }
+
         if (ai.Type == NPCType.GuidanceCrafter)
         {
-            explanation = new string[]{
-            "Saya bisa buatkan barang, tapi transmute dulu sampahmu di tong sampah",
-            "Bawakan aku bahan bekas, nanti kubuat jadi barang berguna.",
-            "2 logam dan 2 plastik bisa jadi karya seni seperti patung anjing ini.",
-            "lalu 2 logam dan 2 kaca bisa jadi cermin seperti ini.",
-            "ada juga 2 plastik dan 1 logam bisa jadi tas cantik.",
-            "setelah itu 1 plastik dan 1 logam bisa jadi kalung perhiasan.",
-            "1 logam saja juga bisa berubah menjadi kaleng baru",
-            "Aku bisa ubah sampah plastikmu jadi botol yang bisa dijual."};
+            if (category == "craft_material")
+            {
+                return explanation = new string[] {
+                "Saya bisa buatkan barang, tapi transmute dulu sampahmu di tong sampah.",
+                "2 logam dan 2 plastik bisa jadi patung anjing.",
+                "2 logam dan 2 kaca bisa jadi cermin.",
+                "2 plastik dan 1 logam bisa jadi tas cantik.",
+                "1 plastik dan 1 logam bisa jadi kalung.",
+                "1 logam bisa jadi kaleng baru.",
+                "1 plastik bisa jadi botol daur ulang."
+            };
+            }
+            else if (category == "get_material")
+            {
+                return explanation = new string[] {
+                "Untuk dapat bahan, kumpulkan sampah dari lingkungan.",
+                "Buang sampahmu di tempat sampah yang sesuai jenisnya.",
+                "Setelah buang sampah, kamu bisa transmute di tempat itu juga.",
+                "Transmute akan ubah sampah menjadi bahan crafting.",
+                "Semakin banyak kamu buang sampah, semakin banyak bahan kamu punya."
+            };
+            }
+            else if (category == "sell_result")
+            {
+                return explanation = new string[] {
+                "Setelah kamu crafting, hasilnya bisa dijual ke Seller.",
+                "Jangan lupa bawa hasil kerajinanmu ke area penjual.",
+                "Seller akan memberi harga sesuai kualitas barangmu.",
+                "Barang seperti patung, cermin, dan tas bisa dijual.",
+                "Temui Seller setelah selesai crafting."
+            };
+            }
         }
+
         if (ai.Type == NPCType.GuidanceInfoHelper)
         {
-            switch (destination)
+            switch (category)
             {
                 case "TrashBin":
                     return explanation = new string[] {
@@ -98,6 +137,13 @@ public class ListContext
                 "Temui Crafter untuk ubah sampah jadi barang berguna.",
                 "Kreativitasmu akan dibantu di tempat ini.",
                 "Crafter bisa membuat sesuatu dari barang bekasmu."
+                };
+                case "GameObjectvie":
+                    return explanation = new string[] {
+                "Tujuanmu disini adalah membersihkan dan mengambil sampah",
+                "Jika sudah terkumpul kamu harus membuang sampah itu di tempat sampah",
+                "Objektif utamanya adalah kamu harus mengumpulkan uang",
+                "Uang itu kamu dapatkan dari sampah yang kamu kumpulkan tadi."
                 };
             }
         }
@@ -146,6 +192,34 @@ public class ListContext
         }
 
         return question;
+    }
+    public string[] GetAnswer(AIBehaviour ai)
+    {
+        if (ai.Type == NPCType.GuidanceSeller)
+        {
+            answer = new string[]{
+            "Oke kalau begitu",
+            "Baiklah",
+            "Siap"};
+        }
+        if (ai.Type == NPCType.GuidanceCrafter)
+        {
+            answer = new string[]{
+            "Oke kalau begitu",
+            "Baiklah",
+            "Siap"};
+        }
+        if (ai.Type == NPCType.GuidanceInfoHelper)
+        {
+            answer = new string[]{
+            "Oke kalau begitu",
+            "Baiklah",
+            "Siap",
+            "Ikuti aku",
+            "Jangan sampai ketinggalan"};
+        }
+
+        return answer;
     }
 
     public string[] GetEmotion(AIBehaviour ai)

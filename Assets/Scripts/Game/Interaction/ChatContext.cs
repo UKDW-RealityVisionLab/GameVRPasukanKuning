@@ -22,6 +22,8 @@ public class ChatContext : MonoBehaviour
     private float chatTimer = 0f;
     private ListContext listCon;
     private string currentGuideDestination = "";
+    private Dictionary<string, int> guideIndexMap = new Dictionary<string, int>();
+
 
     private JsonData dialogData;
 
@@ -63,6 +65,15 @@ public class ChatContext : MonoBehaviour
     {
         textHeader.text = headerString;
         var questions = listCon.GetQuestion(ai);
+        if (questions != null && questions.Length > 0)
+        {
+            textIsi.text = questions[Random.Range(0, questions.Length)];
+        }
+    }
+    public void GetAnswer()
+    {
+        textHeader.text = headerString;
+        var questions = listCon.GetAnswer(ai);
         if (questions != null && questions.Length > 0)
         {
             textIsi.text = questions[Random.Range(0, questions.Length)];
@@ -125,10 +136,32 @@ public class ChatContext : MonoBehaviour
             textIsi.text = guideTexts[Random.Range(0, guideTexts.Length)];
         }
     }
+    public void GetGuideContextInOrder()
+    {
+        textHeader.text = headerString;
 
-    public void SetCurrentGuideDestination(string destination)
+        string[] guideTexts = listCon.GetExplanation(ai, currentGuideDestination);
+        if (guideTexts != null && guideTexts.Length > 0)
+        {
+            // Ambil indeks saat ini (default 0 jika belum pernah dipanggil)
+            if (!guideIndexMap.ContainsKey(currentGuideDestination))
+            {
+                guideIndexMap[currentGuideDestination] = 0;
+            }
+
+            int index = guideIndexMap[currentGuideDestination];
+            textIsi.text = guideTexts[index];
+
+            // Update index ke berikutnya (dengan looping kembali ke awal)
+            guideIndexMap[currentGuideDestination] = (index + 1) % guideTexts.Length;
+        }
+    }
+
+
+    public string SetCurrentGuideDestination(string destination)
     {
         currentGuideDestination = destination;
+        return currentGuideDestination;
     }
 
     public void NextButton()
