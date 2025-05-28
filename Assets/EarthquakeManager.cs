@@ -4,20 +4,32 @@ using UnityEngine;
 public class EarthquakeManager : MonoBehaviour
 {
     public EarthquakeHaptics haptics;
-    public VRShakeRotation vrShake;
     public AudioSource earthquakeSFX;
+    public BuildingShakeManager buildingShakeManager;
+    public WaterBlockController waterBlock;
+    public float earthquakeDuration = 30f;
 
     void Start()
     {
-        // StartCoroutine(StartEarthquake());
+        StartCoroutine(StartEarthquake());
     }
 
     IEnumerator StartEarthquake()
     {
-        yield return new WaitForSeconds(1f);  // Delay opsional sebelum gempa
+        yield return new WaitForSeconds(earthquakeDuration);
         earthquakeSFX.Play();
         haptics.TriggerHapticPulse();
-        vrShake.TriggerShake();
+        waterBlock.Sink();
+        buildingShakeManager.ShakeAllBuildings();
+
+    }
+
+    public void StopEarthquake()
+    {
+        earthquakeSFX.Stop();
+        haptics.StopHapticPulse();
+        waterBlock.ResetPosition();
+        buildingShakeManager.StopAllBuildings();
     }
 
 #if UNITY_EDITOR
@@ -25,6 +37,11 @@ public class EarthquakeManager : MonoBehaviour
     private void DebugTriggerEarthquake()
     {
         StartCoroutine(StartEarthquake());  // <- FIXED
+    }
+    [ContextMenu("Stop Earthquake (Debug)")]
+    private void DebugStopEarthquake()
+    {
+        StopEarthquake();
     }
 #endif
 }
