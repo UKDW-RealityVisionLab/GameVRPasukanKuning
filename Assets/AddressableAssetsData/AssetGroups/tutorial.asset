@@ -17,7 +17,7 @@ MonoBehaviour:
     m_SerializedData: []
   m_GUID: 61539b4f4c317064e9d093e3ebd63faa
   m_SerializeEntries:
-  - m_GUID: 5d4060ee387f6e34e93e8cbf64d966e7
+  - m_GUID: c5e65018667b8454ebb16fdb5d6ae588
     m_Address: Assets/BundledAsset/tutorial/tutorial.unity
     m_ReadOnly: 0
     m_SerializedLabels: []
