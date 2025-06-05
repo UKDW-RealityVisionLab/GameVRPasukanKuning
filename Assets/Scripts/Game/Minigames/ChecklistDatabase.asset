@@ -1,0 +1,16 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78016a08fa25a634195fd21d1d3c4859, type: 3}
+  m_Name: ChecklistDatabase
+  m_EditorClassIdentifier: 
+  checklistItems:
+  - {fileID: 11400000, guid: f51017727cfabda48ba7d3dfb3332495, type: 2}
