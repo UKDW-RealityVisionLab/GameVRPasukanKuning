@@ -854,11 +854,11 @@ PlayerSettings:
   apiCompatibilityLevel: 6
   activeInputHandler: 2
   windowsGamepadBackendHint: 0
-  cloudProjectId: c31f1c83-e86c-40ea-a5e1-7a9b71dadd85
+  cloudProjectId: 6d73a0f8-d845-4370-a117-2e9b060fc574
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
-  projectName: GameVRPasukanKuning 2025-03-26_10-09-50
-  organizationId: mekelwibi2002
+  projectName: PasukanKuning
+  organizationId: unity_2f94028ff4d1a7654940
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0
   hmiLoadingImage: {fileID: 0}
