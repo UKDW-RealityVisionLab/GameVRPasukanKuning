@@ -17,12 +17,4 @@ public class BlueMarkCollider : MonoBehaviour
         }
     }
 
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            gameObject.SetActive(false);
-            transmuteUI.SetActive(false);
-        }
-    }
 }

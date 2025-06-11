@@ -6,7 +6,6 @@ public class CraftingMarkActivator : MonoBehaviour
 {
     public GameObject craftingMark; // Drag your Crafting UI GameObject here in the Inspector
     public GameObject sellingMark;
-    public GameObject TransmuteUI;
     public GameObject craftingUI;
 
     public void ActivateCraftingUI()
@@ -16,7 +15,6 @@ public class CraftingMarkActivator : MonoBehaviour
         {
             craftingMark.SetActive(true); // Activate the crafting UI
             sellingMark.SetActive(true);
-            TransmuteUI.SetActive(false);
             craftingUI.SetActive(true);
         }
     }
