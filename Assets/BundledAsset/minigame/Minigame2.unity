@@ -7516,7 +7516,7 @@ MonoBehaviour:
   SirineSFX: {fileID: 1350758816}
   buildingShakeManager: {fileID: 307057500}
   waterBlock: {fileID: 953492551473907022}
-  earthquakeDuration: 1
+  earthquakeDuration: 30
 --- !u!4 &1549791522
 Transform:
   m_ObjectHideFlags: 0
@@ -7544,10 +7544,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a395c0ec49a8f3747b8c90a064bb8ee2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  leftHapticPlayer: {fileID: 0}
-  rightHapticPlayer: {fileID: 0}
-  vibrationAmplitude: 0.5
-  pulseInterval: 0.1
+  leftHapticPlayer: {fileID: 1932593077613985819}
+  rightHapticPlayer: {fileID: 1949099865293475740}
+  vibrationAmplitude: 0.3
+  pulseInterval: 0.4
 --- !u!1 &1552977394
 GameObject:
   m_ObjectHideFlags: 0
