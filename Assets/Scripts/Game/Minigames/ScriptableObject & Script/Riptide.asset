@@ -9,9 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 78016a08fa25a634195fd21d1d3c4859, type: 3}
-  m_Name: ChecklistDatabase
+  m_Script: {fileID: 11500000, guid: d322de11fbdf9a14f915a358192f45bf, type: 3}
+  m_Name: Riptide
   m_EditorClassIdentifier: 
-  checklistItems:
-  - {fileID: 11400000, guid: f51017727cfabda48ba7d3dfb3332495, type: 2}
-  - {fileID: 11400000, guid: e670a085b6edf8844835094ac9872752, type: 2}
+  id: riptide
+  displayName: Penjaga pantai
+  isComplete: 0

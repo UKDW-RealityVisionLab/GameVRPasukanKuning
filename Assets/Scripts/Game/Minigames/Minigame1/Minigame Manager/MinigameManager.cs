@@ -27,7 +27,8 @@ public class MinigameManager : MonoBehaviour
         SocketController.OnRipCurrentBecameInactive -= HandleRipCurrentBecameInactive;
     }
 
-    private void Start() {
+    private void Start()
+    {
         LogRipCurrentStatus();
     }
 
@@ -67,7 +68,7 @@ public class MinigameManager : MonoBehaviour
 
         Debug.Log($"RipCurrentController Status: Total Rip Currents = {totalRipCurrents}, Active Rip Currents = {activeRipCurrents}");
     }
-    
+
     void CheckWin()
     {
         if (inactiveRipCount == totalHandleRipCurrentBecameActive)
@@ -76,8 +77,49 @@ public class MinigameManager : MonoBehaviour
             gameOver = true;
             if (winLoseText != null)
                 winLoseText.text = "You Win";
-
+            if (GameStateManager.Instance == null)
+            {
+                GameStateManager foundManager = FindObjectOfType<GameStateManager>();
+                if (foundManager != null)
+                {
+                    GameStateManager.Instance = foundManager;
+                }
+                else
+                {
+                    return;
+                }
+            }
             GameStateManager.Instance.OnGameWon();
         }
     }
+
+    void Win()
+    {
+        Debug.Log("✅ Win.");
+        gameOver = true;
+        if (winLoseText != null)
+            winLoseText.text = "You Win";
+        if (GameStateManager.Instance == null)
+        {
+            GameStateManager foundManager = FindObjectOfType<GameStateManager>();
+            if (foundManager != null)
+            {
+                GameStateManager.Instance = foundManager;
+            }
+            else
+            {
+                return;
+            }
+        }
+
+        GameStateManager.Instance.OnGameWon();
+    }
+
+#if UNITY_EDITOR
+    [ContextMenu("Trigger Winn (Debug)")]
+    private void DebugTriggerWinn()
+    {
+        Win();
+    }
+#endif
 }
