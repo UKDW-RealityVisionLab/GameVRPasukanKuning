@@ -33,6 +33,10 @@ public class CheckCurrencyGoal : MonoBehaviour
             {
                 OnCurrencyGoalReached();
             }
+            else if (levelIdentifier == "Tutorial" && GameManager.IsCurrencyGoalReached2())
+            {
+                OnCurrencyGoalReached();
+            }
         }
     }
 
