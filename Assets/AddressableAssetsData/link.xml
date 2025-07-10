@@ -2,11 +2,17 @@
   <assembly fullname="Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
     <type fullname="AnimateHandinput" preserve="all" />
     <type fullname="BlueMarkCollider" preserve="all" />
+    <type fullname="BuildingShakeManager" preserve="all" />
+    <type fullname="BuildingShaker" preserve="all" />
     <type fullname="CheckCurrencyGoal" preserve="all" />
+    <type fullname="ChecklistBoard" preserve="all" />
+    <type fullname="ChecklistDatabase" preserve="all" />
     <type fullname="Craft" preserve="all" />
     <type fullname="CraftingMarkActivator" preserve="all" />
     <type fullname="CurrencyAndScoreDisplay" preserve="all" />
     <type fullname="CurrencyManager" preserve="all" />
+    <type fullname="EarthquakeHaptics" preserve="all" />
+    <type fullname="EarthquakeManager" preserve="all" />
     <type fullname="GameStateManager" preserve="all" />
     <type fullname="GrabObject" preserve="all" />
     <type fullname="GreenMarkCollider" preserve="all" />
@@ -15,6 +21,7 @@
     <type fullname="ItemMaterial" preserve="all" />
     <type fullname="ItemSocketHandler" preserve="all" />
     <type fullname="MaterialDrop" preserve="all" />
+    <type fullname="MinigameChecklistItem" preserve="all" />
     <type fullname="MinigameManager" preserve="all" />
     <type fullname="MinigameMenu" preserve="all" />
     <type fullname="MoveToMinigame" preserve="all" />
@@ -31,11 +38,15 @@
     <type fullname="SocketController" preserve="all" />
     <type fullname="SocketItemChecker" preserve="all" />
     <type fullname="SocketStatusReporter" preserve="all" />
+    <type fullname="TimerData" preserve="all" />
+    <type fullname="TimerRunner" preserve="all" />
     <type fullname="TrashCollection" preserve="all" />
     <type fullname="TrashPileManager" preserve="all" />
     <type fullname="TruckController" preserve="all" />
+    <type fullname="TsunamiCheckpoint" preserve="all" />
     <type fullname="UnityEngine.XR.Content.Interaction.LocomotionManager" preserve="all" />
     <type fullname="UnityEngine.XR.Content.Interaction.TransformJoint" preserve="all" />
+    <type fullname="WaterBlockController" preserve="all" />
     <type fullname="WaterSector" preserve="all" />
     <type fullname="WelcomingCollider" preserve="all" />
     <type fullname="ItemMaterial/ItemPrefabPair" preserve="nothing" serialized="true" />
@@ -95,6 +106,22 @@
     <type fullname="UnityEngine.ResourceManagement.ResourceProviders.InstanceProvider" preserve="all" />
     <type fullname="UnityEngine.ResourceManagement.ResourceProviders.LegacyResourcesProvider" preserve="all" />
     <type fullname="UnityEngine.ResourceManagement.ResourceProviders.SceneProvider" preserve="all" />
+  </assembly>
+  <assembly fullname="Unity.Splines, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+    <type fullname="UnityEngine.Splines.SplineContainer" preserve="all" />
+    <type fullname="UnityEngine.Splines.SplineInstantiate" preserve="all" />
+    <type fullname="UnityEngine.Splines.BezierKnot" preserve="nothing" serialized="true" />
+    <type fullname="UnityEngine.Splines.KnotLinkCollection" preserve="nothing" serialized="true" />
+    <type fullname="UnityEngine.Splines.KnotLinkCollection/KnotLink" preserve="nothing" serialized="true" />
+    <type fullname="UnityEngine.Splines.Spline" preserve="nothing" serialized="true" />
+    <type fullname="UnityEngine.Splines.Spline/MetaData" preserve="nothing" serialized="true" />
+    <type fullname="UnityEngine.Splines.SplineDataDictionary`1[System.Int32]" preserve="nothing" serialized="true" />
+    <type fullname="UnityEngine.Splines.SplineDataDictionary`1[System.Single]" preserve="nothing" serialized="true" />
+    <type fullname="UnityEngine.Splines.SplineDataDictionary`1[Unity.Mathematics.float4]" preserve="nothing" serialized="true" />
+    <type fullname="UnityEngine.Splines.SplineDataDictionary`1[UnityEngine.Object]" preserve="nothing" serialized="true" />
+    <type fullname="UnityEngine.Splines.SplineInstantiate/InstantiableItem" preserve="nothing" serialized="true" />
+    <type fullname="UnityEngine.Splines.SplineInstantiate/Vector3Offset" preserve="nothing" serialized="true" />
+    <type fullname="UnityEngine.Splines.SplineKnotIndex" preserve="nothing" serialized="true" />
   </assembly>
   <assembly fullname="Unity.TextMeshPro, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
     <type fullname="TMPro.TextMeshProUGUI" preserve="all" />
@@ -203,7 +230,9 @@
     <type fullname="UnityEngine.RuntimeAnimatorController" preserve="all" />
   </assembly>
   <assembly fullname="UnityEngine.AudioModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+    <type fullname="UnityEngine.AudioClip" preserve="all" />
     <type fullname="UnityEngine.AudioListener" preserve="all" />
+    <type fullname="UnityEngine.AudioSource" preserve="all" />
   </assembly>
   <assembly fullname="UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
     <type fullname="UnityEngine.Camera" preserve="all" />
@@ -242,6 +271,14 @@
     <type fullname="UnityEngine.Rigidbody" preserve="all" />
     <type fullname="UnityEngine.SphereCollider" preserve="all" />
   </assembly>
+  <assembly fullname="UnityEngine.TerrainModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+    <type fullname="UnityEngine.Terrain" preserve="all" />
+    <type fullname="UnityEngine.TerrainData" preserve="all" />
+    <type fullname="UnityEngine.TerrainLayer" preserve="all" />
+  </assembly>
+  <assembly fullname="UnityEngine.TerrainPhysicsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+    <type fullname="UnityEngine.TerrainCollider" preserve="all" />
+  </assembly>
   <assembly fullname="UnityEngine.TextRenderingModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
     <type fullname="UnityEngine.Font" preserve="all" />
   </assembly>
@@ -267,6 +304,11 @@
   <assembly fullname="UnityEngine.UIModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
     <type fullname="UnityEngine.Canvas" preserve="all" />
     <type fullname="UnityEngine.CanvasRenderer" preserve="all" />
+  </assembly>
+  <assembly fullname="Unity.Mathematics">
+    <type fullname="Unity.Mathematics.float3" preserve="nothing" serialized="true" />
+    <type fullname="Unity.Mathematics.float4" preserve="nothing" serialized="true" />
+    <type fullname="Unity.Mathematics.quaternion" preserve="nothing" serialized="true" />
   </assembly>
   <assembly fullname="UnityEngine.TextCoreFontEngineModule">
     <type fullname="UnityEngine.TextCore.FaceInfo" preserve="nothing" serialized="true" />

@@ -614,7 +614,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   addressablePath:
-    m_AssetGUID: bc011162999b40e4d8350938410db3da
+    m_AssetGUID: 9738a5c643e6a1b47a99eeb2028d053f
     m_SubObjectName: 
     m_SubObjectType: 
     m_EditorAssetChanged: 0

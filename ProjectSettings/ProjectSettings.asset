@@ -142,9 +142,7 @@ PlayerSettings:
   visionOSBundleVersion: 1.0
   tvOSBundleVersion: 1.0
   bundleVersion: 0.1
-  preloadedAssets:
-  - {fileID: -1451583830537230089, guid: 8aab7b1dda490e34c827c24917053705, type: 2}
-  - {fileID: -1295999349539765889, guid: 0b46e38d1a9dbe94aa6be46176c4222c, type: 2}
+  preloadedAssets: []
   metroInputSource: 0
   wsaTransparentSwapchain: 0
   m_HolographicPauseOnTrackingLoss: 1
@@ -854,11 +852,11 @@ PlayerSettings:
   apiCompatibilityLevel: 6
   activeInputHandler: 2
   windowsGamepadBackendHint: 0
-  cloudProjectId: 6d73a0f8-d845-4370-a117-2e9b060fc574
+  cloudProjectId: c31f1c83-e86c-40ea-a5e1-7a9b71dadd85
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
-  projectName: PasukanKuning
-  organizationId: unity_2f94028ff4d1a7654940
+  projectName: GameVRPasukanKuning 2025-03-26_10-09-50
+  organizationId: mekelwibi2002
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0
   hmiLoadingImage: {fileID: 0}
