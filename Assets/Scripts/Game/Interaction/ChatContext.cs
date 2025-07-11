@@ -9,13 +9,17 @@ using UnityEditor.Rendering;
 using System.Net.Http;
 using System.Threading.Tasks;
 using UnityEngine.InputSystem;
+using Unity.VisualScripting;
+using UnityEditor.Search;
 
 public class ChatContext : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI textHeader;
     [SerializeField] public TextMeshProUGUI textIsi;
     [SerializeField] private string headerString;
-    [SerializeField] private InputActionReference rightNpc;
+    //[SerializeField] private InputActionReference rightNpc;
+    [SerializeField] private string query;
+    [SerializeField] private string age;
     public GameObject npcDialogUI;
     public TextMeshProUGUI dialogRandomText;
     private AIBehaviour ai;
@@ -62,18 +66,18 @@ public class ChatContext : MonoBehaviour
             chatTimer = 0f;
             GetRandomChat();
         }
-        if (rightNpc.action.WasPressedThisFrame())
-        {
-            UpdateTextContent();
-        }
+        //if (rightNpc.action.WasPressedThisFrame())
+        //{
+        //    UpdateTextContent();
+        //}
     }
-    private void UpdateTextContent()
-    {
-        if (currentTexts != null && currentTexts.Length > 0)
-        {
-            textIsi.text = currentTexts[currentIndex];
-        }
-    }
+    //private void UpdateTextContent()
+    //{
+    //    if (currentTexts != null && currentTexts.Length > 0)
+    //    {
+    //        textIsi.text = currentTexts[currentIndex];
+    //    }
+    //}
 
     public void GetContextQuestion()
     {
@@ -153,6 +157,23 @@ public class ChatContext : MonoBehaviour
             currentIndex = 0;
             textIsi.text = currentTexts[currentIndex];
         }
+    }
+
+    public void GetOllamaResponse()
+    {
+        textIsi.text = "Biar saya pikir dahulu";
+        StartCoroutine(ApiClient.PostQuery(query, age, (response) =>
+        {
+            if (!string.IsNullOrEmpty(response))
+            {
+                Debug.Log("API Response: " + response);
+                textIsi.text = response;
+            }
+            else
+            {
+                Debug.LogError("API Error: no response.");
+            }
+        }));
     }
     //public void GetGuideContextInOrder()
     //{

@@ -19,10 +19,11 @@ public static class ApiClient
             request.SetRequestHeader("Content-Type", "application/json");
 
             yield return request.SendWebRequest();
-            Debug.Log("Disini kepanggil ko");
             if (request.result == UnityWebRequest.Result.Success)
             {
-                callback?.Invoke(request.downloadHandler.text);
+                string jsonText = request.downloadHandler.text;
+                ApiResponse response = JsonUtility.FromJson<ApiResponse>(jsonText);
+                callback?.Invoke(response.answer);  // ✅ Only return the "answer"
             }
             else
             {
@@ -32,10 +33,17 @@ public static class ApiClient
         }
     }
 
+
     [System.Serializable]
     private class QueryData
     {
         public string query;
         public string kategori_usia;
+    }
+
+    [System.Serializable]
+    private class ApiResponse
+    {
+        public string answer;
     }
 }
