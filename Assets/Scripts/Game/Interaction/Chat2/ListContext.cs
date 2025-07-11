@@ -56,8 +56,7 @@ public class ListContext
                 "Jika punya barang daur ulang bisa dijual ke saya.",
                 "Saya tidak menerima barang yang tidak didaur ulang.",
                 "Untuk harga bisa dibicarakan.",
-                "Jumlah barang yang kamu tawarkan bisa saya naikkan harganya.",
-                "Kualitas barang menentukan nilai jualnya."
+                "Jumlah barang yang kamu tawarkan bisa saya naikkan harganya."
             };
             }
             else if (category == "sell_instruction")
@@ -138,7 +137,7 @@ public class ListContext
                 "Kreativitasmu akan dibantu di tempat ini.",
                 "Crafter bisa membuat sesuatu dari barang bekasmu."
                 };
-                case "GameObjectvie":
+                case "GameObjective":
                     return explanation = new string[] {
                 "Tujuanmu disini adalah membersihkan dan mengambil sampah",
                 "Jika sudah terkumpul kamu harus membuang sampah itu di tempat sampah",
@@ -166,7 +165,7 @@ public class ListContext
         if (ai.Type == NPCType.GuidanceCrafter)
         {
             question = new string[]{
-            "Kamu punya botol bekas atau kardus?",
+            "Kamu punya botol bekas atau plastik?",
             "Kamu punya barang bekas yang bisa kubuatkan sesuatu?",
             "Mau kubuatkan kerajinan dari botolmu?",
             "Sudah pernah lihat karya dari sampah daur ulang?",

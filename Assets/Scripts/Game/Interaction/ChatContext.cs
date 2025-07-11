@@ -8,12 +8,14 @@ using System.Diagnostics.Tracing;
 using UnityEditor.Rendering;
 using System.Net.Http;
 using System.Threading.Tasks;
+using UnityEngine.InputSystem;
 
 public class ChatContext : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI textHeader;
     [SerializeField] public TextMeshProUGUI textIsi;
     [SerializeField] private string headerString;
+    [SerializeField] private InputActionReference rightNpc;
     public GameObject npcDialogUI;
     public TextMeshProUGUI dialogRandomText;
     private AIBehaviour ai;
@@ -22,7 +24,8 @@ public class ChatContext : MonoBehaviour
     private float chatTimer = 0f;
     private ListContext listCon;
     private string currentGuideDestination = "";
-    private Dictionary<string, int> guideIndexMap = new Dictionary<string, int>();
+    private int currentIndex = 0;
+    private string[] currentTexts = null;
 
 
     private JsonData dialogData;
@@ -59,6 +62,17 @@ public class ChatContext : MonoBehaviour
             chatTimer = 0f;
             GetRandomChat();
         }
+        if (rightNpc.action.WasPressedThisFrame())
+        {
+            UpdateTextContent();
+        }
+    }
+    private void UpdateTextContent()
+    {
+        if (currentTexts != null && currentTexts.Length > 0)
+        {
+            textIsi.text = currentTexts[currentIndex];
+        }
     }
 
     public void GetContextQuestion()
@@ -67,16 +81,18 @@ public class ChatContext : MonoBehaviour
         var questions = listCon.GetQuestion(ai);
         if (questions != null && questions.Length > 0)
         {
-            textIsi.text = questions[Random.Range(0, questions.Length)];
+            currentTexts = questions;
+            currentIndex = 0;
+            textIsi.text = currentTexts[Random.Range(currentIndex, currentTexts.Length)];
         }
     }
     public void GetAnswer()
     {
         textHeader.text = headerString;
-        var questions = listCon.GetAnswer(ai);
-        if (questions != null && questions.Length > 0)
+        var answers = listCon.GetAnswer(ai);
+        if (answers != null && answers.Length > 0)
         {
-            textIsi.text = questions[Random.Range(0, questions.Length)];
+            textIsi.text = answers[Random.Range(0, answers.Length)];
         }
     }
 
@@ -133,29 +149,31 @@ public class ChatContext : MonoBehaviour
         string[] guideTexts = listCon.GetExplanation(ai, currentGuideDestination);
         if (guideTexts != null && guideTexts.Length > 0)
         {
-            textIsi.text = guideTexts[Random.Range(0, guideTexts.Length)];
+            currentTexts = guideTexts;
+            currentIndex = 0;
+            textIsi.text = currentTexts[currentIndex];
         }
     }
-    public void GetGuideContextInOrder()
-    {
-        textHeader.text = headerString;
+    //public void GetGuideContextInOrder()
+    //{
+    //    textHeader.text = headerString;
 
-        string[] guideTexts = listCon.GetExplanation(ai, currentGuideDestination);
-        if (guideTexts != null && guideTexts.Length > 0)
-        {
-            // Ambil indeks saat ini (default 0 jika belum pernah dipanggil)
-            if (!guideIndexMap.ContainsKey(currentGuideDestination))
-            {
-                guideIndexMap[currentGuideDestination] = 0;
-            }
+    //    string[] guideTexts = listCon.GetExplanation(ai, currentGuideDestination);
+    //    if (guideTexts != null && guideTexts.Length > 0)
+    //    {
+    //        // Ambil indeks saat ini (default 0 jika belum pernah dipanggil)
+    //        if (!guideIndexMap.ContainsKey(currentGuideDestination))
+    //        {
+    //            guideIndexMap[currentGuideDestination] = 0;
+    //        }
 
-            int index = guideIndexMap[currentGuideDestination];
-            textIsi.text = guideTexts[index];
+    //        int index = guideIndexMap[currentGuideDestination];
+    //        textIsi.text = guideTexts[index];
 
-            // Update index ke berikutnya (dengan looping kembali ke awal)
-            guideIndexMap[currentGuideDestination] = (index + 1) % guideTexts.Length;
-        }
-    }
+    //        // Update index ke berikutnya (dengan looping kembali ke awal)
+    //        guideIndexMap[currentGuideDestination] = (index + 1) % guideTexts.Length;
+    //    }
+    //}
 
 
     public string SetCurrentGuideDestination(string destination)
@@ -166,7 +184,11 @@ public class ChatContext : MonoBehaviour
 
     public void NextButton()
     {
-        textIsi.text = "";
+        if (currentTexts == null || currentTexts.Length == 0)
+            return;
+
+        currentIndex = (currentIndex + 1) % currentTexts.Length;
+        textIsi.text = currentTexts[currentIndex];
     }
     public void ShowNPCDialog(string message, float duration = 3f)
     {
