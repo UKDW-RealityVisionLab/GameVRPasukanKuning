@@ -59,7 +59,7 @@ public class AIBehaviour : MonoBehaviour
 
     void Update()
     {
-        if (isInteracting == false) // Hanya lakukan aktivitas kalau tidak interaksi
+        if (isInteracting == false /*&& npcInter.isGuiding == false*/) // Hanya lakukan aktivitas kalau tidak interaksi dan tidak guiding
         {
             timer += Time.deltaTime;
             if (timer >= actionInterval)

@@ -11,6 +11,11 @@ public class NPCInteractable : MonoBehaviour
     [SerializeField] private GameObject uiNPC;
     [SerializeField] private GameObject emotionButton;
     [SerializeField] private GameObject normalButton;
+    [SerializeField] private GameObject afterNextButton;
+    [SerializeField] private GameObject normalNextButton;
+    [SerializeField] private GameObject choises1Button;
+    [SerializeField] private GameObject choises2Button;
+    [SerializeField] private GameObject[] choisesButtonList;
     [SerializeField] private Animator animator;
     private ChatContext chatCon;
     private AIBehaviour aiBehaviour;
@@ -19,9 +24,11 @@ public class NPCInteractable : MonoBehaviour
     public float rotateSpeed = 5f;
     public float maxInteractionDistance = 4f;
     public bool isAngry = false;
+    public bool isGuiding = false;
     public string destGuide;
 
-     void Awake()
+
+    void Awake()
     {
         chatCon = GetComponent<ChatContext>();
         aiBehaviour = GetComponent<AIBehaviour>();
@@ -172,19 +179,6 @@ public class NPCInteractable : MonoBehaviour
             emotionButton.SetActive(true);
         }
     }
-    //public void InteractAngry(Transform InteractorTransform)
-    //{
-    //    // Masuk ke TalkingState dari komponen AIBehaviour
-    //    if (aiBehaviour != null)
-    //    {
-    //        aiBehaviour.isInteracting = true;
-
-    //    }
-    //    interactorTransform = InteractorTransform;
-
-    //    angryUi.SetActive(true);
-    //    animator.SetBool("IsAngry", true);
-    //}
 
     public void GuidingPlayerInfoHelper(Transform place)
     {
@@ -194,6 +188,7 @@ public class NPCInteractable : MonoBehaviour
         aiBehaviour.stateMachine.ChangeState(aiBehaviour.guidanceState);
         aiBehaviour.guidanceState.ChangeSubState(new WalkWithPlayerState(aiBehaviour.stateMachine, aiBehaviour.guidanceState, aiBehaviour, place.position));
         aiBehaviour.guidanceState.SetCondition("IsGuiding");
+        isGuiding = true;
     }
     public void GuideButtonContext(string destination)
     {
@@ -248,16 +243,25 @@ public class NPCInteractable : MonoBehaviour
     {
         aiBehaviour.isInteracting = false;
         uiNPC.SetActive(false);
+        normalNextButton.SetActive(true);
+        afterNextButton.SetActive(false);
+        choises1Button.SetActive(false);
+        choises2Button.SetActive(false);
         animator.SetBool("IsTalking", false);
         animator.SetBool("IsHappy", false);
         animator.SetBool("IsSad", false);
         animator.SetBool("IsWondering", false);
         animator.SetTrigger("IsExit");
         interactorTransform = null;
+        for (int i = 0; i < choisesButtonList.Length; i++)
+        {
+            choisesButtonList[i].SetActive(false);
+        }
     }
 
     public string GetInteractText()
     {
         return interactText;
     }
+
 }
