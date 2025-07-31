@@ -671,10 +671,6 @@ PrefabInstance:
       propertyPath: m_InteractionManager
       value: 
       objectReference: {fileID: 69704709}
-    - target: {fileID: 3588233853710977938, guid: 943bd3fe5aacb2b478bf1b6014873ba5, type: 3}
-      propertyPath: m_SmoothTurnEnabled
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 3641662474097610201, guid: 943bd3fe5aacb2b478bf1b6014873ba5, type: 3}
       propertyPath: m_Name
       value: Complete XR Origin Set Up Variant 1
