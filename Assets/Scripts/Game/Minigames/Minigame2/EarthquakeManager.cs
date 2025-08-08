@@ -1,5 +1,7 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class EarthquakeManager : MonoBehaviour
 {
@@ -9,6 +11,12 @@ public class EarthquakeManager : MonoBehaviour
     public BuildingShakeManager buildingShakeManager;
     public WaterBlockController waterBlock;
     public float earthquakeDuration = 30f;
+
+    [Header("Image Update")]
+    public Sprite evacuationSprite;
+
+    // Store all target Image components here
+    public List<Image> signImages = new List<Image>();
 
     void Start()
     {
@@ -23,6 +31,7 @@ public class EarthquakeManager : MonoBehaviour
         haptics.TriggerHapticPulse();
         waterBlock.Sink();
         buildingShakeManager.ShakeAllBuildings();
+        UpdateAllSignImages();
 
     }
 
@@ -32,6 +41,25 @@ public class EarthquakeManager : MonoBehaviour
         haptics.StopHapticPulse();
         waterBlock.ResetPosition();
         buildingShakeManager.StopAllBuildings();
+    }
+
+    void UpdateAllSignImages()
+    {
+        if (evacuationSprite == null)
+        {
+            Debug.LogError("Evacuation sprite is not assigned.");
+            return;
+        }
+
+        foreach (Image img in signImages)
+        {
+            if (img != null)
+            {
+                img.sprite = evacuationSprite;
+            }
+        }
+
+        Debug.Log("All sign images updated.");
     }
 
 #if UNITY_EDITOR
