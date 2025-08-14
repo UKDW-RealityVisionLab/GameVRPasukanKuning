@@ -288,6 +288,7 @@ MonoBehaviour:
   allowedItems:
   - itemCategory: 2
   scoreText: {fileID: 7599828889865019540}
+  Feedback: {fileID: 0}
 --- !u!1 &4862297180634306184
 GameObject:
   m_ObjectHideFlags: 0
@@ -544,6 +545,7 @@ MonoBehaviour:
   allowedItems:
   - itemCategory: 1
   scoreText: {fileID: 115543420121576911}
+  Feedback: {fileID: 0}
 --- !u!114 &18299745721048078
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1287,6 +1289,7 @@ MonoBehaviour:
   allowedItems:
   - itemCategory: 0
   scoreText: {fileID: 2970024310160818032}
+  Feedback: {fileID: 0}
 --- !u!114 &7052668626977033140
 MonoBehaviour:
   m_ObjectHideFlags: 0

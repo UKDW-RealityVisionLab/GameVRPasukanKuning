@@ -290,6 +290,37 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 2.6479604, y: 2.158576, z: 1.0000002}
   m_Center: {x: 0.063123584, y: 0.079288006, z: -0.00000011920929}
+--- !u!1 &7316858569273102479
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: -6689036041284674117, guid: 794a70d895d77f1418aacddb4ca0cc82, type: 3}
+  m_PrefabInstance: {fileID: 7386186557113846093}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4611971059717234365}
+  m_Layer: 0
+  m_Name: 'leather_bag (Missing Prefab with guid: 794a70d895d77f1418aacddb4ca0cc82)'
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4611971059717234365
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 2774220344278030320, guid: 794a70d895d77f1418aacddb4ca0cc82, type: 3}
+  m_PrefabInstance: {fileID: 7386186557113846093}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7316858569273102479}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: -0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 470831619225958881}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &7386186557113846093
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -351,11 +382,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: -5645937942226959685, guid: 794a70d895d77f1418aacddb4ca0cc82, type: 3}
---- !u!4 &4611971059717234365 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 2774220344278030320, guid: 794a70d895d77f1418aacddb4ca0cc82, type: 3}
-  m_PrefabInstance: {fileID: 7386186557113846093}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &7923307743876098404
 PrefabInstance:
   m_ObjectHideFlags: 0

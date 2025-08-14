@@ -10,7 +10,7 @@ public class Slot : MonoBehaviour
     public TextMeshProUGUI ItemText; // UI element to display the count
 
     private ItemInventory itemInventory; // Reference to the item's inventory
-    private GameObject previousItem = null; // Last added item
+    public GameObject previousItem = null; // Last added item
     private Coroutine removeCoroutine = null; // Active removal coroutine
     private bool isBusy = false; // Unified flag for item addition/removal
     private bool isHovered = false; // Indicates hover state

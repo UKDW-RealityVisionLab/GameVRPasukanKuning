@@ -1,202 +1,230 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.AddressableAssets;
+using UnityEngine.ResourceManagement.AsyncOperations;
+using UnityEngine.ResourceManagement.ResourceProviders;
+using UnityEngine.UI;
+using TMPro;
+using System.Collections;
 
 public class MenuController : MonoBehaviour
 {
-    public GameObject MainMenuPanel; // Assign the MainMenuPanel in the inspector
-    public GameObject levelSelector;   // Assign the levelSelector in the inspector
-    public GameObject tutorialSelector;   // Assign the tutorialSelector in the inspector
-    public GameObject movementPanel;   // Assign the movementPanel in the inspector
-    public GameObject grabPanel;   // Assign the tutorialSelector in the inspector
-    public GameObject teleportPanel;   // Assign the tutorialSelector in the inspector
+    public GameObject MainMenuPanel;
+    public GameObject levelSelector;
 
-    public GameObject[] listGambarMovement;
-    public GameObject[] listGambarGrab;
-    public GameObject[] listGambarTeleport;
-    public int index = 0;
+    [SerializeField] public Slider downloadProgressSlider; // Slider
+    [SerializeField] public GameObject downloadProgressPanel; // Parent panel
+    [SerializeField] public TextMeshProUGUI downloadProgressText; // To display percentage
 
-    private void Update()
+    private void Awake()
     {
-        if(index >= 4)
-        {
-            index = 4;
-        }
-        if(index < -1)
-        {
-            index = -1;
-        }
-        if (movementPanel.activeSelf)
-        {
-            if (index == 0)
-            {
-                listGambarMovement[0].gameObject.SetActive(true);
-                listGambarMovement[3].gameObject.SetActive(false);
-            }
-            if (index < 0 || index >= 4)
-            {
-                movementPanel.SetActive(false);
-                tutorialSelector.SetActive(true);
-                index = 0;
-            }
-        }
-        else if (grabPanel.activeSelf)
-        {
-            if (index == 0)
-            {
-                listGambarGrab[0].gameObject.SetActive(true);
-                listGambarGrab[3].gameObject.SetActive(false);
-            }
-            if (index < 0 || index >= 4)
-            {
-                grabPanel.SetActive(false);
-                tutorialSelector.SetActive(true);
-                index = 0;
-            }
-        }
-        else if (teleportPanel.activeSelf)
-        {
-            if (index == 0)
-            {
-                listGambarTeleport[0].gameObject.SetActive(true);
-                listGambarTeleport[3].gameObject.SetActive(false);
-            }
-            if (index < 0 || index >= 4)
-            {
-                teleportPanel.SetActive(false);
-                tutorialSelector.SetActive(true);
-                index = 0;
-            }
-        }
-        Debug.Log(index);
+        SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
-    // This method loads the main scene or game scene.
+    private void OnDestroy()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+
     public void StartGame()
     {
-        // Hide the Main Menu Panel and show the levelSelector Panel
         MainMenuPanel.SetActive(false);
         levelSelector.SetActive(true);
-
     }
 
     public void Level1()
     {
-        SceneManager.LoadScene("Level 1");
-
+        StartCoroutine(LoadSceneWithProgress("Assets/BundledAsset/level1/Level 1.unity"));
     }
 
     public void Level2()
     {
-        SceneManager.LoadScene("Level 2");
-
+        StartCoroutine(LoadSceneWithProgress("Assets/BundledAsset/level2/Level 2.unity"));
     }
 
-    public void Back()
+    public void Level3()
     {
-        // Show the Main Menu Panel and hide the levelSelector Panel
-        MainMenuPanel.SetActive(true);
-        levelSelector.SetActive(false);
-
-    }
-    public void BackTutorial()
-    {
-        // Show the Main Menu Panel and hide the tutorialSelector Panel
-        MainMenuPanel.SetActive(true);
-        tutorialSelector.SetActive(false);
+        StartCoroutine(LoadSceneWithProgress("Assets/BundledAsset/level3/Level 3.unity"));
     }
 
     public void Tutorial()
     {
-        // Hide the Main Menu Panel and show the tutorialSelector Panel
-        MainMenuPanel.SetActive(false);
-        tutorialSelector.SetActive(true);
-    }
-    public void MovementUI()
-    {
-        tutorialSelector.SetActive(false);
-        movementPanel.SetActive(true);
-        listGambarMovement[3].gameObject.SetActive(false);
-    }
-    public void GrabUI()
-    {
-        tutorialSelector.SetActive(false);
-        grabPanel.SetActive(true);
-        listGambarGrab[3].gameObject.SetActive(false);
-    }
-    public void TeleportUI()
-    {
-        tutorialSelector.SetActive(false);
-        teleportPanel.SetActive(true);
-        listGambarTeleport[3].gameObject.SetActive(false);
-    }
-    public void NextTutorialMovement()
-    {
-        index += 1;
-        for(int i = 0; i < listGambarMovement.Length; i++)
-        {
-            listGambarMovement[i].gameObject.SetActive(false);
-            listGambarMovement[index].gameObject.SetActive(true);
-        }
+        StartCoroutine(LoadSceneWithProgress("Assets/BundledAsset/tutorial/tutorial.unity"));
     }
 
-    public void PrevTutorialMovement()
+
+
+    public void Back()
     {
-        index -= 1;
-        for (int i = 0; i < listGambarMovement.Length; i++)
-        {
-            listGambarMovement[i].gameObject.SetActive(false);
-            listGambarMovement[index].gameObject.SetActive(true);
-        }
+        MainMenuPanel.SetActive(true);
+        levelSelector.SetActive(false);
     }
 
-    public void NextTutorialGrab()
-    {
-        index += 1;
-        for (int i = 0; i < listGambarGrab.Length; i++)
-        {
-            listGambarGrab[i].gameObject.SetActive(false);
-            listGambarGrab[index].gameObject.SetActive(true);
-        }
-    }
-
-    public void PrevTutorialGrab()
-    {
-        index -= 1;
-        for (int i = 0; i < listGambarGrab.Length; i++)
-        {
-            listGambarGrab[i].gameObject.SetActive(false);
-            listGambarGrab[index].gameObject.SetActive(true);
-        }
-    }
-
-    public void NextTutorialTeleport()
-    {
-        index += 1;
-        for (int i = 0; i < listGambarTeleport.Length; i++)
-        {
-            listGambarTeleport[i].gameObject.SetActive(false);
-            listGambarTeleport[index].gameObject.SetActive(true);
-        }
-    }
-
-    public void PrevTutorialTeleport()
-    {
-        index -= 1;
-        for (int i = 0; i < listGambarTeleport.Length; i++)
-        {
-            listGambarTeleport[i].gameObject.SetActive(false);
-            listGambarTeleport[index].gameObject.SetActive(true);
-        }
-    }
-
-    // This method quits the application.
     public void ExitGame()
     {
-        // Quits the application when running as a built executable.
         Application.Quit();
-        // The following line only works in the Unity editor to simulate exit.
-        #if UNITY_EDITOR
-            UnityEditor.EditorApplication.isPlaying = false;
-        #endif
+#if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+#endif
     }
+
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        if (scene.name == "MainMenu")
+        {
+            Debug.Log("Unloading unused Addressables...");
+            Addressables.ReleaseInstance(gameObject);
+        }
+    }
+
+    private IEnumerator LoadSceneWithProgress(string sceneKey)
+    {
+        ShowDownloadUI();
+
+        AsyncOperationHandle<SceneInstance> handle = Addressables.LoadSceneAsync(sceneKey, LoadSceneMode.Single);
+
+        while (!handle.IsDone)
+        {
+            UpdateDownloadUI(handle.PercentComplete);
+            yield return null;
+        }
+
+        HandleSceneLoadResult(handle);
+
+    }
+
+
+    public void ShowDownloadUI()
+    {
+        if (downloadProgressPanel != null)
+        {
+            downloadProgressPanel.SetActive(true);
+        }
+        else
+        {
+            Debug.LogWarning("ShowDownloadUI: downloadProgressPanel is null.");
+        }
+
+        if (downloadProgressSlider != null)
+        {
+            downloadProgressSlider.value = 0f;
+        }
+        else
+        {
+            Debug.LogWarning("ShowDownloadUI: downloadProgressSlider is null.");
+        }
+
+        if (downloadProgressText != null)
+        {
+            // Here is the new logic:
+            if (downloadProgressPanel != null)
+            {
+                downloadProgressText.gameObject.SetActive(true);
+                downloadProgressText.text = downloadProgressSlider != null ? "Downloading..." : "";
+            }
+            else
+            {
+                downloadProgressText.gameObject.SetActive(false);
+            }
+        }
+        else
+        {
+            Debug.LogWarning("ShowDownloadUI: downloadProgressText is null.");
+        }
+    }
+
+
+    public void UpdateDownloadUI(float progress)
+    {
+        if (downloadProgressSlider != null && downloadProgressText != null)
+        {
+            downloadProgressSlider.value = progress;
+            downloadProgressText.text = $"Downloading... {Mathf.RoundToInt(progress * 100f)}%";
+        }
+        if (downloadProgressText == null)
+        {
+            Debug.LogWarning("UpdateDownloadUI: downloadProgressText is null.");
+            if (downloadProgressSlider)
+            {
+                downloadProgressSlider.value = 0;
+            }
+        }
+        if (downloadProgressSlider == null)
+        {
+            Debug.LogWarning("UpdateDownloadUI: downloadProgressSlider is null.");
+            if (downloadProgressText)
+            {
+                downloadProgressText.text = "";
+            }
+        }
+        if (downloadProgressText == null && downloadProgressSlider == null)
+        {
+            Debug.LogWarning("UpdateDownloadUI: downloadProgressSlider is null.");
+            Debug.LogWarning("UpdateDownloadUI: downloadProgressText is null.");
+        }
+    }
+
+    public void ShowDownloadError()
+    {
+        if (downloadProgressText != null && downloadProgressSlider != null)
+        {
+            downloadProgressText.gameObject.SetActive(true);
+            downloadProgressText.text = "Download Error!";
+            downloadProgressSlider.value = 0f;
+        }
+        if (downloadProgressSlider == null)
+        {
+            Debug.LogWarning("ShowDownloadError: downloadProgressSlider is null.");
+            if (downloadProgressText != null)
+            {
+                downloadProgressText.gameObject.SetActive(false);
+            }
+        }
+
+        if (downloadProgressText == null)
+        {
+            Debug.LogWarning("ShowDownloadError: downloadProgressText is null.");
+            if (downloadProgressSlider != null)
+            {
+                downloadProgressSlider.value = 0f;
+            }
+        }
+       
+        if (downloadProgressSlider == null && downloadProgressText == null)
+        {
+            Debug.LogWarning("ShowDownloadError: downloadProgressSlider is null.");
+            Debug.LogWarning("ShowDownloadError: downloadProgressText is null.");
+        }
+    }
+
+    public void HandleSceneLoadResult(AsyncOperationHandle<SceneInstance> handle)
+    {
+        if (handle.Status == AsyncOperationStatus.Succeeded)
+        {
+            Debug.Log("Scene loaded successfully: " + handle.Result.Scene.name);
+            if (downloadProgressText != null)
+            {
+                downloadProgressText.text = ""; // Explicitly set to empty if it's a success.
+            }
+            if (downloadProgressSlider != null)
+            {
+                downloadProgressSlider.value = 1.0f;
+            }
+
+        }
+        else
+        {
+            Debug.LogError("Failed to load scene using Addressables: " + handle.DebugName);
+            ShowDownloadError();
+        }
+    }
+
+
+
+    public IEnumerator TestableLoadScene(string sceneKey)
+    {
+        return LoadSceneWithProgress(sceneKey);
+    }
+
+
 }

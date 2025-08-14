@@ -32,7 +32,7 @@ public class NPCAIPatrol : MonoBehaviour
         if (!isPatrolling)
         {
             agent.isStopped = true;
-            animator.SetBool("IsWalking", false); // Set to Idle when not patrolling
+            animator.SetBool("isWalking", false); // Set to Idle when not patrolling
             return;
         }
 
@@ -49,7 +49,7 @@ public class NPCAIPatrol : MonoBehaviour
 
         Vector3 randomDirection = Random.insideUnitSphere * patrolRadius;
         randomDirection += transform.position;
-        animator.SetBool("IsWalking", true); // Set to Walk
+        animator.SetBool("isWalking", true); // Set to Walk
         NavMeshHit hit;
         if (NavMesh.SamplePosition(randomDirection, out hit, patrolRadius, NavMesh.AllAreas))
         {
@@ -69,7 +69,7 @@ public class NPCAIPatrol : MonoBehaviour
 
         isDroppingItem = true;
         agent.isStopped = true;
-        animator.SetBool("IsWalking", false); // Set to Idle while stopping
+        animator.SetBool("isWalking", false); // Set to Idle while stopping
 
         float stopDuration = Random.Range(minStopDuration, maxStopDuration);
 
@@ -80,11 +80,6 @@ public class NPCAIPatrol : MonoBehaviour
             Instantiate(itemToDrop, dropPosition, Quaternion.identity);
             dropCount++;
             Debug.Log($"Dropped item {dropCount}/{maxDrops} at: {dropPosition}");
-        }
-
-        if (itemPrefabs.Length == 0 && isPatrolling)
-        {
-            
         }
 
         yield return new WaitForSeconds(stopDuration);
@@ -100,7 +95,7 @@ public class NPCAIPatrol : MonoBehaviour
     {
         isPatrolling = false;
         agent.isStopped = true;
-        animator.SetBool("IsWalking", false); // Ensure Idle animation
+        animator.SetBool("isWalking", false); // Ensure Idle animation
     }
 
     public void StartPatrolAndDrop()

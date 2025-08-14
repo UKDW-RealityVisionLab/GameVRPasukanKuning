@@ -661,6 +661,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MainMenuPanel: {fileID: 0}
   levelSelector: {fileID: 0}
+  downloadProgressSlider: {fileID: 0}
+  downloadProgressPanel: {fileID: 0}
+  downloadProgressText: {fileID: 0}
 --- !u!1 &2393103820750790060
 GameObject:
   m_ObjectHideFlags: 0
@@ -1372,6 +1375,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MainMenuPanel: {fileID: 6533669260694567149}
   levelSelector: {fileID: 2058467513183216444}
+  downloadProgressSlider: {fileID: 0}
+  downloadProgressPanel: {fileID: 0}
+  downloadProgressText: {fileID: 0}
 --- !u!1 &5120058204921495289
 GameObject:
   m_ObjectHideFlags: 0

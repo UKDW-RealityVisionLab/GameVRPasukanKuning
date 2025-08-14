@@ -1,5 +1,7 @@
 using UnityEngine;
 using System.Collections.Generic;
+using TMPro;
+using System.Collections;
 
 public class Craft : MonoBehaviour
 {
@@ -8,6 +10,7 @@ public class Craft : MonoBehaviour
     private Dictionary<string, int> currentItems = new Dictionary<string, int>(); // Current available ingredients
 
     public Transform spawnLocation;  // Location to spawn the crafted item (e.g., in the player's inventory or in the world)
+    public TextMeshProUGUI FeedbackCrafting; // Reference to UI FeedbackCrafting
 
     // Called when the user wants to craft an item
     public void CraftItem()
@@ -24,6 +27,8 @@ public class Craft : MonoBehaviour
             Debug.Log("Crafting item with ID: " + craftedItemID);
             // Proceed with item creation (e.g., adjust inventory, etc.)
             CreateCraftedItem();
+            FeedbackCrafting.text = "Proses Crafting Berhasil";
+            StartCoroutine(ClearFeedbackAfterDelay(2f));
         }
         else
         {
@@ -126,5 +131,11 @@ public class Craft : MonoBehaviour
         {
             Debug.LogError("Recipe not found for crafted item: " + craftedItemID);
         }
+    }
+
+    private IEnumerator ClearFeedbackAfterDelay(float seconds)
+    {
+        yield return new WaitForSeconds(seconds);
+        FeedbackCrafting.text = "";
     }
 }
