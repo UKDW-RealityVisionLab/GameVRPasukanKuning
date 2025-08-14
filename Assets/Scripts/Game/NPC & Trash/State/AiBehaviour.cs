@@ -6,6 +6,7 @@ using UnityEngine.AI;
 public class AIBehaviour : MonoBehaviour
 {
     public NPCType Type;
+    public PlaceIndicator placeType;
     public Animator animator;
     public NavMeshAgent agent;
     private float timer;
