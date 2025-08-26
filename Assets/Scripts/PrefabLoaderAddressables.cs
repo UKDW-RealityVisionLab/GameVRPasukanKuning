@@ -1,15 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.AddressableAssets;
-using UnityEngine.ResourceManagement.AsyncOperations;
 
 public class PrefabLoaderAddressables : MonoBehaviour
 {
     // Opsi 1: Menggunakan AssetReference (Direkomendasikan untuk referensi langsung di Inspector)
     // Seret prefab Addressable ke slot ini di Inspector
-    [SerializeField] // Membuat variabel private terlihat di Inspector
-    private AssetReferenceGameObject _prefabReference;
+    //[SerializeField] // Membuat variabel private terlihat di Inspector
+    //private AssetReferenceGameObject _prefabReference;
 
     // Opsi 2: Menggunakan String (Jika Anda hanya memiliki alamat/path sebagai string)
     // Anda bisa mendapatkan alamat dari Inspector setelah prefab dijadikan Addressable,
@@ -29,21 +27,21 @@ public class PrefabLoaderAddressables : MonoBehaviour
     /// </summary>
     private void LoadPrefabUsingAssetReference()
     {
-        if (_prefabReference.RuntimeKeyIsValid()) // Pastikan referensi valid
-        {
-            Debug.Log($"Memulai pemuatan prefab dari AssetReference: {_prefabReference.RuntimeKey}");
+        //if (_prefabReference.RuntimeKeyIsValid()) // Pastikan referensi valid
+        //{
+        //    Debug.Log($"Memulai pemuatan prefab dari AssetReference: {_prefabReference.RuntimeKey}");
 
-            // LoadAssetAsync akan mengembalikan AsyncOperationHandle
-            // yang akan menahan hasil pemuatan secara asynchronous.
-            AsyncOperationHandle<GameObject> loadHandle = _prefabReference.LoadAssetAsync<GameObject>();
+        //    // LoadAssetAsync akan mengembalikan AsyncOperationHandle
+        //    // yang akan menahan hasil pemuatan secara asynchronous.
+        //    AsyncOperationHandle<GameObject> loadHandle = _prefabReference.LoadAssetAsync<GameObject>();
 
-            // Daftarkan callback untuk dijalankan saat operasi selesai
-            loadHandle.Completed += OnPrefabLoaded;
-        }
-        else
-        {
-            Debug.LogError("AssetReference untuk prefab belum diassign di Inspector atau tidak valid!");
-        }
+        //    // Daftarkan callback untuk dijalankan saat operasi selesai
+        //    loadHandle.Completed += OnPrefabLoaded;
+        //}
+        //else
+        //{
+        //    Debug.LogError("AssetReference untuk prefab belum diassign di Inspector atau tidak valid!");
+        //}
     }
 
     /// <summary>
@@ -51,60 +49,60 @@ public class PrefabLoaderAddressables : MonoBehaviour
     /// </summary>
     private void LoadPrefabUsingStringAddress()
     {
-        if (!string.IsNullOrEmpty(prefabAddress))
-        {
-            Debug.Log($"Memulai pemuatan prefab dari alamat: {prefabAddress}");
+        //if (!string.IsNullOrEmpty(prefabAddress))
+        //{
+        //    Debug.Log($"Memulai pemuatan prefab dari alamat: {prefabAddress}");
 
-            // PENTING: Pastikan alamat ini persis sama dengan alamat yang Anda atur di Addressables Groups.
-            // Addressables.LoadAssetAsync<TObject>(object key)
-            AsyncOperationHandle<GameObject> loadHandle = Addressables.LoadAssetAsync<GameObject>(prefabAddress);
+        //    // PENTING: Pastikan alamat ini persis sama dengan alamat yang Anda atur di Addressables Groups.
+        //    // Addressables.LoadAssetAsync<TObject>(object key)
+        //    AsyncOperationHandle<GameObject> loadHandle = Addressables.LoadAssetAsync<GameObject>(prefabAddress);
 
-            // Daftarkan callback untuk dijalankan saat operasi selesai
-            loadHandle.Completed += OnPrefabLoaded;
-        }
-        else
-        {
-            Debug.LogError("Alamat prefab (string) kosong atau tidak valid!");
-        }
+        //    // Daftarkan callback untuk dijalankan saat operasi selesai
+        //    loadHandle.Completed += OnPrefabLoaded;
+        //}
+        //else
+        //{
+        //    Debug.LogError("Alamat prefab (string) kosong atau tidak valid!");
+        //}
     }
 
     /// <summary>
     /// Callback yang dipanggil setelah operasi pemuatan prefab selesai.
     /// </summary>
     /// <param name="handle">Handle operasi asynchronous.</param>
-    private void OnPrefabLoaded(AsyncOperationHandle<GameObject> handle)
-    {
-        // Periksa status operasi
-        if (handle.Status == AsyncOperationStatus.Succeeded)
-        {
-            // Ambil hasil objek yang dimuat
-            GameObject loadedPrefab = handle.Result;
+    //private void OnPrefabLoaded(AsyncOperationHandle<GameObject> handle)
+    //{
+    //    // Periksa status operasi
+    //    if (handle.Status == AsyncOperationStatus.Succeeded)
+    //    {
+    //        // Ambil hasil objek yang dimuat
+    //        GameObject loadedPrefab = handle.Result;
 
-            // Instansiasi prefab yang dimuat
-            GameObject instance = Instantiate(loadedPrefab, Vector3.zero, Quaternion.identity);
-            instance.name = loadedPrefab.name + "_Instance"; // Beri nama untuk identifikasi
+    //        // Instansiasi prefab yang dimuat
+    //        GameObject instance = Instantiate(loadedPrefab, Vector3.zero, Quaternion.identity);
+    //        instance.name = loadedPrefab.name + "_Instance"; // Beri nama untuk identifikasi
 
-            Debug.Log($"Prefab '{loadedPrefab.name}' berhasil dimuat dan di-instantiate!");
+    //        Debug.Log($"Prefab '{loadedPrefab.name}' berhasil dimuat dan di-instantiate!");
 
-            // Penting: Anda TIDAK perlu memanggil Addressables.Release(handle) di sini
-            // jika Anda memuatnya melalui AssetReference.
-            // AssetReference akan mengelola siklus hidup aset secara otomatis ketika ReleaseAsset() dipanggil
-            // atau GameObject yang mengandung AssetReference dihancurkan.
-            // Jika Anda memuat menggunakan Addressables.LoadAssetAsync(string address),
-            // Anda HARUS memanggil Addressables.Release(handle) ketika Anda selesai menggunakan aset tersebut
-            // untuk mencegah kebocoran memori.
-            // Contohnya bisa di OnDestroy() jika instance objek yang dimuat akan dihancurkan.
-        }
-        else if (handle.Status == AsyncOperationStatus.Failed)
-        {
-            Debug.LogError($"Gagal memuat prefab. Status: {handle.Status}, Exception: {handle.OperationException}");
-        }
-        else
-        {
-            // Ini bisa terjadi jika operasi masih berjalan (jarang terjadi di callback Completed)
-            Debug.LogWarning($"Status pemuatan prefab tidak sesuai: {handle.Status}");
-        }
-    }
+    //        // Penting: Anda TIDAK perlu memanggil Addressables.Release(handle) di sini
+    //        // jika Anda memuatnya melalui AssetReference.
+    //        // AssetReference akan mengelola siklus hidup aset secara otomatis ketika ReleaseAsset() dipanggil
+    //        // atau GameObject yang mengandung AssetReference dihancurkan.
+    //        // Jika Anda memuat menggunakan Addressables.LoadAssetAsync(string address),
+    //        // Anda HARUS memanggil Addressables.Release(handle) ketika Anda selesai menggunakan aset tersebut
+    //        // untuk mencegah kebocoran memori.
+    //        // Contohnya bisa di OnDestroy() jika instance objek yang dimuat akan dihancurkan.
+    //    }
+    //    else if (handle.Status == AsyncOperationStatus.Failed)
+    //    {
+    //        Debug.LogError($"Gagal memuat prefab. Status: {handle.Status}, Exception: {handle.OperationException}");
+    //    }
+    //    else
+    //    {
+    //        // Ini bisa terjadi jika operasi masih berjalan (jarang terjadi di callback Completed)
+    //        Debug.LogWarning($"Status pemuatan prefab tidak sesuai: {handle.Status}");
+    //    }
+    //}
 
     /// <summary>
     /// Penting: Merilis aset yang dimuat dari Addressables.
@@ -126,10 +124,10 @@ public class PrefabLoaderAddressables : MonoBehaviour
 
         // Jika Anda menggunakan AssetReference, panggil ReleaseAsset() pada AssetReference tersebut.
         // Ini akan melepaskan aset yang dimuat oleh referensi ini.
-        if (_prefabReference.IsValid())
-        {
-            _prefabReference.ReleaseAsset();
-            Debug.Log("Aset dari AssetReference telah dirilis.");
-        }
+        //if (_prefabReference.IsValid())
+        //{
+        //    _prefabReference.ReleaseAsset();
+        //    Debug.Log("Aset dari AssetReference telah dirilis.");
+        //}
     }
 }

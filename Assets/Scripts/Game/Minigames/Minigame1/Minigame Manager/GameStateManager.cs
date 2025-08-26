@@ -1,17 +1,15 @@
 using UnityEngine;
 using System.Collections;
-using UnityEngine.ResourceManagement.AsyncOperations;
-using UnityEngine.ResourceManagement.ResourceProviders;
-using UnityEngine.AddressableAssets;
 using UnityEngine.SceneManagement;
 
 public class GameStateManager : MonoBehaviour
 {
     public static GameStateManager Instance;
 
-    [Header("Scene References")]
-    public AssetReference WinSceneReference;
-    [SerializeField] private AssetReference gameOverSceneReference;
+
+    [Header("Scene Names (Build Settings)")]
+    [SerializeField] private string winSceneName = "Level 3";
+    [SerializeField] private string gameOverSceneName = "Fail";
 
     [Header("Game Settings")]
     [SerializeField] private float winDelay = 30f;
@@ -23,6 +21,15 @@ public class GameStateManager : MonoBehaviour
     [Header("Achivement Settings")]
     public ChecklistDatabase checklistDatabase;
     public MinigameChecklistItem minigameChecklistItem;
+
+    private void Awake()
+    {
+        // optional singleton
+        if (Instance != null && Instance != this) { Destroy(gameObject); return; }
+        Instance = this;
+        // Uncomment kalau ingin persist di antara scene:
+        // DontDestroyOnLoad(gameObject);
+    }
 
     /// <summary>
     /// Call this when game is won (e.g., all NPCs safe).
@@ -40,14 +47,13 @@ public class GameStateManager : MonoBehaviour
 
     public void OnGameOver()
     {
-        if (gameOverSceneReference == null || !gameOverSceneReference.RuntimeKeyIsValid())
+        if (string.IsNullOrEmpty(gameOverSceneName))
         {
-            Debug.LogWarning("⚠️ Game Over scene reference is missing or invalid. Skipping Game Over.");
+            Debug.LogWarning("⚠️ Game Over scene name kosong. Skip load Game Over.");
             return;
         }
 
-        if (winCoroutine != null)
-            StopCoroutine(winCoroutine);
+        if (winCoroutine != null) StopCoroutine(winCoroutine);
 
         winCoroutine = StartCoroutine(DelayedLose());
     }
@@ -69,40 +75,16 @@ public class GameStateManager : MonoBehaviour
         }
 
         // Debug.Log("🎉 You Win: No NPCs drowned!");
-        LoadScene(WinSceneReference);
+        SceneLoader.LoadSceneByName(winSceneName);
     }
 
     private IEnumerator DelayedLose()
     {
         Debug.Log("✅ Lose detected. Waiting " + winDelay + " seconds before confirming...");
         yield return new WaitForSeconds(winDelay);
-
-        LoadScene(gameOverSceneReference);
+        SceneLoader.LoadSceneByName(gameOverSceneName);
     }
 
-    private void LoadScene(AssetReference sceneReference)
-    {
-        if (sceneReference.RuntimeKeyIsValid())
-        {
-            Addressables.LoadSceneAsync(sceneReference).Completed += OnSceneLoaded;
-        }
-        else
-        {
-            Debug.LogError($"❌ Invalid scene reference: {sceneReference}");
-        }
-    }
-
-    private void OnSceneLoaded(AsyncOperationHandle<SceneInstance> handle)
-    {
-        if (handle.Status == AsyncOperationStatus.Succeeded)
-        {
-            Debug.Log($"✅ Scene loaded: {handle.Result.Scene.name}");
-        }
-        else
-        {
-            Debug.LogError($"❌ Failed to load scene: {handle.OperationException}");
-        }
-    }
 
 #if UNITY_EDITOR
     [ContextMenu("Trigger Win (Debug)")]

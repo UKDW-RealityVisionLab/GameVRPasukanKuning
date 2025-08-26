@@ -38,7 +38,6 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -613,11 +612,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b9dec2be31431c42a0e86e8e15e35d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  addressablePath:
-    m_AssetGUID: 9738a5c643e6a1b47a99eeb2028d053f
-    m_SubObjectName: 
-    m_SubObjectType: 
-    m_EditorAssetChanged: 0
 --- !u!1001 &1282118575
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1319,7 +1313,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 65794a17d0f2ab14891b8bab51c6f616, type: 2}
+  - {fileID: 2100000, guid: af01dd8a29f2c7f4f89795bfbb5d9367, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
