@@ -90,10 +90,10 @@ public class ChatContext : MonoBehaviour
             textIsi.text = currentTexts[Random.Range(currentIndex, currentTexts.Length)];
         }
     }
-    public void GetAnswer()
+    public void GetAnswer(string context)
     {
         textHeader.text = headerString;
-        var answers = listCon.GetAnswer(ai);
+        var answers = listCon.GetAnswer(ai,context);
         if (answers != null && answers.Length > 0)
         {
             textIsi.text = answers[Random.Range(0, answers.Length)];

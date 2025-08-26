@@ -192,7 +192,7 @@ public class ListContext
 
         return question;
     }
-    public string[] GetAnswer(AIBehaviour ai)
+    public string[] GetAnswer(AIBehaviour ai, string category)
     {
         if (ai.Type == NPCType.GuidanceSeller)
         {
@@ -210,12 +210,27 @@ public class ListContext
         }
         if (ai.Type == NPCType.GuidanceInfoHelper)
         {
-            answer = new string[]{
-            "Oke kalau begitu",
-            "Baiklah",
-            "Siap",
-            "Ikuti aku",
-            "Jangan sampai ketinggalan"};
+            if(category.ToLower() == "objek game")
+            {
+                answer = new string[]{
+                "Oke kalau begitu",
+                "Baiklah",
+                "Siap"};
+            }
+            if (category.ToLower() == "tempat")
+            {
+                answer = new string[]{
+                "Siap",
+                "Ikuti aku",
+                "Jangan sampai ketinggalan"};
+            }
+            if (category.ToLower() == "cancel")
+            {
+                answer = new string[]{
+                "Baiklah",
+                "Kalau ada pertanyaan lain boleh tanya kok",
+                "Siap kak, selamat menikmati gamenya"};
+            }
         }
 
         return answer;
