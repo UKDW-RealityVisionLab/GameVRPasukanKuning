@@ -159,8 +159,9 @@ public class ChatContext : MonoBehaviour
         }
     }
 
-    public void GetOllamaResponse()
+    public void GetOllamaResponse(string queryBaru)
     {
+        query = queryBaru;
         textIsi.text = "Biar saya pikir dahulu";
         StartCoroutine(ApiClient.PostQuery(query, age, (response) =>
         {
