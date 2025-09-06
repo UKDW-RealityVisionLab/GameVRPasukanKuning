@@ -74,7 +74,7 @@ public class EarthquakeManager : MonoBehaviour
         buildingShakeManager.StopAllBuildings();
     }
 
-    void UpdateAllSignImages()
+     void UpdateAllSignImages()
     {
         if (evacuationSprite == null)
         {
@@ -82,15 +82,29 @@ public class EarthquakeManager : MonoBehaviour
             return;
         }
 
-        foreach (Image img in signImages)
+        // Cari semua GameObject dengan tag "Iklan"
+        GameObject[] iklanObjects = GameObject.FindGameObjectsWithTag("Iklan");
+        foreach (var root in iklanObjects)
         {
+            // Cari semua Image di hierarchy child (termasuk yg inactive jika includeInactive = true)
+            Component[] images = root.GetComponentsInChildren<Image>(true);
+            foreach (Image img in images)
+            {
+                if (img != null) { img.sprite = evacuationSprite; }
+            }
+            Debug.Log("Nama objek dengan tag Iklan: " + root.name);
+        }
+
+        foreach (GameObject obj in iklanObjects)
+        {
+            Image img = obj.GetComponent<Image>();
             if (img != null)
             {
                 img.sprite = evacuationSprite;
             }
         }
 
-        Debug.Log("All sign images updated.");
+        Debug.Log("All 'Iklan' sign images updated.");
     }
 
 
