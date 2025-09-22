@@ -27,7 +27,7 @@ RectTransform:
   m_GameObject: {fileID: 560197995426531169}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -0.29}
-  m_LocalScale: {x: 1, y: 1, z: 2}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4000080027415882575}
@@ -65,7 +65,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 56009b21b93f53740a633f3f79b58f09, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 330467ebec2d9774eaa546a7a81aa878, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -103,9 +103,9 @@ Transform:
   m_GameObject: {fileID: 4063841483284702485}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 50.775, y: -76.238, z: -35.17}
-  m_LocalScale: {x: 0.04, y: 0.45599997, z: 0.38799998}
-  m_ConstrainProportionsScale: 1
+  m_LocalPosition: {x: 50.7848, y: -76.238, z: -35.17}
+  m_LocalScale: {x: 0.04, y: 0.4, z: 0.8}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4000080027415882575}
   m_Father: {fileID: 8328151202000935855}
@@ -298,7 +298,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8328151202000935855}
   m_Layer: 7
-  m_Name: 5mtrdarilaut
+  m_Name: RuteEvakuasi
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -349,7 +349,7 @@ RectTransform:
   m_GameObject: {fileID: 9063929150724480501}
   m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.25, y: 0.167, z: 1}
+  m_LocalScale: {x: 0.25, y: 0.16625226, z: 0.8703703}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1259248504149488241}
