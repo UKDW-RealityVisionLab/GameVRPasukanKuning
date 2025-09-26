@@ -6,6 +6,7 @@ using UnityEngine.InputSystem;
 public class PlayerInteract : MonoBehaviour
 {
     public InputActionProperty rightNpc;
+    public InputActionProperty middleNpc;
     public Transform playerBody;
     private float interactRange = 2f;
 

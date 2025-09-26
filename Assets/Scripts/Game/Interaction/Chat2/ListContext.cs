@@ -73,10 +73,31 @@ public class ListContext
 
         if (ai.Type == NPCType.GuidanceCrafter)
         {
-            if (category == "craft_material")
+            if (category == "Info_Crafter")
             {
                 return explanation = new string[] {
                 "Saya bisa buatkan barang, tapi transmute dulu sampahmu di tong sampah.",
+                "Saya mendaur ulang bahan sampah yang anda berikan kepada saya",
+                "Jika bahan tidak terpenuhi saya tidak bisa membuatkan barangnya",
+                "Jika sudah memiliki bahan saya dapat membuatkan barang yang anda inginkan",
+                "Barang yang dapat saya buatkan hanya sesuai dengan kemampuan saya",
+                "Maafkan saya jika barang yang saya hasilkan kurang banyak"
+            };
+            }
+            else if (category == "craft_material_introduction")
+            {
+                return explanation = new string[] {
+                "Saya akan menjelaskan bahan untuk membuat barang daur ulang",
+                "Mari saya terangkan apa saja material yang dibutuhkan untuk proses daur ulang.",
+                "Saya akan memberi penjelasan tentang bahan yang diperlukan untuk membuat produk daur ulang.",
+                "Sekarang saya jelaskan dulu mengenai material yang dipakai dalam pembuatan barang daur ulang.",
+                "Saya akan membantu menjelaskan jenis bahan yang dipakai untuk menghasilkan barang daur ulang."
+            };
+            }
+            else if (category == "craft_material")
+            {
+                return explanation = new string[] {
+                "Saya akan menjelaskan bahan untuk membuat barang daur ulang",
                 "2 logam dan 2 plastik bisa jadi patung anjing.",
                 "2 logam dan 2 kaca bisa jadi cermin.",
                 "2 plastik dan 1 logam bisa jadi tas cantik.",
@@ -137,10 +158,17 @@ public class ListContext
                 "Kreativitasmu akan dibantu di tempat ini.",
                 "Crafter bisa membuat sesuatu dari barang bekasmu."
                 };
-                case "GameObjective":
+                case "GameObjective1":
+                    return explanation = new string[] {
+                "Kamu harus mengumpulkan sampah yang terbuang sembarangan",
+                "Jika sudah terkumpul kamu harus membuang sampah itu di tempat sampah",
+                "Ada fitur crafting barang untuk sampah tadi",
+                "Kamu bisa menjual barang juga disini dari sampah tersebut"
+                };
+                case "GameObjective2":
                     return explanation = new string[] {
                 "Tujuanmu disini adalah membersihkan dan mengambil sampah",
-                "Jika sudah terkumpul kamu harus membuang sampah itu di tempat sampah",
+                "Kamu bisa mendaur ulang sampah itu di tempat sampahnya",
                 "Objektif utamanya adalah kamu harus mengumpulkan uang",
                 "Uang itu kamu dapatkan dari sampah yang kamu kumpulkan tadi."
                 };
@@ -203,10 +231,34 @@ public class ListContext
         }
         if (ai.Type == NPCType.GuidanceCrafter)
         {
-            answer = new string[]{
-            "Oke kalau begitu",
-            "Baiklah",
-            "Siap"};
+            if (category.ToLower() == "bahan")
+            {
+                answer = new string[]{
+                "Oke kalau begitu akan saya jelaskan",
+                "Baiklah, dengarkan baik-baik",
+                "Siap, tolong baca baik-baik ya"};
+            }
+            if (category.ToLower() == "jual")
+            {
+                answer = new string[]{
+                "Oke akan saya terangkan",
+                "Baiklah, akan saya jelaskan",
+                "Siap, dengarkan ya.."};
+            }
+            if (category.ToLower() == "show")
+            {
+                answer = new string[]{
+                "Silahkan dilihat",
+                "Oh oke ini dia",
+                "Siap, lihat ini"};
+            }
+            if (category.ToLower() == "cancel")
+            {
+                answer = new string[]{
+                "Baiklah",
+                "Kalau ada pertanyaan lain boleh tanya kok",
+                "Siap kak, selamat menikmati gamenya"};
+            }
         }
         if (ai.Type == NPCType.GuidanceInfoHelper)
         {

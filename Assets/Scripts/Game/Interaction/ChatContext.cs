@@ -151,13 +151,20 @@ public class ChatContext : MonoBehaviour
         textHeader.text = headerString;
 
         string[] guideTexts = listCon.GetExplanation(ai, currentGuideDestination);
-        if (guideTexts != null && guideTexts.Length > 0)
+        if (guideTexts != null && guideTexts.Length > 0 && currentGuideDestination != "craft_material_introduction")
         {
             currentTexts = guideTexts;
             currentIndex = 0;
             textIsi.text = currentTexts[currentIndex];
         }
+        if (guideTexts != null && guideTexts.Length > 0 && currentGuideDestination == "craft_material_introduction")
+        {
+            currentTexts = guideTexts;
+            currentIndex = Random.Range(0, currentTexts.Length);
+            textIsi.text = currentTexts[currentIndex];
+        }
     }
+
 
     public void GetOllamaResponse(string queryBaru)
     {
@@ -212,6 +219,7 @@ public class ChatContext : MonoBehaviour
         currentIndex = (currentIndex + 1) % currentTexts.Length;
         textIsi.text = currentTexts[currentIndex];
     }
+
     public void ShowNPCDialog(string message, float duration = 3f)
     {
         if (npcDialogUI == null || dialogRandomText == null) return;

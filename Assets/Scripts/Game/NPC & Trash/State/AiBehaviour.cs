@@ -53,6 +53,7 @@ public class AIBehaviour : MonoBehaviour
         activityState = new ActivityState(stateMachine, this);
         guidanceState = new GuidanceState(stateMachine, this);
         activitySelector = new AIActivitySelector(this);
+        npcInter = GetComponent<NPCInteractable>();
         randomPos = GetRandomNavmeshPosition();
         //StartCoroutine(RunRoutineByRole());
         stateMachine.ChangeState(idleState);
@@ -60,7 +61,7 @@ public class AIBehaviour : MonoBehaviour
 
     void Update()
     {
-        if (isInteracting == false /*&& npcInter.isGuiding == false*/) // Hanya lakukan aktivitas kalau tidak interaksi dan tidak guiding
+        if (isInteracting == false && npcInter.isGuiding == false) // Hanya lakukan aktivitas kalau tidak interaksi dan tidak guiding
         {
             timer += Time.deltaTime;
             if (timer >= actionInterval)
@@ -301,6 +302,7 @@ public class AIBehaviour : MonoBehaviour
         animator.SetBool("IsArrangeStuff", false);
         animator.SetBool("IsThrowTrash", false);
         animator.SetBool("IsWalking", false);
+        animator.SetBool("IsWithPlayer", false);
         animator.SetBool("IsOffering", false);
         animator.SetBool("IsAnswer", false);
         animator.SetBool("IsQuestion", false);

@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.AI;
 using UnityEngine.UI;
 
 public class NPCInteractable : MonoBehaviour
@@ -19,6 +20,8 @@ public class NPCInteractable : MonoBehaviour
     [SerializeField] private Animator animator;
     private ChatContext chatCon;
     private AIBehaviour aiBehaviour;
+    private PlayerInteract player;
+    protected NavMeshAgent agent;
 
     private Transform interactorTransform;
     public float rotateSpeed = 5f;
@@ -45,13 +48,30 @@ public class NPCInteractable : MonoBehaviour
                 Quaternion targetRotation = Quaternion.LookRotation(direction);
                 transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * rotateSpeed);
             }
-            animator.SetBool("IsWalking", false);
+            //animator.SetBool("IsWalking", false);
 
             // Jarak terlalu jauh = tutup
-            float distance = Vector3.Distance(transform.position, interactorTransform.position);
-            if (distance > maxInteractionDistance)
+            if(isGuiding == false)
             {
-                EndInteraction();
+                maxInteractionDistance = 4f;
+                float distance = Vector3.Distance(transform.position, interactorTransform.position);
+                if (distance > maxInteractionDistance)
+                {
+                    EndInteraction();
+                }
+            }
+            if(isGuiding == true)
+            {
+                if (player.middleNpc.action.WasPressedThisFrame())
+                {
+                    GuidingPlayerInfoHelper(player.playerBody);
+                }
+                maxInteractionDistance = 8f;
+                float distance = Vector3.Distance(transform.position, interactorTransform.position);
+                if (distance > maxInteractionDistance)
+                {
+                    EndInteraction();
+                }
             }
         }
     }
@@ -183,13 +203,28 @@ public class NPCInteractable : MonoBehaviour
     public void GuidingPlayerInfoHelper(Transform place)
     {
         if (aiBehaviour == null || place == null) return;
-   
+
         aiBehaviour.animator.SetTrigger("IsExit");
         aiBehaviour.stateMachine.ChangeState(aiBehaviour.guidanceState);
-        aiBehaviour.guidanceState.ChangeSubState(new WalkWithPlayerState(aiBehaviour.stateMachine, aiBehaviour.guidanceState, aiBehaviour, place.position));
+        aiBehaviour.guidanceState.ChangeSubState(new WalkWithPlayerState(aiBehaviour.stateMachine, aiBehaviour.guidanceState, aiBehaviour, player.playerBody.position));
         aiBehaviour.guidanceState.SetCondition("IsGuiding");
         isGuiding = true;
     }
+
+    public void WalkingToDestination(Transform place)
+    {
+        if (aiBehaviour == null || place == null) return;
+        isGuiding = true;
+        aiBehaviour.animator.SetTrigger("IsExit");
+        aiBehaviour.stateMachine.ChangeState(aiBehaviour.guidanceState);
+        aiBehaviour.guidanceState.ChangeSubState(new WalkingGuideState(aiBehaviour.stateMachine, aiBehaviour.guidanceState, aiBehaviour, place.position));
+        aiBehaviour.guidanceState.SetCondition("IsGuiding");
+        if (Vector3.Distance(transform.position, place.position) < 0.5f)
+        {
+            GuidingPlayerInfoHelper(place);
+        }
+    }
+
     public void GuideButtonContext(string destination)
     {
         // Kirim request ke ChatContext agar bisa menampilkan teks sesuai tujuan
@@ -241,6 +276,7 @@ public class NPCInteractable : MonoBehaviour
     }
     public void EndInteraction()
     {
+        isGuiding = false;
         aiBehaviour.isInteracting = false;
         uiNPC.SetActive(false);
         normalNextButton.SetActive(true);
