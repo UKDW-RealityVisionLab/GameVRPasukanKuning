@@ -2,14 +2,15 @@
 using UnityEngine;
 using UnityEngine.Networking;
 using System.Text;
+using UnityEditor.AddressableAssets.HostingServices;
 
 public static class ApiClient
 {
     private const string baseUrl = "https://roughy-patient-jolly.ngrok-free.app/ask";
 
-    public static IEnumerator PostQuery(string query, string kategoriUsia, System.Action<string> callback)
+    public static IEnumerator PostQuery(string query, string kategoriUsia, string role, string lokasi, System.Action<string> callback)
     {
-        string jsonPayload = JsonUtility.ToJson(new QueryData { query = query, kategori_usia = kategoriUsia });
+        string jsonPayload = JsonUtility.ToJson(new QueryData { query = query, kategori_usia = kategoriUsia, role = role, lokasi = lokasi });
 
         using (UnityWebRequest request = new UnityWebRequest(baseUrl, "POST"))
         {
@@ -39,6 +40,8 @@ public static class ApiClient
     {
         public string query;
         public string kategori_usia;
+        public string role;
+        public string lokasi;
     }
 
     [System.Serializable]

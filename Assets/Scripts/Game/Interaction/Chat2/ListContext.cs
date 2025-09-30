@@ -121,9 +121,15 @@ public class ListContext
                 return explanation = new string[] {
                 "Setelah kamu crafting, hasilnya bisa dijual ke Seller.",
                 "Jangan lupa bawa hasil kerajinanmu ke area penjual.",
-                "Seller akan memberi harga sesuai kualitas barangmu.",
                 "Barang seperti patung, cermin, dan tas bisa dijual.",
                 "Temui Seller setelah selesai crafting."
+            };
+            }
+            else if (category == "why_sell_result")
+            {
+                return explanation = new string[] {
+                "Seller akan memberi harga sesuai kualitas barangmu.",
+                "Kamu harus mengumpulkan koin untuk memenangkan game ini."
             };
             }
         }

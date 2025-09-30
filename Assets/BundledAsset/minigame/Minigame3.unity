@@ -2056,6 +2056,8 @@ MonoBehaviour:
   headerString: Prisca
   query: 
   age: 
+  role: 
+  lokasi: 
   npcDialogUI: {fileID: 1192068211}
   dialogRandomText: {fileID: 1192068210}
   chatInterval: 10
@@ -2096,6 +2098,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Type: 8
   placeType: 2
+  age: 0
   animator: {fileID: 74612431}
   agent: {fileID: 158300236}
   actionInterval: 8
@@ -2449,7 +2452,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4228119780032128685, guid: e86e3eb52edf5ea46a35a8acc894f73e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -13.39
+      value: -6.3
       objectReference: {fileID: 0}
     - target: {fileID: 4228119780032128685, guid: e86e3eb52edf5ea46a35a8acc894f73e, type: 3}
       propertyPath: m_LocalPosition.y
@@ -2457,11 +2460,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4228119780032128685, guid: e86e3eb52edf5ea46a35a8acc894f73e, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -6.13
+      value: 15.9
       objectReference: {fileID: 0}
     - target: {fileID: 4228119780032128685, guid: e86e3eb52edf5ea46a35a8acc894f73e, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.9755076
+      value: -0.6769901
       objectReference: {fileID: 0}
     - target: {fileID: 4228119780032128685, guid: e86e3eb52edf5ea46a35a8acc894f73e, type: 3}
       propertyPath: m_LocalRotation.x
@@ -2469,7 +2472,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4228119780032128685, guid: e86e3eb52edf5ea46a35a8acc894f73e, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.21996556
+      value: 0.7359922
       objectReference: {fileID: 0}
     - target: {fileID: 4228119780032128685, guid: e86e3eb52edf5ea46a35a8acc894f73e, type: 3}
       propertyPath: m_LocalRotation.z
@@ -2481,7 +2484,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4228119780032128685, guid: e86e3eb52edf5ea46a35a8acc894f73e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 25.414
+      value: 265.21802
       objectReference: {fileID: 0}
     - target: {fileID: 4228119780032128685, guid: e86e3eb52edf5ea46a35a8acc894f73e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
@@ -3976,6 +3979,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1203386812}
     m_Modifications:
+    - target: {fileID: 4565030594948986261, guid: 19758fcf8e554804ea5b41701938e603, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1203386806}
+    - target: {fileID: 4668792639448407360, guid: 19758fcf8e554804ea5b41701938e603, type: 3}
+      propertyPath: nextButton
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4668792639448407360, guid: 19758fcf8e554804ea5b41701938e603, type: 3}
+      propertyPath: choiceButtons.Array.data[0]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4668792639448407360, guid: 19758fcf8e554804ea5b41701938e603, type: 3}
+      propertyPath: choiceButtons.Array.data[1]
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 3510265614072764932, guid: eba80d74847dd9e4c8b538d83e337a49, type: 3}
       propertyPath: m_LocalPosition.x
       value: -15.36
@@ -4063,22 +4082,6 @@ PrefabInstance:
     - target: {fileID: 8919355021480863744, guid: eba80d74847dd9e4c8b538d83e337a49, type: 3}
       propertyPath: m_IsActive
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4565030594948986261, guid: 19758fcf8e554804ea5b41701938e603, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1203386806}
-    - target: {fileID: 4668792639448407360, guid: 19758fcf8e554804ea5b41701938e603, type: 3}
-      propertyPath: nextButton
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 4668792639448407360, guid: 19758fcf8e554804ea5b41701938e603, type: 3}
-      propertyPath: choiceButtons.Array.data[0]
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 4668792639448407360, guid: 19758fcf8e554804ea5b41701938e603, type: 3}
-      propertyPath: choiceButtons.Array.data[1]
-      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
@@ -4763,6 +4766,8 @@ MonoBehaviour:
   headerString: Talk With Ma'am
   query: 
   age: 
+  role: 
+  lokasi: 
   npcDialogUI: {fileID: 904708872}
   dialogRandomText: {fileID: 904708871}
   chatInterval: 10
@@ -4803,6 +4808,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Type: 7
   placeType: 2
+  age: 0
   animator: {fileID: 76708668}
   agent: {fileID: 287277867}
   actionInterval: 8
@@ -10573,6 +10579,10 @@ PrefabInstance:
       propertyPath: m_AgentTypeID
       value: 287145453
       objectReference: {fileID: 0}
+    - target: {fileID: 4457137136781118007, guid: 380c5c6afd176964485d871cac0b77fe, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 45.1
+      objectReference: {fileID: 0}
     - target: {fileID: 5166033343549597563, guid: 380c5c6afd176964485d871cac0b77fe, type: 3}
       propertyPath: m_LocalPosition.z
       value: 1.48
@@ -10775,6 +10785,8 @@ MonoBehaviour:
   headerString: Brian
   query: 
   age: 
+  role: 
+  lokasi: 
   npcDialogUI: {fileID: 1595001451}
   dialogRandomText: {fileID: 1595001450}
   chatInterval: 10
@@ -10815,6 +10827,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Type: 3
   placeType: 2
+  age: 0
   animator: {fileID: 493918786}
   agent: {fileID: 573782523}
   actionInterval: 10
@@ -15429,7 +15442,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 192673827010089720, guid: dddd59209bff4ad428014ec19a161586, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1371616525915785812, guid: dddd59209bff4ad428014ec19a161586, type: 3}
       propertyPath: currencyManager
@@ -18713,6 +18726,8 @@ MonoBehaviour:
   headerString: Siti
   query: 
   age: 
+  role: 
+  lokasi: 
   npcDialogUI: {fileID: 364321542}
   dialogRandomText: {fileID: 364321541}
   chatInterval: 10
@@ -18753,6 +18768,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Type: 5
   placeType: 2
+  age: 0
   animator: {fileID: 1422013989}
   agent: {fileID: 836047892}
   actionInterval: 10
@@ -19496,8 +19512,8 @@ Transform:
   m_GameObject: {fileID: 925495242}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.687, y: -1.058, z: 33.33202}
-  m_LocalScale: {x: 0.42571926, y: 0.1, z: 0.3286819}
+  m_LocalPosition: {x: 6.687, y: -1.058, z: 33.42206}
+  m_LocalScale: {x: 0.42571926, y: 0.1, z: 0.5087761}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2053421491}
@@ -19561,7 +19577,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 925495242}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -20989,7 +21005,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4228119780032128685, guid: e86e3eb52edf5ea46a35a8acc894f73e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 40.5
+      value: 18.3
       objectReference: {fileID: 0}
     - target: {fileID: 4228119780032128685, guid: e86e3eb52edf5ea46a35a8acc894f73e, type: 3}
       propertyPath: m_LocalPosition.y
@@ -20997,11 +21013,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4228119780032128685, guid: e86e3eb52edf5ea46a35a8acc894f73e, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -8.07
+      value: 8.13
       objectReference: {fileID: 0}
     - target: {fileID: 4228119780032128685, guid: e86e3eb52edf5ea46a35a8acc894f73e, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.7870806
+      value: 0.7347563
       objectReference: {fileID: 0}
     - target: {fileID: 4228119780032128685, guid: e86e3eb52edf5ea46a35a8acc894f73e, type: 3}
       propertyPath: m_LocalRotation.x
@@ -21009,7 +21025,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4228119780032128685, guid: e86e3eb52edf5ea46a35a8acc894f73e, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.6168502
+      value: 0.6783313
       objectReference: {fileID: 0}
     - target: {fileID: 4228119780032128685, guid: e86e3eb52edf5ea46a35a8acc894f73e, type: 3}
       propertyPath: m_LocalRotation.z
@@ -21021,7 +21037,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4228119780032128685, guid: e86e3eb52edf5ea46a35a8acc894f73e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: -76.173
+      value: 85.427
       objectReference: {fileID: 0}
     - target: {fileID: 4228119780032128685, guid: e86e3eb52edf5ea46a35a8acc894f73e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
@@ -21276,6 +21292,8 @@ MonoBehaviour:
   headerString: Tina
   query: 
   age: 
+  role: 
+  lokasi: 
   npcDialogUI: {fileID: 2012798091}
   dialogRandomText: {fileID: 2012798090}
   chatInterval: 10
@@ -21316,6 +21334,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Type: 7
   placeType: 2
+  age: 0
   animator: {fileID: 573584683}
   agent: {fileID: 1011668295}
   actionInterval: 8
@@ -21629,6 +21648,8 @@ MonoBehaviour:
   headerString: Mbah'e
   query: 
   age: 
+  role: 
+  lokasi: 
   npcDialogUI: {fileID: 1914826702}
   dialogRandomText: {fileID: 1914826701}
   chatInterval: 10
@@ -21669,6 +21690,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Type: 4
   placeType: 2
+  age: 0
   animator: {fileID: 1528206604}
   agent: {fileID: 1031258634}
   actionInterval: 10
@@ -23472,7 +23494,7 @@ Transform:
   m_GameObject: {fileID: 1150302608}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 15.17, y: -0.82608736, z: 7.63}
+  m_LocalPosition: {x: 15.17, y: -0.82608736, z: 9.66}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -23539,6 +23561,8 @@ MonoBehaviour:
   headerString: Mbah'e
   query: 
   age: 
+  role: 
+  lokasi: 
   npcDialogUI: {fileID: 1144339962}
   dialogRandomText: {fileID: 1144339961}
   chatInterval: 10
@@ -23579,6 +23603,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Type: 4
   placeType: 2
+  age: 0
   animator: {fileID: 1109107945}
   agent: {fileID: 1150302616}
   actionInterval: 10
@@ -24312,6 +24337,8 @@ MonoBehaviour:
   headerString: Nadia
   query: 
   age: 
+  role: 
+  lokasi: 
   npcDialogUI: {fileID: 251255968}
   dialogRandomText: {fileID: 251255966}
   chatInterval: 10
@@ -24341,6 +24368,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Type: 0
   placeType: 0
+  age: 0
   animator: {fileID: 2023346836}
   agent: {fileID: 1203386811}
   actionInterval: 8
@@ -25105,7 +25133,7 @@ Transform:
   m_GameObject: {fileID: 1245136481}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0.7183477, z: -0, w: 0.6956843}
-  m_LocalPosition: {x: 33.698, y: -0.856, z: 5.378}
+  m_LocalPosition: {x: 34.192, y: -0.856, z: 7.236}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -25133,6 +25161,8 @@ MonoBehaviour:
   headerString: Pak Iper
   query: Berapa kilogram sampah perharinya di pantai parangritis?
   age: dewasa
+  role: 
+  lokasi: 
   npcDialogUI: {fileID: 741622172}
   dialogRandomText: {fileID: 741622171}
   chatInterval: 10
@@ -25193,6 +25223,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Type: 2
   placeType: 0
+  age: 0
   animator: {fileID: 548063116}
   agent: {fileID: 1245136488}
   actionInterval: 8
@@ -25803,7 +25834,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!65 &1297863110
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -25935,7 +25966,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1297863109}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e0f225e2e7dd24b4189ce3ec89e0c77a, type: 3}
   m_Name: 
@@ -26266,7 +26297,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 192673827010089720, guid: dddd59209bff4ad428014ec19a161586, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1371616525915785812, guid: dddd59209bff4ad428014ec19a161586, type: 3}
       propertyPath: currencyManager
@@ -26286,7 +26317,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4396132029054330278, guid: dddd59209bff4ad428014ec19a161586, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 26.080002
+      value: 22.02
       objectReference: {fileID: 0}
     - target: {fileID: 4396132029054330278, guid: dddd59209bff4ad428014ec19a161586, type: 3}
       propertyPath: m_LocalPosition.y
@@ -26294,7 +26325,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4396132029054330278, guid: dddd59209bff4ad428014ec19a161586, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 21.18
+      value: 41.27
       objectReference: {fileID: 0}
     - target: {fileID: 4396132029054330278, guid: dddd59209bff4ad428014ec19a161586, type: 3}
       propertyPath: m_LocalRotation.w
@@ -27309,6 +27340,8 @@ MonoBehaviour:
   headerString: Fara
   query: 
   age: 
+  role: 
+  lokasi: 
   npcDialogUI: {fileID: 1970370255}
   dialogRandomText: {fileID: 1970370254}
   chatInterval: 10
@@ -27349,6 +27382,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Type: 5
   placeType: 2
+  age: 0
   animator: {fileID: 1342260410}
   agent: {fileID: 1370173566}
   actionInterval: 10
@@ -28790,6 +28824,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Idle_crafter
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 810bb664356234a4fa7a678c876db3f7, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5866666021909216657, guid: 810bb664356234a4fa7a678c876db3f7, type: 3}
       propertyPath: m_Controller
       value: 
@@ -28900,6 +28938,8 @@ MonoBehaviour:
   headerString: Mbak Lily
   query: 
   age: 
+  role: 
+  lokasi: 
   npcDialogUI: {fileID: 226173738}
   dialogRandomText: {fileID: 226173737}
   chatInterval: 10
@@ -28948,6 +28988,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Type: 1
   placeType: 0
+  age: 0
   animator: {fileID: 1442740862}
   agent: {fileID: 1446464895}
   actionInterval: 8
@@ -29362,7 +29403,7 @@ Transform:
   m_GameObject: {fileID: 1475290277}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -13.892, y: -0.81, z: 3.718}
+  m_LocalPosition: {x: -10.43, y: -0.81, z: 2.49}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -31172,7 +31213,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3117151201959600173, guid: de0789d01b63e9546ae50bb6d6fed1aa, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5097604205125747223, guid: de0789d01b63e9546ae50bb6d6fed1aa, type: 3}
       propertyPath: m_LocalPosition.x
@@ -31229,6 +31270,10 @@ PrefabInstance:
     - target: {fileID: 7467898314957828205, guid: de0789d01b63e9546ae50bb6d6fed1aa, type: 3}
       propertyPath: m_Name
       value: Craft Item Package
+      objectReference: {fileID: 0}
+    - target: {fileID: 7467898314957828205, guid: de0789d01b63e9546ae50bb6d6fed1aa, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -31350,6 +31395,8 @@ MonoBehaviour:
   headerString: Sari
   query: 
   age: 
+  role: 
+  lokasi: 
   npcDialogUI: {fileID: 327631860}
   dialogRandomText: {fileID: 327631859}
   chatInterval: 10
@@ -31390,6 +31437,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Type: 5
   placeType: 2
+  age: 0
   animator: {fileID: 797952096}
   agent: {fileID: 1623232943}
   actionInterval: 10
@@ -34956,6 +35004,8 @@ MonoBehaviour:
   headerString: Sarah
   query: 
   age: 
+  role: 
+  lokasi: 
   npcDialogUI: {fileID: 610192808}
   dialogRandomText: {fileID: 610192807}
   chatInterval: 10
@@ -34996,6 +35046,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Type: 6
   placeType: 2
+  age: 0
   animator: {fileID: 1352535628}
   agent: {fileID: 1839692032}
   actionInterval: 8
@@ -35378,7 +35429,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3372208868508947944, guid: 19758fcf8e554804ea5b41701938e603, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3890171476449187300, guid: 19758fcf8e554804ea5b41701938e603, type: 3}
       propertyPath: m_IsActive
@@ -36425,7 +36476,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3837034977950959944, guid: 943bd3fe5aacb2b478bf1b6014873ba5, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 19.84
+      value: 5.15
       objectReference: {fileID: 0}
     - target: {fileID: 3837034977950959944, guid: 943bd3fe5aacb2b478bf1b6014873ba5, type: 3}
       propertyPath: m_LocalPosition.y
@@ -36433,7 +36484,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3837034977950959944, guid: 943bd3fe5aacb2b478bf1b6014873ba5, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 36.95
+      value: 26.01
       objectReference: {fileID: 0}
     - target: {fileID: 3837034977950959944, guid: 943bd3fe5aacb2b478bf1b6014873ba5, type: 3}
       propertyPath: m_LocalRotation.w
@@ -36781,7 +36832,7 @@ MonoBehaviour:
   middleNpc:
     m_UseReference: 0
     m_Action:
-      m_Name: 
+      m_Name: Middle Npc
       m_Type: 0
       m_ExpectedControlType: 
       m_Id: 7a01a8e6-ef63-4299-a71e-19f7de62d1fd
@@ -40514,6 +40565,10 @@ PrefabInstance:
     - target: {fileID: 3829886038752091080, guid: b8b678dc0bbf3ca40aeaec6626753ee9, type: 3}
       propertyPath: m_Name
       value: Kios Mainan
+      objectReference: {fileID: 0}
+    - target: {fileID: 3829886038752091080, guid: b8b678dc0bbf3ca40aeaec6626753ee9, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4498442518886318450, guid: b8b678dc0bbf3ca40aeaec6626753ee9, type: 3}
       propertyPath: m_LocalScale.x

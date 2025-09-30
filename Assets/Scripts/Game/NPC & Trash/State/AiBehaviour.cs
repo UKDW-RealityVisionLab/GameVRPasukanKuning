@@ -7,6 +7,7 @@ public class AIBehaviour : MonoBehaviour
 {
     public NPCType Type;
     public PlaceIndicator placeType;
+    public AgeType age;
     public Animator animator;
     public NavMeshAgent agent;
     private float timer;
@@ -107,6 +108,30 @@ public class AIBehaviour : MonoBehaviour
         stateMachine.ChangeState(idleState);
         stateMachine.ChangeState(new AngryState(stateMachine, idleState, this, targetPosition));
         idleState.SetCondition("IsIdleNother");
+    }
+    public void EnterQuestionState(Vector3 playerPosition)
+    {
+        isInteracting = true;
+        animator.SetTrigger("IsExit");
+
+        Vector3 directionToPlayer = (transform.position - playerPosition).normalized;
+        Vector3 targetPosition = playerPosition + directionToPlayer * distance;
+
+        stateMachine.ChangeState(guidanceState);
+        stateMachine.ChangeState(new QuestionState(stateMachine, guidanceState, this, playerPosition));
+        idleState.SetCondition("IsGuiding");
+    }
+    public void EnterAnswerState(Vector3 playerPosition)
+    {
+        isInteracting = true;
+        animator.SetTrigger("IsExit");
+
+        Vector3 directionToPlayer = (transform.position - playerPosition).normalized;
+        Vector3 targetPosition = playerPosition + directionToPlayer * distance;
+
+        stateMachine.ChangeState(guidanceState);
+        stateMachine.ChangeState(new AnswerState(stateMachine, guidanceState, this, playerPosition));
+        idleState.SetCondition("IsGuiding");
     }
     public void EnterTalkingSadState(Vector3 playerPosition)
     {

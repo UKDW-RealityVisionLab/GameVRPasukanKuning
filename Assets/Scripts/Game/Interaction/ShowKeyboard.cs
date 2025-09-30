@@ -10,6 +10,7 @@ public class ShowKeyboard : MonoBehaviour
 {
     [SerializeField] private TMP_InputField inputField;
     [SerializeField] private ChatContext chatCon;
+    [SerializeField] private AIBehaviour ai;
 
     public float distance = 0.5f;
     public float verticalOffset = -0.5f;
@@ -40,5 +41,22 @@ public class ShowKeyboard : MonoBehaviour
         Vector3 targetposition = positionSource.position + direction * distance + Vector3.up * verticalOffset;
 
         NonNativeKeyboard.Instance.RepositionKeyboard(targetposition);
+        SetCaretColorAlpha(1);
+
+        NonNativeKeyboard.Instance.OnClosed += Instance_OnClosed;
+    }
+
+    private void Instance_OnClosed(object sender, System.EventArgs e)
+    {
+        SetCaretColorAlpha(0);
+        NonNativeKeyboard.Instance.OnClosed -= Instance_OnClosed;
+    }
+
+    public void SetCaretColorAlpha(float value)
+    {
+        inputField.customCaretColor = true;
+        Color caretColor = inputField.caretColor;
+        caretColor.a = value;
+        inputField.caretColor = caretColor;
     }
 }

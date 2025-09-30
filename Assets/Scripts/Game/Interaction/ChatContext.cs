@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 using UnityEngine.InputSystem;
 using Unity.VisualScripting;
 using UnityEditor.Search;
+using UnityEditor.MPE;
 
 public class ChatContext : MonoBehaviour
 {
@@ -20,6 +21,8 @@ public class ChatContext : MonoBehaviour
     //[SerializeField] private InputActionReference rightNpc;
     [SerializeField] private string query;
     [SerializeField] private string age;
+    [SerializeField] private string role;
+    [SerializeField] private string lokasi;
     public GameObject npcDialogUI;
     public TextMeshProUGUI dialogRandomText;
     private AIBehaviour ai;
@@ -51,6 +54,10 @@ public class ChatContext : MonoBehaviour
 
         // Debug (opsional)
         Debug.Log("ListContext berhasil di-inisialisasi dengan role: " + ai.Type);
+
+        role = ai.Type.ToString();
+        age = ai.age.ToString();
+        lokasi = ai.placeType.ToString();
     }
 
     // Update is called once per frame
@@ -170,7 +177,7 @@ public class ChatContext : MonoBehaviour
     {
         query = queryBaru;
         textIsi.text = "Biar saya pikir dahulu";
-        StartCoroutine(ApiClient.PostQuery(query, age, (response) =>
+        StartCoroutine(ApiClient.PostQuery(query, age, role, lokasi, (response) =>
         {
             if (!string.IsNullOrEmpty(response))
             {
