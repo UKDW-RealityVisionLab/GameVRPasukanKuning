@@ -20,7 +20,6 @@ public class NPCInteractable : MonoBehaviour
     [SerializeField] private Animator animator;
     private ChatContext chatCon;
     private AIBehaviour aiBehaviour;
-    private PlayerInteract player;
     protected NavMeshAgent agent;
 
     private Transform interactorTransform;
@@ -48,7 +47,6 @@ public class NPCInteractable : MonoBehaviour
                 Quaternion targetRotation = Quaternion.LookRotation(direction);
                 transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * rotateSpeed);
             }
-            //animator.SetBool("IsWalking", false);
 
             // Jarak terlalu jauh = tutup
             if(isGuiding == false)
@@ -62,10 +60,6 @@ public class NPCInteractable : MonoBehaviour
             }
             if(isGuiding == true)
             {
-                if (player.middleNpc.action.WasPressedThisFrame())
-                {
-                    GuidingPlayerInfoHelper(player.playerBody);
-                }
                 maxInteractionDistance = 8f;
                 float distance = Vector3.Distance(transform.position, interactorTransform.position);
                 if (distance > maxInteractionDistance)
@@ -199,15 +193,46 @@ public class NPCInteractable : MonoBehaviour
             emotionButton.SetActive(true);
         }
     }
+    public void QuestionState(Transform place)
+    {
+        if (aiBehaviour == null || place == null) return;
 
+        aiBehaviour.animator.SetTrigger("IsExit");
+        aiBehaviour.stateMachine.ChangeState(aiBehaviour.guidanceState);
+        aiBehaviour.guidanceState.ChangeSubState(new QuestionState(aiBehaviour.stateMachine, aiBehaviour.guidanceState, aiBehaviour, place.position));
+        aiBehaviour.guidanceState.SetCondition("IsGuiding");
+        aiBehaviour.guidanceState.SetCondition("IsQuestioning");
+    }
+    public void AnswerState(Transform place)
+    {
+        if (aiBehaviour == null || place == null) return;
+
+        aiBehaviour.animator.SetTrigger("IsExit");
+        aiBehaviour.stateMachine.ChangeState(aiBehaviour.guidanceState);
+        aiBehaviour.guidanceState.ChangeSubState(new AnswerState(aiBehaviour.stateMachine, aiBehaviour.guidanceState, aiBehaviour, place.position));
+        aiBehaviour.guidanceState.SetCondition("IsGuiding");
+        aiBehaviour.guidanceState.SetCondition("IsAnswering");
+    }
+
+    public void TalkingGuideState(Transform place)
+    {
+        if (aiBehaviour == null || place == null) return;
+
+        aiBehaviour.animator.SetTrigger("IsExit");
+        aiBehaviour.stateMachine.ChangeState(aiBehaviour.idleState);
+        aiBehaviour.idleState.ChangeSubState(new TalkingState(aiBehaviour.stateMachine, aiBehaviour.idleState, aiBehaviour, place.position));
+        aiBehaviour.idleState.SetCondition("IsIdleNother");
+        aiBehaviour.idleState.SetCondition("IsTalking");
+    }
     public void GuidingPlayerInfoHelper(Transform place)
     {
         if (aiBehaviour == null || place == null) return;
 
         aiBehaviour.animator.SetTrigger("IsExit");
         aiBehaviour.stateMachine.ChangeState(aiBehaviour.guidanceState);
-        aiBehaviour.guidanceState.ChangeSubState(new WalkWithPlayerState(aiBehaviour.stateMachine, aiBehaviour.guidanceState, aiBehaviour, player.playerBody.position));
+        aiBehaviour.guidanceState.ChangeSubState(new WalkWithPlayerState(aiBehaviour.stateMachine, aiBehaviour.guidanceState, aiBehaviour, place.position));
         aiBehaviour.guidanceState.SetCondition("IsGuiding");
+        aiBehaviour.guidanceState.SetCondition("IsWithPlayer");
         isGuiding = true;
     }
 
@@ -300,4 +325,8 @@ public class NPCInteractable : MonoBehaviour
         return interactText;
     }
 
+    public void SetGuide()
+    {
+        isGuiding = true;
+    }
 }

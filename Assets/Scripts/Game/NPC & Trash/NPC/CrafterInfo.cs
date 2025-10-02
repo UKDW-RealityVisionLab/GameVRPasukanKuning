@@ -5,8 +5,7 @@ using UnityEngine;
 public class CrafterInfo : MonoBehaviour
 {
     public GameObject[] craftInfoObject;
-    private int currentIndex = 0;
-
+    public int currentIndex = 0;
 
     public void ResourceSetActive()
     {
@@ -44,5 +43,9 @@ public class CrafterInfo : MonoBehaviour
 
         // Update index untuk klik berikutnya (looping kembali ke 0)
         currentIndex = (currentIndex + 1) % craftInfoObject.Length;
+    }
+    public void SetIndex0()
+    {
+        currentIndex = 0;
     }
 }

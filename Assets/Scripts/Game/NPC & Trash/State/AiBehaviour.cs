@@ -109,30 +109,6 @@ public class AIBehaviour : MonoBehaviour
         stateMachine.ChangeState(new AngryState(stateMachine, idleState, this, targetPosition));
         idleState.SetCondition("IsIdleNother");
     }
-    public void EnterQuestionState(Vector3 playerPosition)
-    {
-        isInteracting = true;
-        animator.SetTrigger("IsExit");
-
-        Vector3 directionToPlayer = (transform.position - playerPosition).normalized;
-        Vector3 targetPosition = playerPosition + directionToPlayer * distance;
-
-        stateMachine.ChangeState(guidanceState);
-        stateMachine.ChangeState(new QuestionState(stateMachine, guidanceState, this, playerPosition));
-        idleState.SetCondition("IsGuiding");
-    }
-    public void EnterAnswerState(Vector3 playerPosition)
-    {
-        isInteracting = true;
-        animator.SetTrigger("IsExit");
-
-        Vector3 directionToPlayer = (transform.position - playerPosition).normalized;
-        Vector3 targetPosition = playerPosition + directionToPlayer * distance;
-
-        stateMachine.ChangeState(guidanceState);
-        stateMachine.ChangeState(new AnswerState(stateMachine, guidanceState, this, playerPosition));
-        idleState.SetCondition("IsGuiding");
-    }
     public void EnterTalkingSadState(Vector3 playerPosition)
     {
         isInteracting = true;
@@ -329,8 +305,8 @@ public class AIBehaviour : MonoBehaviour
         animator.SetBool("IsWalking", false);
         animator.SetBool("IsWithPlayer", false);
         animator.SetBool("IsOffering", false);
-        animator.SetBool("IsAnswer", false);
-        animator.SetBool("IsQuestion", false);
+        animator.SetBool("IsAnswering", false);
+        animator.SetBool("IsQuestioning", false);
         animator.SetBool("IsPlay1", false);
         animator.SetBool("IsPlay2", false);
         animator.SetBool("IsWondering", false);
