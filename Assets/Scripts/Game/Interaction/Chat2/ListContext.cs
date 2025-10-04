@@ -50,7 +50,36 @@ public class ListContext
     {
         if (ai.Type == NPCType.GuidanceSeller)
         {
-            if (category == "offer")
+            if (category == "offer_explain")
+            {
+                return explanation = new string[] {
+                "Jika punya barang daur ulang bisa dijual ke saya.",
+                "Disini saya menukar barang daur ulang menjadi koin",
+                "Ada harga tetap dari saya.",
+                "Jika ingin menjual silahkan taruh di kotak abu-abu di depan saya."
+            };
+            }
+            else if (category == "offer_barang")
+            {
+                return explanation = new string[] {
+                "Jika punya cermin dapat koin 20",
+                "botol hanya saya hargai 10",
+                "Kaleng saya Hargai 5 koin saja",
+                "Kalung agak mahal seharga 150 koin",
+                "Tas memiliki harga 300",
+                "Paling mahal adalah patung anjing dengan harga 600 koin",
+            };
+            }
+            else if (category == "offer_jumlah")
+            {
+                return explanation = new string[] {
+                "Jika punya barang daur ulang bisa dijual ke saya.",
+                "Saya tidak menerima barang yang tidak didaur ulang.",
+                "Untuk harga bisa dibicarakan.",
+                "Jumlah barang yang kamu tawarkan bisa saya naikkan harganya."
+            };
+            }
+            else if (category == "offer_persen")
             {
                 return explanation = new string[] {
                 "Jika punya barang daur ulang bisa dijual ke saya.",
@@ -69,6 +98,16 @@ public class ListContext
                 "Setelah crafting, bawa barangmu ke sini untuk dijual."
             };
             }
+            else if (category == "sell_why")
+            {
+                return explanation = new string[] {
+                "Saya tidak bisa membeli sampah saja.",
+                "Daur ulang penting untuk saya jual kembali di pasar.",
+                "Kompos menjadi pengecualian dan kamu bisa menjualnya langsung ke saya.",
+                "Saya juga dapat membeli barang anda dengan harga tinggi jika hasil daur ulang.",
+                "Kamu perlu 300 koin untuk menyelesaikan game ini."
+            };
+            }
         }
 
         if (ai.Type == NPCType.GuidanceCrafter)
@@ -81,6 +120,7 @@ public class ListContext
                 "Jika bahan tidak terpenuhi saya tidak bisa membuatkan barangnya",
                 "Jika sudah memiliki bahan saya dapat membuatkan barang yang anda inginkan",
                 "Barang yang dapat saya buatkan hanya sesuai dengan kemampuan saya",
+                "Silahkan jika ingin mendaur ulang taruh di 4 kotak abu-abu di sini",
                 "Maafkan saya jika barang yang saya hasilkan kurang banyak"
             };
             }
@@ -230,10 +270,27 @@ public class ListContext
     {
         if (ai.Type == NPCType.GuidanceSeller)
         {
-            answer = new string[]{
-            "Oke kalau begitu",
-            "Baiklah",
-            "Siap"};
+            if (category.ToLower() == "jelasJual")
+            {
+                answer = new string[]{
+                "Oke kak, mau tanya apa?",
+                "Baiklah kak, Apa pertanyaannya?",
+                "Siap, mau tanya apa kak?"};
+            }
+            if (category.ToLower() == "jelasOff")
+            {
+                answer = new string[]{
+                "Oke kak saya jelaskan ya..",
+                "Baiklah, kakak dengarkan dengan seksama ya..",
+                "Akan saya jelaskan kak, mohon diperhatikan ya"};
+            }
+            if (category.ToLower() == "cancel")
+            {
+                answer = new string[]{
+                "Baiklah",
+                "Kalau ada pertanyaan lain boleh tanya kok",
+                "Siap kak, selamat menikmati gamenya"};
+            }
         }
         if (ai.Type == NPCType.GuidanceCrafter)
         {
