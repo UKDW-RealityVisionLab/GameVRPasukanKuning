@@ -6,6 +6,7 @@ public static class GameManager
     public static int Koin; // Currency
     public static int TargetKoin = 300; // Target currency for Level 1
     public static int TargetKoin1 = 300; // Target currency for Level 2
+    public static int TargetKoin2 = 200; // Target currency for Mini 3
     public static int TargetTutorial = 1; // Target currency for Tutorial Level
     public static float TimeRemaining; // Timer for Level 2
 
@@ -48,6 +49,11 @@ public static class GameManager
     public static bool IsCurrencyGoalReached1()
     {
         return Koin >= TargetKoin1;
+    }
+    // Check if the currency goal is reached for Mini 3
+    public static bool IsCurrencyGoalReached3()
+    {
+        return Koin >= TargetKoin2;
     }
 
     // Check if the currency goal is reached for Tutorial Level

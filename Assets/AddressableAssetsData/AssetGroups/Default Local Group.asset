@@ -16,7 +16,27 @@ MonoBehaviour:
   m_Data:
     m_SerializedData: []
   m_GUID: b7785c707f7a3c9488a48e4afdc748de
-  m_SerializeEntries: []
+  m_SerializeEntries:
+  - m_GUID: e7fa5349564d5714bbf2d6ca27fae729
+    m_Address: Assets/BundledAsset/minigame/Minigame3.unity
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 33888d2f7f13b1340a3d5a325534dd70
+    m_Address: Assets/Scenes/GameScene/Level 1.unity
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 398a2d831e58ec6439e8e2b10835bbc8
+    m_Address: Assets/Scenes/GameScene/Level 2.unity
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bc011162999b40e4d8350938410db3da
+    m_Address: Assets/BundledAsset/minigame/Minigame.unity
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: f19059b09e240894996642471b2eb995, type: 2}
   m_SchemaSet:
