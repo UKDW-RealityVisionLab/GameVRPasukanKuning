@@ -1,14 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class SellerOffer : MonoBehaviour
 {
     private SellableItem price;
-    private ItemInventory count;
+    [SerializeField] private NPCInteractable npcInterac;
+    [SerializeField] private SliderScript tawaran;
 
     private int hargaAsli;
     private int hargaTawarFix;
+    public bool isDeal { get; private set; } // hasil tawar true/false
 
     // Ambil harga asli dari item di socket VR
     public void GetOfferPrice(SellableItem item)
@@ -22,12 +25,16 @@ public class SellerOffer : MonoBehaviour
     }
 
     // Fungsi untuk player menawar harga (pakai int)
-    public bool TryNegotiate(int penawaranPlayer)
+    public void TryNegotiate()
     {
-        if (hargaAsli <= 0) return false;
-
-        int minHarga = Mathf.RoundToInt(hargaAsli * 0.85f); // 15% lebih murah
-        int maxHarga = Mathf.RoundToInt(hargaAsli * 0.95f); // 5% lebih murah
+        if (price == null || tawaran == null)
+        {
+            Debug.LogWarning("Price atau tawaran belum di-assign!");
+            return;
+        }
+        int penawaranPlayer = hargaAsli + tawaran.GetHargaTambah();
+        int minHarga = Mathf.RoundToInt(hargaAsli);
+        int maxHarga = Mathf.RoundToInt(hargaAsli / Random.Range(0.85f, 0.95f));
 
         Debug.Log($"Range tawar: {minHarga} - {maxHarga}, Penawaran: {penawaranPlayer}");
 
@@ -35,15 +42,17 @@ public class SellerOffer : MonoBehaviour
         {
             // Penawaran diterima
             hargaTawarFix = penawaranPlayer;
+            price.SetFinalPrice(hargaTawarFix);
             Debug.Log("Penawaran diterima! Harga fix: " + hargaTawarFix);
-            return true;
+            isDeal = true;
         }
         else
         {
             // Penawaran ditolak, harga tetap asli
             hargaTawarFix = hargaAsli;
+            price.SetFinalPrice(hargaTawarFix);
             Debug.Log("Penawaran ditolak. Harga tetap: " + hargaAsli);
-            return false;
+            isDeal = false;
         }
     }
 
@@ -51,5 +60,17 @@ public class SellerOffer : MonoBehaviour
     public int GetFinalPrice()
     {
         return hargaTawarFix;
+    }
+
+    public void GetDealButton()
+    {
+        if(isDeal == true)
+        {
+            npcInterac.GuideButtonContext("Deal");
+        }
+        if (isDeal == false)
+        {
+            npcInterac.GuideButtonContext("Not_deal");
+        }
     }
 }

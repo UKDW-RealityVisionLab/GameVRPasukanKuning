@@ -73,19 +73,19 @@ public class ListContext
             else if (category == "offer_jumlah")
             {
                 return explanation = new string[] {
-                "Jika punya barang daur ulang bisa dijual ke saya.",
-                "Saya tidak menerima barang yang tidak didaur ulang.",
-                "Untuk harga bisa dibicarakan.",
-                "Jumlah barang yang kamu tawarkan bisa saya naikkan harganya."
+                "Jumlah barang tidak mempengaruhi harga",
+                "Anda tidak bisa menumpuk barang daur ulang harus satu-satu.",
+                "Jika ingin koin yang banyak silahkan bawa patung atau tas ke saya.",
+                "Jangan lupa craft dulu di crafter"
             };
             }
             else if (category == "offer_persen")
             {
                 return explanation = new string[] {
-                "Jika punya barang daur ulang bisa dijual ke saya.",
-                "Saya tidak menerima barang yang tidak didaur ulang.",
-                "Untuk harga bisa dibicarakan.",
-                "Jumlah barang yang kamu tawarkan bisa saya naikkan harganya."
+                "Setiap saya menjual akan tetap harga asli.",
+                "Tapi jika anda menawar mungkin akan saya naikkan harganya.",
+                "Itu jika harga yang anda tawar sesuai dengan yang saya mau.",
+                "Batas wajar saya 10 persen tapi itu juga tidak pasti."
             };
             }
             else if (category == "sell_instruction")
@@ -106,6 +106,24 @@ public class ListContext
                 "Kompos menjadi pengecualian dan kamu bisa menjualnya langsung ke saya.",
                 "Saya juga dapat membeli barang anda dengan harga tinggi jika hasil daur ulang.",
                 "Kamu perlu 300 koin untuk menyelesaikan game ini."
+            };
+            }
+            else if (category == "Deal")
+            {
+                return explanation = new string[] {
+                "Baiklah kak saya terima.",
+                "Akan saya tambahkan ke harga aslinya ya kak",
+                "Semoga kakak senang dengan harganya",
+                "Terima kasih sudah mau menjual barangnya"
+            };
+            }
+            else if (category == "Not_deal")
+            {
+                return explanation = new string[] {
+                "Maaf saya kurang mau dengan harga segitu",
+                "Mungkin kakak terlalu tinggi menawarnya",
+                "Bisa diturunkan ngga ya kak?",
+                "Kalau tidak saya akan menjual dengan harga biasa"
             };
             }
         }
@@ -270,19 +288,26 @@ public class ListContext
     {
         if (ai.Type == NPCType.GuidanceSeller)
         {
-            if (category.ToLower() == "jelasJual")
+            if (category.ToLower() == "jelasjual")
             {
                 answer = new string[]{
                 "Oke kak, mau tanya apa?",
                 "Baiklah kak, Apa pertanyaannya?",
                 "Siap, mau tanya apa kak?"};
             }
-            if (category.ToLower() == "jelasOff")
+            if (category.ToLower() == "jelasoff")
             {
                 answer = new string[]{
                 "Oke kak saya jelaskan ya..",
                 "Baiklah, kakak dengarkan dengan seksama ya..",
                 "Akan saya jelaskan kak, mohon diperhatikan ya"};
+            }
+            if (category.ToLower() == "offernih")
+            {
+                answer = new string[]{
+                "Oke kak saya pertimbangkan dahulu",
+                "Baiklah, kakak tunggu sebentar",
+                "Akan saya pertimbangkan dahulu ya kak"};
             }
             if (category.ToLower() == "cancel")
             {
