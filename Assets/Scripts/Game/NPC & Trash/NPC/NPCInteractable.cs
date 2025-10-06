@@ -304,10 +304,17 @@ public class NPCInteractable : MonoBehaviour
         isGuiding = false;
         aiBehaviour.isInteracting = false;
         uiNPC.SetActive(false);
-        normalNextButton.SetActive(true);
-        afterNextButton.SetActive(false);
-        choises1Button.SetActive(false);
-        choises2Button.SetActive(false);
+        if (normalNextButton != null)
+            normalNextButton.SetActive(true);
+
+        if (afterNextButton != null)
+            afterNextButton.SetActive(false);
+
+        if (choises1Button != null)
+            choises1Button.SetActive(false);
+
+        if (choises2Button != null)
+            choises2Button.SetActive(false);
         animator.SetBool("IsTalking", false);
         animator.SetBool("IsHappy", false);
         animator.SetBool("IsSad", false);

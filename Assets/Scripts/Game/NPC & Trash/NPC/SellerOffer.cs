@@ -68,7 +68,7 @@ public class SellerOffer : MonoBehaviour
         {
             npcInterac.GuideButtonContext("Deal");
         }
-        if (isDeal == false)
+        else
         {
             npcInterac.GuideButtonContext("Not_deal");
         }
