@@ -10,8 +10,6 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using UnityEngine.InputSystem;
 using Unity.VisualScripting;
-using UnityEditor.Search;
-using UnityEditor.MPE;
 
 public class ChatContext : MonoBehaviour
 {
@@ -173,23 +171,23 @@ public class ChatContext : MonoBehaviour
     }
 
 
-    public void GetOllamaResponse(string queryBaru)
-    {
-        query = queryBaru;
-        textIsi.text = "Biar saya pikir dahulu";
-        StartCoroutine(ApiClient.PostQuery(query, age, role, lokasi, (response) =>
-        {
-            if (!string.IsNullOrEmpty(response))
-            {
-                Debug.Log("API Response: " + response);
-                textIsi.text = response;
-            }
-            else
-            {
-                Debug.LogError("API Error: no response.");
-            }
-        }));
-    }
+    //public void GetOllamaResponse(string queryBaru)
+    //{
+    //    query = queryBaru;
+    //    textIsi.text = "Biar saya pikir dahulu";
+    //    StartCoroutine(ApiClient.PostQuery(query, age, role, lokasi, (response) =>
+    //    {
+    //        if (!string.IsNullOrEmpty(response))
+    //        {
+    //            Debug.Log("API Response: " + response);
+    //            textIsi.text = response;
+    //        }
+    //        else
+    //        {
+    //            Debug.LogError("API Error: no response.");
+    //        }
+    //    }));
+    //}
     //public void GetGuideContextInOrder()
     //{
     //    textHeader.text = headerString;

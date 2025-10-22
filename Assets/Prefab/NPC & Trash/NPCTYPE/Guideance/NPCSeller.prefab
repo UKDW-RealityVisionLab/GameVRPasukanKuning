@@ -6894,22 +6894,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 9065883280110696645}
     m_Modifications:
-    - target: {fileID: 4565030594948986261, guid: 19758fcf8e554804ea5b41701938e603, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 2766586096020592636}
-    - target: {fileID: 4668792639448407360, guid: 19758fcf8e554804ea5b41701938e603, type: 3}
-      propertyPath: nextButton
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 4668792639448407360, guid: 19758fcf8e554804ea5b41701938e603, type: 3}
-      propertyPath: choiceButtons.Array.data[0]
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 4668792639448407360, guid: 19758fcf8e554804ea5b41701938e603, type: 3}
-      propertyPath: choiceButtons.Array.data[1]
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 3510265614072764932, guid: eba80d74847dd9e4c8b538d83e337a49, type: 3}
       propertyPath: m_LocalPosition.x
       value: -15.36
@@ -6997,6 +6981,22 @@ PrefabInstance:
     - target: {fileID: 8919355021480863744, guid: eba80d74847dd9e4c8b538d83e337a49, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4565030594948986261, guid: 19758fcf8e554804ea5b41701938e603, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2766586096020592636}
+    - target: {fileID: 4668792639448407360, guid: 19758fcf8e554804ea5b41701938e603, type: 3}
+      propertyPath: nextButton
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4668792639448407360, guid: 19758fcf8e554804ea5b41701938e603, type: 3}
+      propertyPath: choiceButtons.Array.data[0]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4668792639448407360, guid: 19758fcf8e554804ea5b41701938e603, type: 3}
+      propertyPath: choiceButtons.Array.data[1]
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
@@ -7766,16 +7766,17 @@ PrefabInstance:
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 3023294358228369696, guid: 19758fcf8e554804ea5b41701938e603, type: 3}
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 2277126564502159613, guid: 19758fcf8e554804ea5b41701938e603, type: 3}
-      insertIndex: 7
+      insertIndex: 6
       addedObject: {fileID: 9068526661884325298}
     - targetCorrespondingSourceObject: {fileID: 2277126564502159613, guid: 19758fcf8e554804ea5b41701938e603, type: 3}
-      insertIndex: 8
+      insertIndex: 7
       addedObject: {fileID: 4271044655023769800}
     - targetCorrespondingSourceObject: {fileID: 2277126564502159613, guid: 19758fcf8e554804ea5b41701938e603, type: 3}
-      insertIndex: 9
+      insertIndex: 8
       addedObject: {fileID: 4448048342999579641}
     - targetCorrespondingSourceObject: {fileID: 2037198078869064174, guid: 19758fcf8e554804ea5b41701938e603, type: 3}
       insertIndex: 2

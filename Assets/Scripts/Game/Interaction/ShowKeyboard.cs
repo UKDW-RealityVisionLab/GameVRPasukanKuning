@@ -4,7 +4,6 @@ using UnityEngine;
 using TMPro;
 using Microsoft.MixedReality.Toolkit.Experimental.UI;
 using Unity.VisualScripting;
-using UnityEditor.Search;
 
 public class ShowKeyboard : MonoBehaviour
 {
@@ -25,7 +24,7 @@ public class ShowKeyboard : MonoBehaviour
         {
         if (chatCon != null && !string.IsNullOrWhiteSpace(text))
         {
-                chatCon.GetOllamaResponse(text);
+                //chatCon.GetOllamaResponse(text);
             }
         });
     }
