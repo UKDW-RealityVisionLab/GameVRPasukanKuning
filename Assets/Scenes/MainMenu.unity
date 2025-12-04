@@ -1046,7 +1046,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 8611368580632974319}
         m_TargetAssemblyTypeName: MenuController, GameAssembly
-        m_MethodName: Level3
+        m_MethodName: Level3Simple
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2454,7 +2454,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 8611368580632974319}
         m_TargetAssemblyTypeName: MenuController, GameAssembly
-        m_MethodName: Tutorial
+        m_MethodName: TutorialSimple
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -12607,7 +12607,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 1
+  m_PresetInfoIsWorld: 0
 --- !u!1 &4995773552619412224
 GameObject:
   m_ObjectHideFlags: 0
@@ -12994,8 +12994,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 8611368580632974319}
-        m_TargetAssemblyTypeName: MenuController, Assembly-CSharp
-        m_MethodName: Level2
+        m_TargetAssemblyTypeName: MenuController, GameAssembly
+        m_MethodName: Level2Simple
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -13867,8 +13867,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 8611368580632974319}
-        m_TargetAssemblyTypeName: MenuController, Assembly-CSharp
-        m_MethodName: Level1
+        m_TargetAssemblyTypeName: MenuController, GameAssembly
+        m_MethodName: Level1Simple
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

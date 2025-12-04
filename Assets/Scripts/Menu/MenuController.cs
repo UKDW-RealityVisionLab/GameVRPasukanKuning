@@ -35,21 +35,33 @@ public class MenuController : MonoBehaviour
     public void Level1()
     {
         StartCoroutine(LoadSceneWithProgress("Assets/Scenes/GameScene/Level 1.unity"));
+    }    public void Level1Simple()
+    {
+        SceneManager.LoadScene("Level 1");
     }
 
     public void Level2()
     {
         StartCoroutine(LoadSceneWithProgress("Assets/Scenes/GameScene/Level 2.unity"));
+    }    public void Level2Simple()
+    {
+        SceneManager.LoadScene("Level 2");
     }
 
     public void Level3()
     {
         StartCoroutine(LoadSceneWithProgress("Assets/BundledAsset/level3/Level 3.unity"));
+    }    public void Level3Simple()
+    {
+        SceneManager.LoadScene("Level 3");
     }
 
     public void Tutorial()
     {
         StartCoroutine(LoadSceneWithProgress("Assets/BundledAsset/tutorial/tutorial.unity"));
+    }    public void TutorialSimple()
+    {
+        SceneManager.LoadScene("tutorial");
     }
 
 

@@ -56,7 +56,6 @@ public class AIBehaviour : MonoBehaviour
         activitySelector = new AIActivitySelector(this);
         npcInter = GetComponent<NPCInteractable>();
         randomPos = GetRandomNavmeshPosition();
-        //StartCoroutine(RunRoutineByRole());
         stateMachine.ChangeState(idleState);
     }
 

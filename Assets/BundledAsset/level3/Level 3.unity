@@ -953,7 +953,7 @@ GameObject:
   - component: {fileID: 1263131004}
   - component: {fileID: 1263131003}
   - component: {fileID: 1263131002}
-  - component: {fileID: 1263131006}
+  - component: {fileID: 1263131007}
   m_Layer: 0
   m_Name: CubeMini3
   m_TagString: Untagged
@@ -1047,7 +1047,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1263131006
+--- !u!114 &1263131007
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1056,14 +1056,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1263131001}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3b9dec2be31431c42a0e86e8e15e35d9, type: 3}
+  m_Script: {fileID: 11500000, guid: 655820079a5675140acf2ecb240b4e37, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  addressablePath:
-    m_AssetGUID: e7fa5349564d5714bbf2d6ca27fae729
-    m_SubObjectName: 
-    m_SubObjectType: 
-    m_EditorAssetChanged: 0
+  sceneName: Minigame3
 --- !u!1001 &1282118575
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1283,7 +1279,7 @@ GameObject:
   - component: {fileID: 1358875774}
   - component: {fileID: 1358875773}
   - component: {fileID: 1358875772}
-  - component: {fileID: 1358875771}
+  - component: {fileID: 1358875776}
   m_Layer: 0
   m_Name: CubeMini2
   m_TagString: Untagged
@@ -1291,23 +1287,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1358875771
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1358875770}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3b9dec2be31431c42a0e86e8e15e35d9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  addressablePath:
-    m_AssetGUID: 9738a5c643e6a1b47a99eeb2028d053f
-    m_SubObjectName: 
-    m_SubObjectType: 
-    m_EditorAssetChanged: 0
 --- !u!65 &1358875772
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1394,6 +1373,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1358875776
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1358875770}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 655820079a5675140acf2ecb240b4e37, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneName: Minigame2
 --- !u!1 &1444261430
 GameObject:
   m_ObjectHideFlags: 0
@@ -1406,7 +1398,7 @@ GameObject:
   - component: {fileID: 1444261434}
   - component: {fileID: 1444261433}
   - component: {fileID: 1444261432}
-  - component: {fileID: 1444261431}
+  - component: {fileID: 1444261436}
   m_Layer: 0
   m_Name: CubeMini1
   m_TagString: Untagged
@@ -1414,23 +1406,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1444261431
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1444261430}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3b9dec2be31431c42a0e86e8e15e35d9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  addressablePath:
-    m_AssetGUID: bc011162999b40e4d8350938410db3da
-    m_SubObjectName: 
-    m_SubObjectType: 
-    m_EditorAssetChanged: 0
 --- !u!65 &1444261432
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1517,6 +1492,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1444261436
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1444261430}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 655820079a5675140acf2ecb240b4e37, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneName: Minigame
 --- !u!1 &1523798965
 GameObject:
   m_ObjectHideFlags: 0

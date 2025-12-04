@@ -16,12 +16,7 @@ MonoBehaviour:
   m_Data:
     m_SerializedData: []
   m_GUID: dd84c3ce7d0db9448ad62bf81c6124ad
-  m_SerializeEntries:
-  - m_GUID: 9738a5c643e6a1b47a99eeb2028d053f
-    m_Address: Assets/BundledAsset/minigame/Minigame2.unity
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
+  m_SerializeEntries: []
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: f19059b09e240894996642471b2eb995, type: 2}
   m_SchemaSet:
