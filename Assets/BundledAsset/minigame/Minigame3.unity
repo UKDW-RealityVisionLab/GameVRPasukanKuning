@@ -267,7 +267,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -271.19992, y: 244.8}
+  m_AnchoredPosition: {x: -271.19995, y: 244.8}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &40820462
@@ -25487,25 +25487,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1676743875862032915, guid: bc7ac3f2cce246d4d88df8eb43b48727, type: 3}
-      propertyPath: interactText
-      value: Talk With Ma'am Mari
-      objectReference: {fileID: 0}
-    - target: {fileID: 2836080557202442443, guid: bc7ac3f2cce246d4d88df8eb43b48727, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 4199772116539155970, guid: bc7ac3f2cce246d4d88df8eb43b48727, type: 3}
       propertyPath: m_Name
       value: Semua Package
-      objectReference: {fileID: 0}
-    - target: {fileID: 4353604784700786887, guid: bc7ac3f2cce246d4d88df8eb43b48727, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7700532460629107291, guid: bc7ac3f2cce246d4d88df8eb43b48727, type: 3}
-      propertyPath: headerString
-      value: Ma'am Mari
       objectReference: {fileID: 0}
     - target: {fileID: 8096582631515713319, guid: bc7ac3f2cce246d4d88df8eb43b48727, type: 3}
       propertyPath: currencyManager

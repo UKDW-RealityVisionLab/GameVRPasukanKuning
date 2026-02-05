@@ -21,6 +21,7 @@ public class ChatContext : MonoBehaviour
     [SerializeField] private string age;
     [SerializeField] private string role;
     [SerializeField] private string lokasi;
+    [SerializeField] private string emotion;
     public GameObject npcDialogUI;
     public TextMeshProUGUI dialogRandomText;
     private AIBehaviour ai;
@@ -56,6 +57,7 @@ public class ChatContext : MonoBehaviour
         role = ai.Type.ToString();
         age = ai.age.ToString();
         lokasi = ai.placeType.ToString();
+        emotion = "netral";
     }
 
     // Update is called once per frame
@@ -171,23 +173,23 @@ public class ChatContext : MonoBehaviour
     }
 
 
-    //public void GetOllamaResponse(string queryBaru)
-    //{
-    //    query = queryBaru;
-    //    textIsi.text = "Biar saya pikir dahulu";
-    //    StartCoroutine(ApiClient.PostQuery(query, age, role, lokasi, (response) =>
-    //    {
-    //        if (!string.IsNullOrEmpty(response))
-    //        {
-    //            Debug.Log("API Response: " + response);
-    //            textIsi.text = response;
-    //        }
-    //        else
-    //        {
-    //            Debug.LogError("API Error: no response.");
-    //        }
-    //    }));
-    //}
+    public void GetOllamaResponse(string queryBaru)
+    {
+        query = queryBaru;
+        textIsi.text = "Biar saya pikir dahulu";
+        StartCoroutine(ApiClient.PostQuery(query, age, role, lokasi, emotion, (response) =>
+        {
+            if (!string.IsNullOrEmpty(response))
+            {
+                Debug.Log("API Response: " + response);
+                textIsi.text = response;
+            }
+            else
+            {
+                Debug.LogError("API Error: no response.");
+            }
+        }));
+    }
     //public void GetGuideContextInOrder()
     //{
     //    textHeader.text = headerString;
